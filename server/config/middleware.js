@@ -1,6 +1,6 @@
-var morgan = require('morgan'); // used for logging incoming requests
-var bodyParser = require('body-parser');
-var helpers = require('./helper.js'); // my custom middleware
+var morgan = require('morgan'); // for logging incoming requests
+var bodyParser = require('body-parser'); // populates req.body with the value of any given POST parameter, among other things
+var helpers = require('./helper.js'); // my custom middleware in helper.js
 
 
 module.exports = function (app, express) {
@@ -17,11 +17,11 @@ module.exports = function (app, express) {
   // app.use('/api/users', userRouter); // use user router for all user requests
   app.use('/api/flights', flightsRouter);
 
-  // authentication middleware used to decode token and made available on the request
+  // authentication middleware used to decode token on a request to the server
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
 
-  // inject our routers into their respective route files
+  // with another require statement, I inject my routers into their respective route files
   // require('../models/users/userRoutes.js')(userRouter);
   require('../models/flights/flightsRoutes.js')(flightsRouter);
 };

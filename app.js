@@ -1,7 +1,11 @@
 var express = require('express');
 var path = require('path');
-// var mongoose = require('mongoose'); for users
+var mongoose = require('mongoose');
 var app = express();
+
+// app.get('/', function(req, res) {
+//   res.render('index');
+// });
 
 // configure our server with all the middleware and routing
 require('./server/config/middleware.js')(app, express);

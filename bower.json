@@ -1,0 +1,17 @@
+{
+  "name": "FlightPicker",
+  "version": "1.0.0",
+  "author": "Eric Fischer",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib"
+  ],
+  "dependencies": {
+    "angular": "~1.3.16",
+    "angular-route": "~1.3.16",
+    "angular-mocks": "~1.3.16",
+    "angular-ui-router": "~0.2.15"
+  }
+}

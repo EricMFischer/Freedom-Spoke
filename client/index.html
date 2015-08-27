@@ -7,15 +7,18 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
 
-    <!-- <script src="lib/angular/angular.js"></script>
-    // <script src="lib/angular-route/angular-route.js"></script>
-    // <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
-    // <script src="lib/underscore/underscore-min.js"></script> -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 
-    <!-- <script src="app.js"></script> -->
+    <script src="app.js"></script>
   </head>
 
-  <body>
+  <body ng-app="FlightPicker">
+
+    <div ui-view="search"></div>
+    <div ui-view="results"></div>
+    
     <script>
       var width = 960,
           height = 600;
@@ -83,8 +86,8 @@
           .attr("y", function(d) { return -2 * radius(d); })
           .attr("dy", "1.3em")
           .text(d3.format(".1s"));
-          
       });
     </script>
+
   </body>
 </html>

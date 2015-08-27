@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.1",
   "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "jwt-simple": "^0.3.0",
+    "morgan": "^1.6.1",
+    "path": "^0.11.14",
     "topojson": "1"
   }
 }

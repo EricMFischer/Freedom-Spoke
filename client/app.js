@@ -1,6 +1,6 @@
 (function() {
 
-  var app = angular.module('FlightPicker', ['ui.router']);
+  var app = angular.module('FlightPicker', ['ui.router', 'Search', 'Results']);
 
   app.config([
   '$stateProvider',

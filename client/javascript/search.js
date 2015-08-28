@@ -5,12 +5,12 @@
   app.controller('SearchController', ['$scope', function($scope) {
     $scope.master = {};
 
-    $scope.update = function(user) {
-      $scope.master = angular.copy(user);
+    $scope.update = function(search) {
+      $scope.master = angular.copy(search);
     };
 
     $scope.reset = function() {
-      $scope.user = angular.copy($scope.master);
+      $scope.search = angular.copy($scope.master);
     };
 
     $scope.reset();

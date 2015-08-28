@@ -37,6 +37,15 @@
   text-anchor: middle;
 }
 
+.search {
+  float: left;
+}
+
+.results {
+  float: right;
+  margin-right: 200px;
+}
+
 .css-form input.ng-invalid.ng-touched {
   background-color: #FA787E;
 }

@@ -18,10 +18,6 @@
           'results': {
             templateUrl: 'views/results.html'
             // controller: 'ResultsController'
-          },
-          'map': {
-            templateUrl: 'views/map.html'
-            // controller: 'MapController'
           }
         }
       });

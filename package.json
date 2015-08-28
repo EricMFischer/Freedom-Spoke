@@ -12,6 +12,7 @@
     "path": "^0.11.14",
     "q": "^1.4.1",
     "request": "^2.34.0",
+    "skiplagged": "0.0.4",
     "topojson": "1",
     "unirest": "^0.4.2"
   }

@@ -21,7 +21,7 @@ module.exports = function (app, express) {
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
 
-  // with another require statement, I inject my routers into their respective route files
+  // with another require statement, inject routers into their respective route files
   // require('../models/users/userRoutes.js')(userRouter);
   require('../models/flights/flightsRoutes.js')(flightsRouter);
 };

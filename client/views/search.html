@@ -1,18 +1,51 @@
 <div class="search" ng-controller="SearchController">
 
   <form novalidate class="css-form">
-    Date: <input type="text" ng-model="search.date" required /><br/>
-    Origin: <input type="email" ng-model="search.origin" required /><br/>
-    Destination: <input type="text" ng-model="search.destination" required /><br/>
-    Max price: <input type="text" ng-model="search.price" required /><br/>
+    <cite>Please use 3 letter airport code</cite><br/>
+    Origin airport: <input type="text" ng-model="search.origin" required /><br/>
+
+    Destination airport: <input type="text" ng-model="search.destination" required /><br/>
+    <cite>Please use this format: 2015-28-10</cite><br/>
+    Departure date: <input type="text" ng-model="search.departuredate" required /><br/>
+
+    Return date: <input type="text" ng-model="search.returndate" required /><br/>
 
     <!-- Gender: <input type="radio" ng-model="search.gender" value="male" />male
     <input type="radio" ng-model="search.gender" value="female" />female<br/> -->
 
     <input type="button" ng-click="reset()" value="Clear" />
-    <input type="submit" ng-click="update(search)" value="Submit" />
+    <input type="submit" ng-click="update(search); flights(search.origin, search.destination, search.departuredate, search.returndate)" value="Submit" />
   </form>
 
   <!-- <pre>form = {{search | json}}</pre>
   <pre>master = {{master | json}}</pre> -->
 </div>
+
+
+
+<script>
+//   angular.module('textInputExample', [])
+//     .controller('ExampleController', ['$scope', function($scope) {
+//       $scope.example = {
+//         text: 'guest',
+//         word: /^\s*\w*\s*$/
+//       };
+//     }]);
+// </script>
+<!-- <form name="myForm" ng-controller="ExampleController">
+  <label>Single word:
+    <input type="text" name="input" ng-model="example.text"
+           ng-pattern="example.word" required ng-trim="false">
+  </label>
+  <div role="alert">
+    <span class="error" ng-show="myForm.input.$error.required">
+      Required!</span>
+    <span class="error" ng-show="myForm.input.$error.pattern">
+      Single word only!</span>
+  </div> -->
+  <!-- <tt>text = {{example.text}}</tt><br/>
+  <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+  <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
+  <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+  <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+ </form> -->

@@ -2,7 +2,7 @@ var Flights = require('./flightsModel');
 var Q = require('q');
 
 module.exports = {
-  // Build a checkFlights function here!!!
+  // Build a getFlights function here!!!
 
   // checkAnswer: function(req, res){
   //   var id = req.body.id;

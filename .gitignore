@@ -31,3 +31,6 @@ bower_components/
 .DS_Store
 build
 node_modules
+
+# API key
+server/api-config.js

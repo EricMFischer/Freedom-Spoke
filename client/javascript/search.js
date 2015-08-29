@@ -1,21 +1,37 @@
 (function() {
 
   var app = angular.module('Search', []);
-  
-  app.controller('SearchController', ['$scope', function($scope) {
-    $scope.master = {};
 
+  app.factory('Flights', ['$http', function($http) {
+    var obj = {};
+
+    obj.getFlights = function(url) {
+      console.log('Got to getFlights in Flights Factory');
+      return $http.post('/api/flights', {url: url})
+        .success(function(data) {
+          // using Angular $http service to query our flights route
+          // success cb executes when request returns
+          // route returns a list of flights
+          obj.flights = data;
+        });
+    };
+
+    return obj;
+  }]);
+  
+
+  app.controller('SearchController', ['$scope', '$http', 'Flights', function($scope, $http, Flights) {
+
+    $scope.master = {};
     $scope.update = function(search) {
       $scope.master = angular.copy(search);
     };
-
     $scope.reset = function() {
       $scope.search = angular.copy($scope.master);
     };
-
     $scope.reset();
 
-     //for handling user answers to trivia
+    // calls getFlights in Flights factory
     $scope.flights = function(from, to, when, whenBack) {
       var flightUrl = 'https://skiplagged.com/';
       
@@ -25,44 +41,34 @@
       to + '&when=' + 
       when + '&whenBack=' + 
       whenBack + '&sort=cost';
-      console.log('Flight Url', flightUrl);
-      
-      // https://skiplagged.com/flights/LAX/JFK/2015-09-25/2015-10-10
+      console.log('Flight Url: ', flightUrl);
 
-      // https://skiplagged.com/?src=LAX&dst=JFK&when=2015-28-08&whenBack=2015-10-10&sort=cost
+      // https://skiplagged.com/flights/LAX/SFO/2015-08-28/2015-08-30
+
+      // https://skiplagged.com/?src=LAX&dst=SFO&when=2015-04-09&whenBack=2015-12-09&sort=cost
       
-      // getFlights(flightUrl);
+      $scope.getFlights(flightUrl);
+    };
+    
+    $scope.getFlights = function(url) {
+      Flights.getFlights(url)
+        .success(function(data) {
+          console.log(data);
+          $scope.flights = data; // use this
+        });
     };
 
 
-
-    // function(keyEvent, question) {
-    //   if(keyEvent.keyCode === 13) {
-    //     $scope.answered++;
-    //     var id = question.id;
-    //     var value = question.value;
-    //     var userAns = question.userAnswer;
-    //     return $http.post('/api/trivia', {
-    //       id: id,
-    //       value: value,
-    //       userAns: userAns
-    //     }).then(function (res) {
-    //       var q = res.data;
-    //       if(q.correct){
-    //         $scope.correct++;
-    //         $scope.currentStreak++;
-    //         $scope.score += value;
-    //       }else{
-    //         $scope.currentStreak = 0;
-    //       }
-    //       if($scope.currentStreak > $scope.correctStreak){
-    //         $scope.correctStreak = $scope.currentStreak;
-    //       }
-    //       $scope.nextLoc();
-    //     });
-    //   }
-    // };
-
+    // request(url, function(error, response, body) {
+    //   if (!error && response.statusCode == 200) {
+    //     var $ = cheerio.load(body);
+    //         console.log(body);
+    //     return body; 
+    //     } 
+    //     else {
+    //       return error;
+    //     }
+    // });
 
   }]);
 

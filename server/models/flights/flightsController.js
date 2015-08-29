@@ -3,6 +3,9 @@ var Q = require('q');
 
 module.exports = {
   // Build a getFlights function here!!!
+  getFlights: function(req, res) {
+    console.log('YES!');
+  }
 
   // checkAnswer: function(req, res){
   //   var id = req.body.id;

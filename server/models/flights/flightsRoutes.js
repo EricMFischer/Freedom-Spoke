@@ -1,8 +1,9 @@
 var flightsController = require('./flightsController.js');
-var unirest = require('unirest');
 
 module.exports = function(app) {
-  app.post('/', function(req, res) { // 
+  console.log('Got to flightsRoutes');
+  app.post('/', function(req, res) {
+    console.log('Req here should be URL', req);
     unirest.get("url of api goes here")
     .header("Accept", "application/json")
     .end(function(result) {

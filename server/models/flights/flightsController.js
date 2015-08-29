@@ -4,9 +4,12 @@ var Q = require('q');
 module.exports = {
   // Build a getFlights function here!!!
   getFlights: function(req, res) {
-    console.log('YES!');
+    console.log('Got to getFlights in server-side flightsController!');
+    console.log('Req that made it to server flightsController ', req);
+    console.log('Req.body that made it to server flightsController ', req.body);
   }
 
+  
   // checkAnswer: function(req, res){
   //   var id = req.body.id;
   //   var userAns = req.body.userAns;
@@ -22,21 +25,6 @@ module.exports = {
   //       res.send(question);
   //     }
   //   });
-  // },
-
-  // getClue: function(answer) {
-  //   var to_ = /([a-zA-Z0-9])/g;
-  //   var answerArr = answer.split('');
-  //   var retString = [];
-  //   answerArr.forEach(function(char) {
-  //     if (char.match(to_)) {
-  //       retString.push('_');
-  //     } else {
-  //       retString.push(char);
-  //     }
-  //   });
-  //   retString = retString.join('');
-  //   return retString;
   // },
 
   // Build an addFlights function here!!! (name change)

@@ -8,13 +8,13 @@
     <cite>Please use this format: 2015-28-10</cite><br/>
     Departure date: <input type="text" ng-model="search.departuredate" required /><br/>
 
-    Return date: <input type="text" ng-model="search.returndate" required /><br/>
+    <!-- Return date: <input type="text" ng-model="search.returndate" required /><br/> -->
 
     <!-- Gender: <input type="radio" ng-model="search.gender" value="male" />male
     <input type="radio" ng-model="search.gender" value="female" />female<br/> -->
 
     <input type="button" ng-click="reset()" value="Clear" />
-    <input type="submit" ng-click="update(search); flights(search.origin, search.destination, search.departuredate, search.returndate)" value="Submit" />
+    <input type="submit" ng-click="update(search); getFlights(search.origin, search.destination, search.departuredate)" value="Submit" /> <!-- took out search.returndate for now -->
   </form>
 
   <!-- <pre>form = {{search | json}}</pre>

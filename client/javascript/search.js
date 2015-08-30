@@ -22,7 +22,7 @@
   }]);
   
 
-  app.controller('SearchController', ['$scope', '$http', 'Flights', function($scope, $http, Flights) {
+  app.controller('SearchController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
 
     $scope.master = {};
     $scope.update = function(search) {
@@ -39,18 +39,15 @@
         to: to,
         when: when
       }).then(function(res) {
-        console.log('This is the res after querying the API: ', res);
-        console.log('This is res.data: ', res.data);
-        $scope.flights = res;
+        console.log('Res body(s) after querying the API: ', res);
+        // console.log('This is res.data: ', res.data);
+        $rootScope.$broadcast('results', res);
+        if (res === 'No direct flights available to this location') {
+          // make input box red or something...
+          console.log('No direct flights available to this location');
+        }
       });
     };
-    // $scope.getFlights = function(url) {
-    //   Flights.getFlights(url)
-        // .success(function(data) {
-        //   console.log(data);
-        //   $scope.flights = data; // use this
-        // });
-    // };
 
   }]);
 

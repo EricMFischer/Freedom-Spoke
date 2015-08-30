@@ -4,7 +4,6 @@
 
   app.factory('Flights', ['$http', function($http) {
     var obj = {};
-
     // obj.getFlights = function(from, to, when) {
     //   console.log('Got to getFlights in Flights Factory');
     //   return $http.post('/api/flights', {
@@ -19,7 +18,6 @@
     //     obj.flights = data;
     //   });
     // };
-
     return obj;
   }]);
   
@@ -46,9 +44,6 @@
         $scope.flights = res;
       });
     };
-
-
-    
     // $scope.getFlights = function(url) {
     //   Flights.getFlights(url)
         // .success(function(data) {

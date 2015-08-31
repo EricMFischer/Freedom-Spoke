@@ -51,18 +51,19 @@ module.exports = {
 
         if (!body.trips.tripOption || !trip) { // 1st edge case: flight searches that have no direct flights
           res.send('No direct flights available to this location');
-          res.end(); // appropriate?
+          res.end();
+          return;
         } else {
         
         // console.log('Body of succ. request: ', body);
         // console.log('Body.trips.data: ', body.trips.data);
         // console.log('Body.trips.tripOption: ', body.trips.tripOption);
 
-        // STEP 1: GATHER GENERAL FLIGHT INFORMATION
 
+
+        // STEP 1: GATHER GENERAL FLIGHT INFORMATION
         // stores general information for all flight solutions
         var general = {};
-
         general.origincode = requestData.request.slice[0].origin;
         // general.origin = trip.city[0].name;
         for (var i=0; i<trip.city.length; i++) {
@@ -79,7 +80,6 @@ module.exports = {
             
           }
         }
-
         general.destinationcode = requestData.request.slice[0].destination;
         for (var i=0; i<trip.city.length; i++) {
           var code = trip.city[i].code;
@@ -99,8 +99,9 @@ module.exports = {
 
 
 
+
         // STEP 2: GATHER UNIQUE FLIGHT INFORMATION FOR VARIOUS SOLUTIONS
-        
+
         // stores the unique airlines
         var uniqueAirlines = [];
         for (var i=0; i<trip.carrier.length; i++) {
@@ -109,6 +110,7 @@ module.exports = {
           uniqueAirlines.push({airline: airline, airlineCode: airlineCode});
         }
         console.log('uniqueAirlines: ', uniqueAirlines); // array of objects ({NK: Spirit Airlines})
+
 
         var options = body.trips.tripOption; // an array of unique flight information
         // stores the unique prices
@@ -119,6 +121,7 @@ module.exports = {
         }
         console.log('uniquePrices: ', uniquePrices);
 
+
         var sliceArr = [];
         var pricingArr = [];
         for (var i=0; i<options.length; i++) {
@@ -128,45 +131,132 @@ module.exports = {
           pricingArr.push(pricing);
         }
         // console.log('sliceArr is here: ', sliceArr);
-        // console.log('pricingArr is here: ', pricingArr);
+
 
         // stores the unique flightTimes
-        var uniqueFlightTimes = [];
+        var uniqueDurations = [];
         for (var i=0; i<sliceArr.length; i++) {
           var flightTime = sliceArr[i].duration;
-          uniqueFlightTimes.push(flightTime);
+          uniqueDurations.push(flightTime);
         }
-        console.log('uniqueFlightTimes: ', uniqueFlightTimes);
+        console.log('uniqueDurations: ', uniqueDurations);
 
-        // segments unique to each flight
-        var uniqueSegments = [];
+
+        // segment arrays unique to each flight
+        var uniqueSegments = []; // an array of array segments
         for (var i=0; i<sliceArr.length; i++) {
-          var segment = sliceArr[i].segment[0];
-          uniqueSegments.push(segment);
+          var segments = sliceArr[i].segment;
+          uniqueSegments.push(segments);
         }
-        // console.log('uniqueSegments: ', uniqueSegments);
+        console.log('uniqueSegments: ', uniqueSegments);
+
+
+
+
+// uniqueSegments:  [ [ { kind: 'qpxexpress#segmentInfo',
+//       duration: 75,
+//       flight: [Object],
+//       id: 'GMw3yfMvSr-mSHFj',
+//       cabin: 'COACH',
+//       bookingCode: 'H',
+//       bookingCodeCount: 9,
+//       marriedSegmentGroup: '0',
+//       leg: [Object],
+//       connectionDuration: 50 },
+//     { kind: 'qpxexpress#segmentInfo',
+//       duration: 164,
+//       flight: [Object],
+//       id: 'GR0pel6XxdPA1qTE',
+//       cabin: 'COACH',
+//       bookingCode: 'H',
+//       bookingCodeCount: 9,
+//       marriedSegmentGroup: '0',
+//       leg: [Object] } ],
+//   [ { kind: 'qpxexpress#segmentInfo',
+//       duration: 136,
+//       flight: [Object],
+//       id: 'GB7F7LJCuDPTRs6X',
+//       cabin: 'COACH',
+//       bookingCode: 'M',
+//       bookingCodeCount: 7,
+//       marriedSegmentGroup: '0',
+//       leg: [Object],
+//       connectionDuration: 85 },
+//     { kind: 'qpxexpress#segmentInfo',
+//       duration: 69,
+//       flight: [Object],
+//       id: 'GKRr8aRUx7Y6mj72',
+//       cabin: 'COACH',
+//       bookingCode: 'M',
+//       bookingCodeCount: 7,
+//       marriedSegmentGroup: '0',
+//       leg: [Object] } ],
+//   [ { kind: 'qpxexpress#segmentInfo',
+//       duration: 75,
+//       flight: [Object],
+//       id: 'GYn5izvcvq3+pxkI',
+//       cabin: 'COACH',
+//       bookingCode: 'H',
+//       bookingCodeCount: 7,
+//       marriedSegmentGroup: '0',
+//       leg: [Object],
+//       connectionDuration: 41 },
+//     { kind: 'qpxexpress#segmentInfo',
+//       duration: 169,
+//       flight: [Object],
+//       id: 'G49-JGFsM8GyopL+',
+//       cabin: 'COACH',
+//       bookingCode: 'H',
+//       bookingCodeCount: 7,
+//       marriedSegmentGroup: '0',
+//       leg: [Object] } ],
+//   [ { kind: 'qpxexpress#segmentInfo',
+//       duration: 136,
+//       flight: [Object],
+//       id: 'GB7F7LJCuDPTRs6X',
+//       cabin: 'COACH',
+//       bookingCode: 'M',
+//       bookingCodeCount: 7,
+//       marriedSegmentGroup: '0',
+//       leg: [Object],
+//       connectionDuration: 70 },
+//     { kind: 'qpxexpress#segmentInfo',
+//       duration: 72,
+//       flight: [Object],
+//       id: 'GN+qNnLd3AT5v4NK',
+//       cabin: 'COACH',
+//       bookingCode: 'M',
+//       bookingCodeCount: 7,
+//       marriedSegmentGroup: '0',
+//       leg: [Object] } ] ]
+// BREAK OFF POINT TO CORRECT DATA!!!!!! // 
 
         var airlineCodeArr = [];
         var flightNumArr = [];
         var legArr = [];
+        var connectionArr = [];
         for (var i=0; i<uniqueSegments.length; i++) {
-          var flight = uniqueSegments[i].flight.carrier;
+          var flight = uniqueSegments[i].flight.carrier; // 1st error since correcting uniqueSegments
           var flightNum = uniqueSegments[i].flight.number;
           var leg = uniqueSegments[i].leg[0];
+          var connectionDuration = uniqueSegments[i].connectionDuration;
 
           airlineCodeArr.push(flight);
           flightNumArr.push(flightNum);
           legArr.push(leg);
+          connectionArr.push(connectionDuration);
         }
-        console.log('airlineCodeArr is here: ', airlineCodeArr);
-        console.log('flightNumArr is here: ', flightNumArr);
-        // console.log('legArr is here: ', legArr);
-        
+        console.log('airlineCodeArr: ', airlineCodeArr);
+        console.log('flightNumArr: ', flightNumArr);
+        console.log('legArr: ', legArr);
+        console.log('connectionArr: ', connectionArr);
+
         var departureDates = [];
         var departureTimes = [];
         var arrivalDates = [];
-        var arrivalTimes = [];
-
+        var arrivalTimes1stLeg = [];
+        var departureTimes2ndLeg = [];
+        // var timeDifference = 0;
         for (var i=0; i<legArr.length; i++) {
           var departure = legArr[i].departureTime;
           var arrival = legArr[i].arrivalTime;
@@ -175,100 +265,92 @@ module.exports = {
           var departureTime = departure.slice(11,16);
           var arrivalDate = arrival.slice(0,10);
           var arrivalTime = arrival.slice(11,16);
+          // timeDifference = arrival.slice(16,17) === '+' ? (-1 * arrival.slice(18,19)) : (arrival.slice(18,19));
+          
+
+
+          // this would mean there's a second leg
+          if (connectionArr[i] !== undefined) {
+
+            // So I have to calculate the departure time of the second flight
+            var arrivalTimeInMinutes = (parseFloat(arrivalTime.slice(0,2)) * 60) + 
+                                        parseFloat(arrivalTime.slice(3,5)); // (15 * 60) + 55
+
+            var departureTime2ndLegInMinutes = arrivalTimeInMinutes + connectionArr[i];
+            if (departureTime2ndLegInMinutes > 1440) {
+              departureTime2ndLegInMinutes = departureTime2ndLegInMinutes - 1440;
+            }
+            var departureTime2ndLegInHours = Math.floor(departureTime2ndLegInMinutes / 60);
+            var departureTime2ndLegInMinutes = departureTime2ndLegInMinutes - (60 * departureTime2ndLegInHours);
+            if (departureTime2ndLegInMinutes < 10) {departureTime2ndLegInMinutes = '0' + departureTime2ndLegInMinutes;}
+            
+            var departureTime2ndLeg = departureTime2ndLegInHours + ':' + departureTime2ndLegInMinutes;
+            departureTimes2ndLeg.push(departureTime2ndLeg);
+
+          }
           
           departureDates.push(departureDate);
           departureTimes.push(departureTime);
           arrivalDates.push(arrivalDate);
-          arrivalTimes.push(arrivalTime);
+          arrivalTimes1stLeg.push(arrivalTime);
         }
 
         console.log('Departure dates: ', departureDates);
         console.log('Departure times: ', departureTimes);
         console.log('Arrival dates: ', arrivalDates);
-        console.log('Arrival times: ', arrivalTimes);
+        console.log('Arrival times of 1st leg: ', arrivalTimes1stLeg);
+        console.log('departureTimes2ndLeg: ', departureTimes2ndLeg);
 
-        // WHAT ABOUT LINKS?
+        var finalArrivalTimes = [];
 
-// General object is here:  { origincode: 'LAX',
-//   origin: 'Los Angeles',
-//   originairportname: 'Los Angeles International',
-//   destinationcode: 'SEA',
-//   destination: 'Seattle',
-//   destinationairportname: 'Seattle/Tacoma Sea/Tac' }
+        // goes through the unique flight durations to get final arrival times
+        for (var i=0; i<uniqueDurations.length; i++) {
 
-// uniqueAirlines:  [ { airline: 'Alaska Airlines Inc.', airlineCode: 'AS' },
-//   { airline: 'Virgin America Inc.', airlineCode: 'VX' } ]
+          // this would mean there's a second leg
+          if (connectionArr[i] !== undefined) { // NEED TO FIX HOW YOU CALCULATE FINAL ARRIVAL TIMES
+            var duration = uniqueDurations[i]; // 1015
+            var departureTime = departureTimes.shift();
+            var departureTimeInMinutes = (parseFloat(departureTime.slice(0,2)) * 60) + 
+                                          parseFloat(departureTime.slice(3,5)); // (15 * 60) + 55
 
-// uniquePrices:  [ '$88.10', '$88.10', '$88.10', '$88.10' ]
-// uniqueFlightTimes:  [ 160, 160, 160, 160 ]
+            var arrivalTimeInMinutes = departureTimeInMinutes + duration + connectionArr[i];
+            if (arrivalTimeInMinutes > 1440) {
+              arrivalTimeInMinutes = arrivalTimeInMinutes - 1440;
+            }
+            var arrivalHours = Math.floor(arrivalTimeInMinutes / 60);
+            var arrivalMinutes = arrivalTimeInMinutes - (60 * arrivalHours);
+            if (arrivalMinutes < 10) {arrivalMinutes = '0' + arrivalMinutes;}
 
-// airlineCodeArr is here:  [ 'AS', 'VX', 'AS', 'AS' ]
-// flightNumArr is here:  [ '447', '781', '461', '479' ]
-// Departure dates:  [ '2015-10-10', '2015-10-10', '2015-10-10', '2015-10-10' ]
-// Departure times:  [ '13:45', '10:00', '18:25', '16:30' ]
-// Arrival dates:  [ '2015-10-10', '2015-10-10', '2015-10-10', '2015-10-10' ]
-// Arrival times:  [ '16:25', '12:40', '21:05', '19:10' ]
-      
-        // STEP 3: BUILD MASSIVE RESPONSE ARRAY WITH ALL SOLUTION FLIGHTS
-        var resultsArr = [];
-
+            // incorporate time difference here at some point...
+            var arrivalTime = arrivalHours + ':' + arrivalMinutes;
+            finalArrivalTimes.push(arrivalTime);
+          } else {
+            finalArrivalTimes.push(arrivalTimes1stLeg[i]); // no second leg
+          }
         }
+        console.log('Final arrival times: ', finalArrivalTimes); // in local time
+      
 
-// WITH 2 SOLUTIONS:
-//   carrier: 
-   // [ { kind: 'qpxexpress#carrierData',
-   //     code: 'AS',
-   //     name: 'Alaska Airlines Inc.' },
-   //   { kind: 'qpxexpress#carrierData',
-   //     code: 'F9',
-   //     name: 'Frontier Airlines, Inc.' },
-   //   { kind: 'qpxexpress#carrierData',
-   //     code: 'NK',
-   //     name: 'Spirit Airlines' } ]
 
-// Body.trips.tripOption:  [ { kind: 'qpxexpress#tripOption',
-//     saleTotal: 'USD168.10',
-//     id: 'IdpaBvGHBBFS07JpWi1uEN002',
-//     slice: [ [Object] ],
-//     pricing: [ [Object] ] },
-
-//   { kind: 'qpxexpress#tripOption',
-//     saleTotal: 'USD168.10',
-//     id: 'IdpaBvGHBBFS07JpWi1uEN001',
-//     slice: [ [Object] ],
-//     pricing: [ [Object] ] } ]
+        // STEP 3: BUILD UP AN ARRAY WITH ALL FLIGHT OBJECTS (w/out arrival times)
+        // var flightsArr = [];
+        // for (var i=0; i<uniquePrices.length; i++) {
+        //   var flight = {};
+        //   flight.originCode = general.origincode;
+        //   flight.origin = general.origin;
+        //   flight.originAirportName = general.originairportname;
+        //   flight.destinationCode = general.destinationcode;
+        //   flight.destination = general.destination;
+        //   flight.destinationAirportName = general.destinationairportname
+        }
 
       } else {
         console.log("error: " + error);
         console.log("response.statusCode: " + response.statusCode);
         console.log("response.statusText: " + response.statusText);
       }
-      res.send(general); // sends resultsArr back to client
+      res.send(body); // sends resultsArr back to client
     });
 
-    // console.log('flightsArr here: ', flightsArr);
-
-  } // ends getFlights function
-
-
-
-
-  // Build an addFlights function here!!! (name change)
-  // addQuestion: function(result){
-  //   var questions = [];
-  //   var cleanAnswer = function(answer) {
-  //     return answer.replace(/<\/?i>/g, '');
-  //   };
-  //   for(var i = 0; i < result.body.length; i++){
-  //     var answer = cleanAnswer(result.body[i].answer);
-  //     questions.push({
-  //       id: result.body[i].id,
-  //       question: result.body[i].question,
-  //       answer: answer
-  //     });
-  //   }
-  //   Trivia.collection.insert(questions, function(){
-  //     //null
-  //   });
-  // }
+  } // ends getFlights func
 }

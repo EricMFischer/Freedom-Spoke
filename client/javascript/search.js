@@ -39,7 +39,7 @@
         to: to,
         when: when
       }).then(function(res) {
-        console.log('Res body(s) after querying the API: ', res);
+        // console.log('Res body(s) after querying the API: ', res);
         // console.log('This is res.data: ', res.data);
         $rootScope.$broadcast('results', res);
         if (res === 'No direct flights available to this location') {

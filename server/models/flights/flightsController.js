@@ -226,15 +226,15 @@ module.exports = {
 
             while (tripDetails.length) {
               var leg = leg || 1;
-              trip[i + 'LegStart'] = tripDetails.shift();
-              trip[i + 'LegEnd'] = tripDetails.shift();
-              trip[i + 'LegDuration'] = tripDetails.shift();
-              trip[i + 'LegCarrier'] = tripDetails.shift();
-              trip[i + 'LegFlightNumber'] = tripDetails.shift();
-              trip[i + 'LegDepartureDate'] = tripDetails.shift();
-              trip[i + 'LegDepartureTime'] = tripDetails.shift();
-              trip[i + 'LegArrivalDate'] = tripDetails.shift();
-              trip[i + 'LegArrivalTime'] = tripDetails.shift();
+              trip[leg + 'LegStart'] = tripDetails.shift();
+              trip[leg + 'LegEnd'] = tripDetails.shift();
+              trip[leg + 'LegDuration'] = tripDetails.shift();
+              trip[leg + 'LegCarrier'] = tripDetails.shift();
+              trip[leg + 'LegFlightNumber'] = tripDetails.shift();
+              trip[leg + 'LegDepartureDate'] = tripDetails.shift();
+              trip[leg + 'LegDepartureTime'] = tripDetails.shift();
+              trip[leg + 'LegArrivalDate'] = tripDetails.shift();
+              trip[leg + 'LegArrivalTime'] = tripDetails.shift();
               leg++;
             }
           }

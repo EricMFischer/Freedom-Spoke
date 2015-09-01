@@ -1,41 +1,35 @@
 <div class="results" ng-controller="ResultsController">
   <h4>Results</h4> <!-- NOTE: don't display originCode and destinationCode as the ACTUAL origin and destination; these are just the search requests by the client -->
     {{ errorMessage }}
-    Origin: {{originCode}}<br/>
-    Origin City: {{origin}}<br/>
-    Origin airport: {{originAirportName}}</br>
-
-    Destination: {{destinationCode}}<br/>
-    Destination City: {{destination}}<br/>
-    Destination airport: {{destinationAirportName}}</br>
-
-    Departure date: {{departuredate}}<br/>
-    Departure time: {{departuretime}}<br/>
-    Arrival date: {{arrivaldate}}<br/>
-    Arrival time: {{arrivaltime}}<br/>
-    Travel time: {{duration}}<br/>
+    Origin: {{origin}}<br/>
+    Origin airport: {{originCode}}</br>
+    Destination: {{destination}}<br/>
+    Destination airport: {{destinationCode}}</br>
+    Total travel time: {{duration}}<br/>
     Price: {{price}}<br/>
-    Airline: {{airline}}<br/>
-    Link: {{link}}<br/>
+
+    Leg 1 origin airport: {{legStart1}}</br>
+    Leg 1 destination airport: {{legEnd1}}</br>
+    Leg 1 duration: {{legDuration1}}</br>
+    Leg 1 carrier: {{legCarrier1}}</br>
+    Leg 1 flight number: {{legFlightNumber1}}</br>
+
+    Leg 1 departure date: {{legDepartureDate1}}<br/>
+    Leg 1 departure time: {{legDepartureTime1}}<br/>
+    Leg 1 arrival date: {{legArrivalDate1}}<br/>
+    Leg 1 arrival time: {{legArrivalTime1}}<br/>
 </div>
 
 <!-- <li class="" ng-repeat="flight in results.flights"> -->
 
-<!-- $scope.originCode = trip.originCode;
-$scope.origin = trip.origin;
-$scope.originAirportName = trip.originAirportName;
-$scope.destinationCode = trip.destinationCode;
-$scope.destination = trip.destination;
-$scope.destinationAirportName = trip.destinationAirportName;
-$scope.price = trip.price;
-$scope.duration = trip.duration;
+<!-- 
+$scope.legStart1 = trip.legStart1;
+$scope.legEnd1 = trip.legEnd1;
+$scope.legDuration1 = trip.legDuration1;
+$scope.legCarrier1 = trip.legCarrier1;
+$scope.legFlightNumber1 = trip.legFlightNumber1;
+$scope.legDepartureDate1 = trip.legDepartureDate1;
+$scope.legDepartureTime1 = trip.legDepartureTime1;
+$scope.legArrivalDate1 = trip.legArrivalDate1;
+$scope.legArrivalTime1 = trip.legArrivalTime1; -->
 
-$scope.1LegStart = trip.1LegStart;
-$scope.1LegEnd = trip.1LegEnd;
-$scope.1LegDuration = trip.1LegDuration;
-$scope.1LegCarrier = trip.1LegCarrier;
-$scope.1LegFlightNumber = trip.1LegFlightNumber;
-$scope.1LegDepartureDate = trip.1LegDepartureDate;
-$scope.1LegDepartureTime = trip.1LegDepartureTime;
-$scope.1LegArrivalDate = trip.1LegArrivalDate;
-$scope.1LegArrivalTime = trip.1LegArrivalTime; -->

@@ -16,7 +16,7 @@
           $scope.origin = trip.origin;
           $scope.originCode = trip.legStart1;
           $scope.destination = trip.destination;
-          $scope.destinationCode = trip[trip.length - 8]; // represents end of last leg
+          // $scope.destinationCode = trip[trip.length - 8]; // represents end of last leg
 
           $scope.price = trip.price;
           $scope.duration = trip.duration;
@@ -30,7 +30,7 @@
           $scope.legDepartureTime1 = trip.legDepartureTime1;
           $scope.legArrivalDate1 = trip.legArrivalDate1;
           $scope.legArrivalTime1 = trip.legArrivalTime1;
-
+          $scope.destinationCode = trip.legEnd1;
 
           if (trip.length > 17) {
             $scope.legStart2 = trip.legStart2;
@@ -42,6 +42,7 @@
             $scope.legDepartureTime2 = trip.legDepartureTime2;
             $scope.legArrivalDate2 = trip.legArrivalDate2;
             $scope.legArrivalTime2 = trip.legArrivalTime2;
+            $scope.destinationCode = trip.legEnd2;
           }
 
           if (trip.length > 26) {
@@ -54,6 +55,7 @@
             $scope.legDepartureTime3 = trip.legDepartureTime3;
             $scope.legArrivalDate3 = trip.legArrivalDate3;
             $scope.legArrivalTime3 = trip.legArrivalTime3;
+            $scope.destinationCode = trip.legEnd3;
           }
 
           if (trip.length > 35) {
@@ -66,6 +68,7 @@
             $scope.legDepartureTime4 = trip.legDepartureTime4;
             $scope.legArrivalDate4 = trip.legArrivalDate4;
             $scope.legArrivalTime4 = trip.legArrivalTime4;
+            $scope.destinationCode = trip.legEnd4;
           }
 
           if (trip.length > 44) {
@@ -78,6 +81,7 @@
             $scope.legDepartureTime5 = trip.legDepartureTime5;
             $scope.legArrivalDate5 = trip.legArrivalDate5;
             $scope.legArrivalTime5 = trip.legArrivalTime5;
+            $scope.destinationCode = trip.legEnd5;
           }
 
           if (trip.length > 53) {
@@ -90,6 +94,7 @@
             $scope.legDepartureTime6 = trip.legDepartureTime6;
             $scope.legArrivalDate6 = trip.legArrivalDate6;
             $scope.legArrivalTime6 = trip.legArrivalTime6;
+            $scope.destinationCode = trip.legEnd6;
           }
 
           if (trip.length > 62) {
@@ -102,6 +107,7 @@
             $scope.legDepartureTime7 = trip.legDepartureTime7;
             $scope.legArrivalDate7 = trip.legArrivalDate7;
             $scope.legArrivalTime7 = trip.legArrivalTime7;
+            $scope.destinationCode = trip.legEnd7;
           }
 
           // tripsArr AFTER adding specific flight properties:  [ { originCode: 'EVV',

@@ -111,7 +111,7 @@ module.exports = {
 
 
           var uniqueDurations = [];
-          var journeySolutions = [];
+          var tripSolutions = [];
           for (var i=0; i<2; i++) { // iterating through diff. journey options (2 of them)
             var option = options[i].slice[0];
 
@@ -139,11 +139,11 @@ module.exports = {
               journey.push(legCarrier, legFlightNumber);
               journey.push(legDepartureDate, legDepartureTime, legArrivalDate, legArrivalTime);
             }
-            journeySolutions.push(journey);
+            tripSolutions.push(journey);
 
           }
           console.log('uniqueDurations: ', uniqueDurations);
-          console.log('journeySolutions: ', journeySolutions);
+          console.log('tripSolutions: ', tripSolutions);
 
           // General object is here:  { origincode: 'LAX',
           //   origin: 'Los Angeles',
@@ -158,83 +158,22 @@ module.exports = {
           // uniqueDurations:  [ 1105 ]
 
           // STEP 3: BUILD UP AN ARRAY WITH ALL FLIGHT OBJECTS
-          var flightsArr = [];
+          var tripsArr = [];
 
-          for (var i=0; i<uniquePrices.length; i++) {
-            var flight = {};
-            flight.originCode = general.origincode;
-            flight.origin = general.origin;
-            flight.originAirportName = general.originairportname;
-            flight.destinationCode = general.destinationcode;
-            flight.destination = general.destination;
-            flight.destinationAirportName = general.destinationairportname;
-            flight.price = uniquePrices[i];
-            flight.duration = uniqueDurations[i];
-            flightsArr.push(flight);
+          for (var i=0; i<4; i++) { // hard-coded # of solutions here too
+            var trip = {};
+            trip.originCode = general.origincode;
+            trip.origin = general.origin;
+            trip.originAirportName = general.originairportname;
+            trip.destinationCode = general.destinationcode;
+            trip.destination = general.destination;
+            trip.destinationAirportName = general.destinationairportname;
+            trip.price = uniquePrices[i];
+            trip.duration = uniqueDurations[i];
+            tripsArr.push(trip);
           }
 
-          for (var i=0; i<journeySolutions.length; i++) {
-            var journeyDetails = journeySolutions[i]; // 9 journeyDetails per leg of flight
-            flightsArr[i].1stLegStart = journeyDetails[0];
-            flightsArr[i].1stLegEnd = journeyDetails[1];
-            flightsArr[i].1stLegDuration = journeyDetails[2];
-            flightsArr[i].1stLegCarrier = journeyDetails[3];
-            flightsArr[i].1stLegFlightNumber = journeyDetails[4];
-            flightsArr[i].1stLegDepartureDate = journeyDetails[5];
-            flightsArr[i].1stLegDepartureTime = journeyDetails[6];
-            flightsArr[i].1stLegArrivalDate = journeyDetails[7];
-            flightsArr[i].1stLegArrivalTime = journeyDetails[8];
-
-            if (journeyDetails.length > 9) {
-              flightsArr[i].2ndLegStart = journeyDetails[9];
-              flightsArr[i].2ndLegEnd = journeyDetails[10];
-              flightsArr[i].2ndLegDuration = journeyDetails[11];
-              flightsArr[i].2ndLegCarrier = journeyDetails[12];
-              flightsArr[i].2ndLegFlightNumber = journeyDetails[13];
-              flightsArr[i].2ndLegDepartureDate = journeyDetails[14];
-              flightsArr[i].2ndLegDepartureTime = journeyDetails[15];
-              flightsArr[i].2ndLegArrivalDate = journeyDetails[16];
-              flightsArr[i].2ndLegArrivalTime = journeyDetails[17];
-            }
-
-            if (journeyDetails.length > 18) {
-
-            }
-
-            if (journeyDetails.length > 27) {
-              
-            }
-
-            if (journeyDetails.length > 36) {
-              
-            }
-
-            if (journeyDetails.length > 45) {
-              
-            }
-
-            if (journeyDetails.length > 54) {
-              
-            }
-
-            if (journeyDetails.length > 63) {
-              
-            }
-
-          }
-
-          keysArray = ['Arrival', 'Departure']
-
-          for (var i = 0; i < keysArray; i++){
-
-          }
-
-          // var object = {
-          //   arrival: fdsafdas
-          // };
-          // object[ i + 'arrival']
-
-          // journeySolutions:  [ [ 'LAX',
+          // tripSolutions:  [ [ 'LAX',
           //     'ARN',
           //     640,
           //     'DY',
@@ -262,7 +201,7 @@ module.exports = {
           //     '2015-10-11',
           //     '21:25' ] ]
 
-          // journeySolutions:  [ [ 'EVV',
+          // tripSolutions:  [ [ 'EVV',
           //   'ORD',
           //   75,
           //   'UA',
@@ -281,13 +220,72 @@ module.exports = {
           //   '2015-10-10',
           //   '20:24' ] ]
 
+          for (var i=0; i<tripSolutions.length; i++) {
+            var tripDetails = tripSolutions[i]; // will have 4 (or whatever) solutions
+            var trip = tripsArr[i];
+
+            while (tripDetails.length) {
+              var leg = leg || 1;
+              trip[i + 'LegStart'] = tripDetails.shift();
+              trip[i + 'LegEnd'] = tripDetails.shift();
+              trip[i + 'LegDuration'] = tripDetails.shift();
+              trip[i + 'LegCarrier'] = tripDetails.shift();
+              trip[i + 'LegFlightNumber'] = tripDetails.shift();
+              trip[i + 'LegDepartureDate'] = tripDetails.shift();
+              trip[i + 'LegDepartureTime'] = tripDetails.shift();
+              trip[i + 'LegArrivalDate'] = tripDetails.shift();
+              trip[i + 'LegArrivalTime'] = tripDetails.shift();
+              leg++;
+            }
+          }
+
+          // for (var i=0; i<tripSolutions.length; i++) {
+          //   var tripDetails = tripSolutions[i]; // will have 4 (or whatever) solutions
+          //   var trip = tripsArr[i];
+          //   for (var j=0; j<9; j++) {
+          //     trip.[i + 'LegStart'] = tripDetails[i*9 +j];
+          //     trip.[i + 'LegEnd'] = tripDetails[i*9 + j];
+          //     trip.[i + 'LegDuration'] = tripDetails[i*9 + j];
+          //     trip.[i + 'LegCarrier'] = tripDetails[i*9 + j];
+          //     trip.[i + 'LegFlightNumber'] = tripDetails[i*9 + j];
+          //     trip.[i + 'LegDepartureDate'] = tripDetails[i*9 + j];
+          //     trip.[i + 'LegDepartureTime'] = tripDetails[i*9 + j];
+          //     trip.[i + 'LegArrivalDate'] = tripDetails[i*9 + j];
+          //     trip.[i + 'LegArrivalTime'] = tripDetails[i*9 + j];
+          //   }
+          // }
+
+          // for (var i=0; i<journeySolutions.length; i++) {
+          //   var journeyDetails = journeySolutions[i]; // 9 journeyDetails per leg of flight
+            // flightsArr[i].1stLegStart = journeyDetails[0];
+            // flightsArr[i].1stLegEnd = journeyDetails[1];
+            // flightsArr[i].1stLegDuration = journeyDetails[2];
+            // flightsArr[i].1stLegCarrier = journeyDetails[3];
+            // flightsArr[i].1stLegFlightNumber = journeyDetails[4];
+            // flightsArr[i].1stLegDepartureDate = journeyDetails[5];
+            // flightsArr[i].1stLegDepartureTime = journeyDetails[6];
+            // flightsArr[i].1stLegArrivalDate = journeyDetails[7];
+            // flightsArr[i].1stLegArrivalTime = journeyDetails[8];
+          //   if (journeyDetails.length > 9) {
+          //     flightsArr[i].2ndLegStart = journeyDetails[9];
+          //     flightsArr[i].2ndLegEnd = journeyDetails[10];
+          //     flightsArr[i].2ndLegDuration = journeyDetails[11];
+          //     flightsArr[i].2ndLegCarrier = journeyDetails[12];
+          //     flightsArr[i].2ndLegFlightNumber = journeyDetails[13];
+          //     flightsArr[i].2ndLegDepartureDate = journeyDetails[14];
+          //     flightsArr[i].2ndLegDepartureTime = journeyDetails[15];
+          //     flightsArr[i].2ndLegArrivalDate = journeyDetails[16];
+          //     flightsArr[i].2ndLegArrivalTime = journeyDetails[17];
+          //   }
+          // }
+
         } // need this to not err on else statement
       } else {
         console.log("error: " + error);
         console.log("response.statusCode: " + response.statusCode);
         console.log("response.statusText: " + response.statusText);
       }
-      res.send(body); // sends resultsArr back to client
+      res.send(tripsArr); // sends tripsArr back to client
     });
 
   } // ends getFlights func

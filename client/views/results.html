@@ -1,13 +1,19 @@
 <div class="results" ng-controller="ResultsController">
   <h4>Results</h4>
     {{ errorMessage }}
-    Origin: {{origin}}<br/>
-    Destination: {{destination}}<br/>
+    Origin: {{originCode}}<br/>
+    Origin City: {{origin}}<br/>
+    Origin airport: {{originAirportName}}</br>
+
+    Destination: {{destinationCode}}<br/>
+    Destination City: {{destination}}<br/>
+    Destination airport: {{destinationAirportName}}</br>
+
     Departure date: {{departuredate}}<br/>
     Departure time: {{departuretime}}<br/>
     Arrival date: {{arrivaldate}}<br/>
     Arrival time: {{arrivaltime}}<br/>
-    Total flight time: {{totalflighttime}}<br/>
+    Travel time: {{duration}}<br/>
     Price: {{price}}<br/>
     Airline: {{airline}}<br/>
     Link: {{link}}<br/>

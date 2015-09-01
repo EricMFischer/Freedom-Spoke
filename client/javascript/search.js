@@ -38,13 +38,12 @@
         from: from,
         to: to,
         when: when
-      }).then(function(res) {
-        // console.log('Res body(s) after querying the API: ', res);
-        // console.log('This is res.data: ', res.data);
-        $rootScope.$broadcast('results', res);
-        if (res === 'No direct flights available to this location') {
+      }).then(function(response) {
+        // console.log('response body(s) after querying the API: ', response);
+        // console.log('This is response.data: ', response.data);
+        $rootScope.$broadcast('results', response);
+        if (response.data === 'No results available') {
           // make input box red or something...
-          console.log('No direct flights available to this location');
         }
       });
     };

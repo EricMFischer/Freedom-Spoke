@@ -14,10 +14,9 @@
           var trip = tripsArr[i]; // object
 
           $scope.origin = trip.origin;
-          $scope.originCode = trip.legStart1;
+          // $scope.originCode = trip.legStart1;
           $scope.destination = trip.destination;
-          // $scope.destinationCode = trip[trip.length - 8]; // represents end of last leg
-
+          // $scope.destinationCode = trip.legEnd1;
           $scope.price = trip.price;
           $scope.duration = trip.duration;
 
@@ -30,9 +29,8 @@
           $scope.legDepartureTime1 = trip.legDepartureTime1;
           $scope.legArrivalDate1 = trip.legArrivalDate1;
           $scope.legArrivalTime1 = trip.legArrivalTime1;
-          $scope.destinationCode = trip.legEnd1;
 
-          if (trip.length > 17) {
+          if (Object.keys(trip).length > 17) {
             $scope.legStart2 = trip.legStart2;
             $scope.legEnd2 = trip.legEnd2;
             $scope.legDuration2 = trip.legDuration2;
@@ -42,10 +40,9 @@
             $scope.legDepartureTime2 = trip.legDepartureTime2;
             $scope.legArrivalDate2 = trip.legArrivalDate2;
             $scope.legArrivalTime2 = trip.legArrivalTime2;
-            $scope.destinationCode = trip.legEnd2;
           }
 
-          if (trip.length > 26) {
+          if (Object.keys(trip).length > 26) {
             $scope.legStart3 = trip.legStart3;
             $scope.legEnd3 = trip.legEnd3;
             $scope.legDuration3 = trip.legDuration3;
@@ -55,10 +52,9 @@
             $scope.legDepartureTime3 = trip.legDepartureTime3;
             $scope.legArrivalDate3 = trip.legArrivalDate3;
             $scope.legArrivalTime3 = trip.legArrivalTime3;
-            $scope.destinationCode = trip.legEnd3;
           }
 
-          if (trip.length > 35) {
+          if (Object.keys(trip).length > 35) {
             $scope.legStart4 = trip.legStart4;
             $scope.legEnd4 = trip.legEnd4;
             $scope.legDuration4 = trip.legDuration4;
@@ -68,10 +64,9 @@
             $scope.legDepartureTime4 = trip.legDepartureTime4;
             $scope.legArrivalDate4 = trip.legArrivalDate4;
             $scope.legArrivalTime4 = trip.legArrivalTime4;
-            $scope.destinationCode = trip.legEnd4;
           }
 
-          if (trip.length > 44) {
+          if (Object.keys(trip).length > 44) {
             $scope.legStart5 = trip.legStart5;
             $scope.legEnd5 = trip.legEnd5;
             $scope.legDuration5 = trip.legDuration5;
@@ -81,10 +76,9 @@
             $scope.legDepartureTime5 = trip.legDepartureTime5;
             $scope.legArrivalDate5 = trip.legArrivalDate5;
             $scope.legArrivalTime5 = trip.legArrivalTime5;
-            $scope.destinationCode = trip.legEnd5;
           }
 
-          if (trip.length > 53) {
+          if (Object.keys(trip).length > 53) {
             $scope.legStart6 = trip.legStart6;
             $scope.legEnd6 = trip.legEnd6;
             $scope.legDuration6 = trip.legDuration6;
@@ -94,10 +88,9 @@
             $scope.legDepartureTime6 = trip.legDepartureTime6;
             $scope.legArrivalDate6 = trip.legArrivalDate6;
             $scope.legArrivalTime6 = trip.legArrivalTime6;
-            $scope.destinationCode = trip.legEnd6;
           }
 
-          if (trip.length > 62) {
+          if (Object.keys(trip).length > 62) {
             $scope.legStart7 = trip.legStart7;
             $scope.legEnd7 = trip.legEnd7;
             $scope.legDuration7 = trip.legDuration7;
@@ -107,7 +100,6 @@
             $scope.legDepartureTime7 = trip.legDepartureTime7;
             $scope.legArrivalDate7 = trip.legArrivalDate7;
             $scope.legArrivalTime7 = trip.legArrivalTime7;
-            $scope.destinationCode = trip.legEnd7;
           }
 
           // tripsArr AFTER adding specific flight properties:  [ { originCode: 'EVV',

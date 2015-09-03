@@ -1,37 +1,28 @@
-<div class="search" ng-controller="SearchController">
+<div class="search" layout="row" ng-controller="SearchController">
 
-  <form novalidate class="css-form">
-    <cite>Please use 3 letter airport code</cite><br/>
-    Origin airport: <input type="text" ng-model="search.origin" required /><br/>
-    Destination airport: <input type="text" ng-model="search.destination" required /><br/>
-    
-    <cite>Please use this format: 2015-28-10</cite><br/>
-    Departure date: <input type="text" ng-model="search.departuredate" required /><br/>
+  <div flex="20"></div>
 
-    <!-- Return date: <input type="text" ng-model="search.returndate" required /><br/> -->
+    <form novalidate class="css-form">
+      <cite>Please use 3 letter airport code</cite><br/>
+      Origin airport: <input type="text" ng-model="search.origin" required /><br/>
+      Destination airport: <input type="text" ng-model="search.destination" required /><br/>
+      
+      <cite>Please use this format: 2015-28-10</cite><br/>
+      Departure date: <input type="text" ng-model="search.departuredate" required /><br/>
 
-    <!-- Gender: <input type="radio" ng-model="search.gender" value="male" />male
-    <input type="radio" ng-model="search.gender" value="female" />female<br/> -->
+      <!-- Return date: <input type="text" ng-model="search.returndate" required /><br/> -->
 
-    <input type="button" ng-click="reset()" value="Clear" />
-    <input type="submit" ng-click="update(search); getFlights(search.origin, search.destination, search.departuredate)" value="Submit" /> <!-- took out search.returndate for now -->
-  </form>
+      <!-- Gender: <input type="radio" ng-model="search.gender" value="male" />male
+      <input type="radio" ng-model="search.gender" value="female" />female<br/> -->
 
-  <!-- <pre>form = {{search | json}}</pre>
-  <pre>master = {{master | json}}</pre> -->
+      <input type="button" ng-click="reset()" value="Clear" />
+      <input type="submit" ng-click="update(search); getFlights(search.origin, search.destination, search.departuredate)" value="Submit" /> <!-- took out search.returndate for now -->
+    </form>
+
+  </div>
+
 </div>
 
-
-
-<script>
-//   angular.module('textInputExample', [])
-//     .controller('ExampleController', ['$scope', function($scope) {
-//       $scope.example = {
-//         text: 'guest',
-//         word: /^\s*\w*\s*$/
-//       };
-//     }]);
-// </script>
 <!-- <form name="myForm" ng-controller="ExampleController">
   <label>Single word:
     <input type="text" name="input" ng-model="example.text"

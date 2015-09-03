@@ -3,7 +3,8 @@
   <head>
     <title></title>
     <meta charset="utf-8">
-    <link href="styles/style.css" rel="stylesheet"> <!-- CHANGE THIS! -->
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+    <link href="styles/style.css" rel="stylesheet">
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
 
@@ -16,7 +17,18 @@
     <script src="javascript/results.js"></script>
   </head>
 
-  <body ng-app="FlightPicker">
+  <body ng-app="FlightPicker" ng-cloak>
+
+    <!-- <md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon md-svg-icon="./bower_components/material-design-icons/maps/svg/design/ic_local_airport_24px.svg"></md-icon>
+        </md-button>
+        <h2>
+          <span class="md-title">Just go!</span>
+        </h2>
+      </div>
+    </md-toolbar> -->
 
     <div ui-view="search"></div>
     <div ui-view="results"></div>

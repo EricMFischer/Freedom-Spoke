@@ -62,27 +62,33 @@ module.exports = {
         general.origincode = requestData.request.slice[0].origin;
         general.destinationcode = requestData.request.slice[0].destination;
         for (var i=0; i<trip.city.length; i++) {
-          var code = trip.city[i].code;
-          if (code === general.origincode) {
+          var cityCode = trip.city[i].code;
+          if (cityCode === general.origincode) {
             general.origin = trip.city[i].name;
           }
-          if (code === general.destinationcode) {
+          if (cityCode === general.destinationcode) {
             general.destination = trip.city[i].name;
           }
         }
         for (var i=0; i<trip.airport.length; i++) {
-          var code = trip.airport[i].code;
-          if (code === general.origincode) {
+          var airportCode = trip.airport[i].code;
+          if (airportCode === general.origincode) {
             general.originairportname = trip.airport[i].name;    
           }
-          if (code === general.destinationcode) {
+          if (airportCode === general.destinationcode) {
             general.destinationairportname = trip.airport[i].name;
           }
         }
-        console.log('General object: ', general);
+
+        if (general.destinationairportname === undefined) { // when actual destination code (IAH) doesn't match user's inputted destinationcode (HOU)
+          for (var i=0; i<trip.city.length; i++) {
+            var cityCode = trip.city[i].code;
+            if (cityCode === general.destinationcode) {
+              general.destinationairportname = trip.city[i].name;
+            }
+          }
+        }
         
-
-
 
         // STEP 2: GATHER UNIQUE FLIGHT INFORMATION FOR VARIOUS SOLUTIONS
         // stores the unique airlines

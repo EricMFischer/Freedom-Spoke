@@ -14,6 +14,8 @@
         $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
         $scope.origin = tripsArr[0].origin;
         $scope.destination = tripsArr[0].destination;
+
+        // $scope.sortType = 'price'; // set the default sort type
         $scope.flights = [];
 
         for (var i=0; i<tripsArr.length; i++) {

@@ -53,7 +53,7 @@ module.exports = {
 
 
         // console.log('Body of succ. request: ', body);
-        console.log('Body.trips.data: ', body.trips.data);
+        // console.log('Body.trips.data: ', body.trips.data);
         // console.log('Body.trips.tripOption: ', body.trips.tripOption);
 
         // STEP 1: GATHER GENERAL FLIGHT INFORMATION
@@ -167,7 +167,7 @@ module.exports = {
           while (tripDetails.length) {
             trip['legStart' + legOfTrip] = tripDetails.shift();
             trip['legEnd' + legOfTrip] = tripDetails.shift();
-            trip['legDuration' + legOfTrip] = tripDetails.shift();
+            trip['legDuration' + legOfTrip] = Math.round(tripDetails.shift() / 60);
             trip['legCarrier' + legOfTrip] = tripDetails.shift();
             trip['legFlightNumber' + legOfTrip] = tripDetails.shift();
             trip['legDepartureDate' + legOfTrip] = tripDetails.shift();
@@ -186,7 +186,7 @@ module.exports = {
         console.log("response.statusText: " + response.statusText);
         res.send('No results available');
       }
-      res.send(tripsArr); // send tripsArr back to client
+      res.send(body); // send tripsArr back to client
     });
   } // ends getFlights func
 }

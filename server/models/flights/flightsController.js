@@ -26,7 +26,7 @@ module.exports = {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 4,
+        "solutions": 2,
         "refundable": false
       }
     }
@@ -186,7 +186,7 @@ module.exports = {
         console.log("response.statusText: " + response.statusText);
         res.send('No results available');
       }
-      res.send(body); // send tripsArr back to client
+      res.send(tripsArr); // send tripsArr back to client
     });
   } // ends getFlights func
 }

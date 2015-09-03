@@ -153,7 +153,7 @@ module.exports = {
           trip.destination = general.destination;
           trip.destinationAirportName = general.destinationairportname;
           trip.price = uniquePrices[i];
-          trip.duration = uniqueDurations[i];
+          trip.duration = Math.round(uniqueDurations[i] / 60); // changed to hours format
           tripsArr.push(trip);
         }
         // console.log('tripsArr, each w/ diff prices and durations: ', tripsArr);

@@ -73,6 +73,8 @@
             ];
           }
           $scope.flights.push(obj);
+
+          $scope.resultsAvailable = true;
         } // ends for loop
       } // ends else statement (if checked for 'No results available')
 

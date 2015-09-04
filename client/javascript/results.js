@@ -88,27 +88,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //   var tripsArr = [ 
   //   { originCode: 'EVV',
   //   origin: 'Evansville',

@@ -66,12 +66,17 @@ module.exports = {
           if (cityCode === general.origincode) {
             general.origin = trip.city[i].name;
           }
-          if (cityCode === general.destinationcode) {
+          if (cityCode === general.destinationcode) { // search for LHR has a city code of LON
             general.destination = trip.city[i].name;
           }
         }
         for (var i=0; i<trip.airport.length; i++) {
           var airportCode = trip.airport[i].code;
+
+          if (airportCode === general.destinationcode) { // in the event dest. was undefined
+            general.destination = general.destination || trip.airport[i].name;
+          }
+
           if (airportCode === general.origincode) {
             general.originairportname = trip.airport[i].name;    
           }
@@ -79,6 +84,8 @@ module.exports = {
             general.destinationairportname = trip.airport[i].name;
           }
         }
+        console.log('trip.city: ', trip.city);
+        console.log('trip.airport: ', trip.airport);
 
         if (general.destinationairportname === undefined) { // when actual destination code (IAH) doesn't match user's inputted destinationcode (HOU)
           for (var i=0; i<trip.city.length; i++) {

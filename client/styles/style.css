@@ -37,29 +37,19 @@
   text-anchor: middle;
 }
 
-/*.results {
+.search {
+  margin-top: 50px;
+}
+
+.results {
   position: relative;
   top: 50%;
-}*/
-
-table{
-  border-collapse:collapse;
-  border:1px solid black;
 }
 
-table td, table th{
-  border:1px solid black;
-  padding: 5px;
+.css-form input.ng-invalid.ng-touched {
+  background-color: #FA787E;
 }
 
-.worst {
-  background-color: red;
-}
-
-.best {
-  background-color: lightgreen;
-}
-
-.ui-autocomplete-term { 
-  font-weight: bold; color: blue; 
+.css-form input.ng-valid.ng-touched {
+  background-color: #78FA89;
 }

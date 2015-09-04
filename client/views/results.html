@@ -1,8 +1,8 @@
 <div class="results" ng-controller="ResultsController" ng-show="resultsAvailable">
 
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Destination 1</a></li>
-    <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Destination 2</a></li>
+    <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">All</a></li>
+    <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Destination 1</a></li>
   </ul>
   <div id="myTabContent" class="tab-content">
 
@@ -10,18 +10,20 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
+            <th>Flight</th>
             <th>Flight segments</th>
             <th>Times</th>
-            <th>Airlines with deal</th>
+            <th>Airlines</th>
             <th>Travel time</th>
             <th>Price</th>
           </tr>
         </thead>
         <tbody>
           <tr class="info" ng-repeat="flight in flights">
+            <td>{{ flight.origin }} - {{ flight.destination }}</td>
             <td><div ng-repeat="leg in flight.legs">{{ leg[0] }} - {{ leg[1] }}</div></td>
             <td><div ng-repeat="leg in flight.legs">{{ leg[6] }} - {{ leg[8] }}</div></td>
-            <td><div ng-repeat="leg in flight.legs">{{ leg[3] }}, Flight: {{ leg[8] }}</div></td>
+            <td><div ng-repeat="leg in flight.legs">{{ leg[3] }}, Flight: {{ leg[4] }}</div></td>
             <td>{{ flight.duration }} hours</td>
             <td>{{ flight.price }}</td>
           </tr>

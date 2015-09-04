@@ -11,9 +11,9 @@
       } else {
         var tripsArr = response.data; // array of trip objects
 
-        $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
-        $scope.origin = tripsArr[0].origin;
-        $scope.destination = tripsArr[0].destination;
+        // $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
+        // $scope.origin = tripsArr[0].origin;
+        // $scope.destination = tripsArr[0].destination;
 
         // $scope.sortType = 'price'; // set the default sort type
         $scope.flights = [];
@@ -23,6 +23,8 @@
           var obj = {}; // building up objects to pass into $scope.flights
           obj.price = trip.price;
           obj.duration = trip.duration;
+          obj.origin = trip.origin;
+          obj.destination = trip.destination;
 
           if (Object.keys(trip).length === 17) {
             obj.legs = [[trip.legStart1, trip.legEnd1, trip.legDuration1, trip.legCarrier1, trip.legFlightNumber1, trip.legDepartureDate1, trip.legDepartureTime1, trip.legArrivalDate1, trip.legArrivalTime1]];

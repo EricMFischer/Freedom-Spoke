@@ -66,17 +66,29 @@ module.exports = {
           if (cityCode === general.origincode) {
             general.origin = trip.city[i].name;
           }
-          if (cityCode === general.destinationcode) { // search for LHR has a city code of LON
-            general.destination = trip.city[i].name;
-          }
+          // if (cityCode === general.destinationcode) { // search for LHR has a city code of LON
+          //   general.destination = trip.city[i].name;
+          // }
         }
+
+        // for general.destination
         for (var i=0; i<trip.airport.length; i++) {
           var airportCode = trip.airport[i].code;
-
           if (airportCode === general.destinationcode) { // in the event dest. was undefined
-            general.destination = general.destination || trip.airport[i].name;
+            var cityCode = trip.airport[i].city;
           }
+          for (var i=0; i<trip.city.length; i++) {
+            if (cityCode === trip.city[i].code) {
+              general.destination = trip.city[i].name;
+            }
+          }
+        }
 
+        for (var i=0; i<trip.airport.length; i++) {
+          var airportCode = trip.airport[i].code;
+          // if (airportCode === general.destinationcode) { // in the event dest. was undefined
+          //   general.destination = general.destination || trip.airport[i].name;
+          // }
           if (airportCode === general.origincode) {
             general.originairportname = trip.airport[i].name;    
           }

@@ -29,7 +29,8 @@
           <tr>
             <th>Flight segments</th>
             <th>Times</th>
-            <th>Duration</th>
+            <th>Airlines with deal</th>
+            <th>Travel time</th>
             <th>Price</th>
           </tr>
         </thead>
@@ -37,7 +38,8 @@
           <tr class="info" ng-repeat="flight in flights">
             <td><div ng-repeat="leg in flight.legs">{{ leg[0] }} - {{ leg[1] }}</div></td>
             <td><div ng-repeat="leg in flight.legs">{{ leg[6] }} - {{ leg[8] }}</div></td>
-            <td>{{ flight.duration }}</td>
+            <td><div ng-repeat="leg in flight.legs">{{ leg[3] }}, Flight: {{ leg[8] }}</div></td>
+            <td>{{ flight.duration }} hours</td>
             <td>{{ flight.price }}</td>
           </tr>
         </tbody>

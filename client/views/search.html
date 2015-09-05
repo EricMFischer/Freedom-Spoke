@@ -15,18 +15,18 @@
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Link</a></li> -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Destinations<span class="caret"></span></a>
+        <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expand Search<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#" ng-click="addDestination()">Add destination</a></li>
             <li><a href="#" ng-click="removeDestination()">Remove destination</a></li>
-            <!-- <li class="divider"></li> -->
           </ul>
-        </li>
+        </li> -->
 
       <form class="navbar-form navbar-left" role="search">
+
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Date" ng-model="search.departuredate" required>
+          <input type="text" class="form-control" placeholder="Date" ng-model="search.date" required>
         </div>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Origin" ng-model="search.origin" required>
@@ -34,19 +34,29 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Destination" ng-model="search.destination" required>
         </div>
-        <div class="form-group" ng-show="destination2">
-          <input type="text" class="form-control" placeholder="Destination" required>
+
+        <div class="form-group">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More Destinations<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Destination 2" ng-model="search.destination2">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Destination 3" ng-model="search.destination3">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Destination 4" ng-model="search.destination4">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Destination 5" ng-model="search.destination5">
+            </div>
+            </ul>
+          </li>
         </div>
-        <div class="form-group" ng-show="destination3">
-          <input type="text" class="form-control" placeholder="Destination" required>
-        </div>
-        <div class="form-group" ng-show="destination4">
-          <input type="text" class="form-control" placeholder="Destination" required>
-        </div>
-        <div class="form-group" ng-show="destination5">
-          <input type="text" class="form-control" placeholder="Destination" required>
-        </div>
-        <button type="submit" class="btn btn-default" ng-click="update(search); getFlights(search.origin, search.destination, search.departuredate)">Submit</button>
+
+        <button type="submit" class="btn btn-default" ng-click="getFlights(search.origin, search.destination, search.date); getFlights(search.origin, search.destination2, search.date)">Submit</button>
         <!-- <button type="submit" class="btn btn-default" ng-click="reset()">Reset</button> -->
       </form>
 

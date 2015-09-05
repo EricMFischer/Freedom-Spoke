@@ -16,7 +16,7 @@
         // $scope.destination = tripsArr[0].destination;
 
         // $scope.sortType = 'price'; // set the default sort type
-        $scope.flights = [];
+        $scope.flights = $scope.flights || [];
 
         for (var i=0; i<tripsArr.length; i++) {
           var trip = tripsArr[i]; // trip obj

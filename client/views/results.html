@@ -25,7 +25,7 @@
             <td><div ng-repeat="leg in flight.legs">{{ leg[6] }} - {{ leg[8] }}</div></td>
             <td><div ng-repeat="leg in flight.legs">{{ leg[3] }}, Flight: {{ leg[4] }}</div></td>
             <td>{{ flight.duration }} hours</td>
-            <td>{{ flight.price }}</td>
+            <td>${{ flight.price }}</td>
           </tr>
         </tbody>
       </table> 

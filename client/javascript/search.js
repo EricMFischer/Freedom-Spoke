@@ -16,41 +16,7 @@
     $scope.reset();
 
 
-    // var destinations = 1;
-    // $scope.addDestination = function() {
-    //   if (destinations !== 5) {destinations++;}
-    //   if (destinations === 2) {
-    //     $scope.destination2 = true;
-    //   }
-    //   if (destinations === 3) {
-    //     $scope.destination3 = true;
-    //   }
-    //   if (destinations === 4) {
-    //     $scope.destination4 = true;
-    //   }
-    //   if (destinations === 5) {
-    //     $scope.destination5 = true;
-    //   }
-    // }
-    // $scope.removeDestination = function() {
-    //   if (destinations === 2) {
-    //     $scope.destination2 = false;
-    //   }
-    //   if (destinations === 3) {
-    //     $scope.destination3 = false;
-    //   }
-    //   if (destinations === 4) {
-    //     $scope.destination4 = false;
-    //   }
-    //   if (destinations === 5) {
-    //     $scope.destination5 = false;
-    //   }
-    //   if (destinations !== 1) {destinations--;}
 
-//     var arrays = [["$6"], ["$12"], ["$25"], ["$25"], ["$18"], ["$22"], ["$10"], ["$0"], ["$15"],["$3"], ["$75"], ["$5"], ["$100"], ["$7"], ["$3"], ["$75"], ["$5"]];
-// var merged = [];
-// merged = merged.concat.apply(merged, arrays);
-    // }
     var queries = 0;
     var responses = 0;
     var arrOfTripObjs = [];
@@ -67,7 +33,7 @@
           responses++;
 
           if (queries === responses) {
-            console.log('arrOfTripObjs built up correctly:', arrOfTripObjs);
+            // console.log('arrOfTripObjs built up correctly:', arrOfTripObjs);
             $rootScope.$broadcast('results', arrOfTripObjs);
             queries = 0;
             responses = 0;
@@ -79,6 +45,7 @@
         }); 
       }
     };
+
 
   }]); // closes controller
 

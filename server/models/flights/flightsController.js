@@ -32,8 +32,8 @@ module.exports = {
     }
 
     // QPX REST API URL
-    url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyDuoEYWoXSOt73uaOH9JODD4AyA3lwQ6ks";
-
+    url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBkgyeYsv7WDqxULKXvaA8fFCM-BtH0JeM";
+    // AIzaSyDuoEYWoXSOt73uaOH9JODD4AyA3lwQ6ks
     // AIzaSyBkgyeYsv7WDqxULKXvaA8fFCM-BtH0JeM
     // fires request
     request({
@@ -128,7 +128,7 @@ module.exports = {
         var uniquePrices = [];
         for (var i=0; i<requestData.request.solutions; i++) {
           var price = options[i].saleTotal;
-          uniquePrices.push('$' + price.slice(3, price.length));
+          uniquePrices.push(price.slice(3, price.length));
         }
         console.log('uniquePrices: ', uniquePrices);
 

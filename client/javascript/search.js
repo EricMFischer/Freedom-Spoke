@@ -47,17 +47,29 @@
     //   }
     //   if (destinations !== 1) {destinations--;}
     // }
-
+    var queries = 0;
+    var responses = 0;
     $scope.getFlights = function(from, to, when) {
+      queries++;
       if (from !== undefined && to !== undefined && when !== undefined) {
         return $http.post('/api/flights', {
           from: from,
           to: to,
           when: when
         }).then(function(response) {
-          // console.log('response body(s) after querying the API: ', response);
-          // console.log('This is response.data: ', response.data);
-          $rootScope.$broadcast('results', response);
+          var arrOfTripObjs = arrOfTripObjs || [];
+          responses++;
+          console.log('response: ', response);
+          // each response is an array of trip objects (for 1 destination)
+          arrOfTripObjs.concat(response);
+
+          if (queries === responses) {
+            queries = 0;
+            responses = 0;
+            console.log(arrOfTripObjs);
+            $rootScope.$broadcast('results', arrOfTripObjs);
+            arrOfTripObjs = [];
+          }
           if (response.data === 'No results available') {
             // make input box red or something...
           }

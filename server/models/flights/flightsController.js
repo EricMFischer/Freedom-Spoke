@@ -26,7 +26,7 @@ module.exports = {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 8,
+        "solutions": 4,
         "refundable": false
       }
     }
@@ -34,6 +34,7 @@ module.exports = {
     // QPX REST API URL
     url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBkgyeYsv7WDqxULKXvaA8fFCM-BtH0JeM";
 
+    // AIzaSyDuoEYWoXSOt73uaOH9JODD4AyA3lwQ6ks
     // fires request
     request({
       url: url,
@@ -206,9 +207,7 @@ module.exports = {
 
         // } attached to old if-else chain handling errors
       } else {
-        console.log("error: " + error);
         console.log("response.statusCode: " + response.statusCode);
-        console.log("response.statusText: " + response.statusText);
         res.send('No results available');
       }
       res.send(tripsArr); // send tripsArr back to client

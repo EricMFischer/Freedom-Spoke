@@ -11,6 +11,7 @@
       } else {
 
         var tripsArr = response.data; // array of trip objects
+        console.log('tripsArr: ', tripsArr);
 
         // $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
         // $scope.origin = tripsArr[0].origin;

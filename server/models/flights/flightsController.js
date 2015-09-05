@@ -32,9 +32,9 @@ module.exports = {
     }
 
     // QPX REST API URL
-    url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBkgyeYsv7WDqxULKXvaA8fFCM-BtH0JeM";
+    url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyDuoEYWoXSOt73uaOH9JODD4AyA3lwQ6ks";
 
-    // AIzaSyDuoEYWoXSOt73uaOH9JODD4AyA3lwQ6ks
+    // AIzaSyBkgyeYsv7WDqxULKXvaA8fFCM-BtH0JeM
     // fires request
     request({
       url: url,
@@ -45,6 +45,7 @@ module.exports = {
       },
       body: requestData // don't need to JSON.stringify here
     }, function (error, response, body) {
+      console.log('Body of succ. request: ', body);
       if (!error && response.statusCode === 200) {
         var trip = body.trips.data;
         // if (!body.trips.tripOption || !trip) { // 1st edge case: flight searches that have no direct flights

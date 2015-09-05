@@ -1,7 +1,6 @@
 var flightsController = require('./flightsController.js');
 
 module.exports = function(app) {
-  console.log('Got to flightsRoutes');
   app.post('/', flightsController.getFlights);
   // app.post('/', function(req, res) {
   //   console.log('Req here should be URL', req);

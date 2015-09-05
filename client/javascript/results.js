@@ -10,8 +10,8 @@
         $scope.errorMessage = response.data;
       } else {
 
-        var tripsArr = response.data; // array of trip objects
-        console.log('tripsArr: ', tripsArr);
+        var tripsArr = response; // array of trip objects (not response.data anymore)
+        console.log('tripsArr in results.js: ', tripsArr);
 
         // $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
         // $scope.origin = tripsArr[0].origin;
@@ -94,7 +94,7 @@
         } // ends for loop
       } // ends else statement (if checked for 'No results available')
       $scope.resultsAvailable = true;
-      console.log($scope.flights);
+      console.log('$scope.flights in results.js', $scope.flights);
     }); // ends 1st func in controller
 
 

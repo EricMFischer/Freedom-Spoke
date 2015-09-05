@@ -26,7 +26,7 @@ module.exports = {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 2,
+        "solutions": 8,
         "refundable": false
       }
     }
@@ -74,13 +74,13 @@ module.exports = {
         // for general.destination
         for (var i=0; i<trip.airport.length; i++) {
           var airportCode = trip.airport[i].code;
-          if (airportCode === general.destinationcode) { // in the event dest. was undefined
+          if (airportCode === general.destinationcode) {
             var cityCode = trip.airport[i].city;
           }
-          for (var i=0; i<trip.city.length; i++) {
-            if (cityCode === trip.city[i].code) {
-              general.destination = trip.city[i].name;
-            }
+        }
+        for (var i=0; i<trip.city.length; i++) {
+          if (cityCode === trip.city[i].code) {
+            general.destination = trip.city[i].name;
           }
         }
 

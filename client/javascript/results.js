@@ -9,6 +9,8 @@
       if (response.data === 'No results available') {
         $scope.errorMessage = response.data;
       } else {
+
+
         var tripsArr = response.data; // array of trip objects
 
         // $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
@@ -76,6 +78,20 @@
           }
           $scope.flights.push(obj);
 
+
+          var sort = function() {
+            $scope.flights.sort(function(a,b) {
+              if (a.price > b.price) {
+                return 1;
+              }
+              if (a.price < b.price) {
+                return -1;
+              }
+              return 0;
+            });
+          }
+
+
           $scope.resultsAvailable = true;
         } // ends for loop
       } // ends else statement (if checked for 'No results available')
@@ -88,6 +104,28 @@
 
 })();
 
+
+// var sort = function() {
+//   return $q(function(resolve, reject) {
+//     if ($scope.flights) {
+//       resolve(
+//         $scope.flights.sort(function(a,b) {
+//           if (a.price > b.price) {
+//             return 1;
+//           }
+//           if (a.price < b.price) {
+//             return -1;
+//           }
+//           return 0;
+//         })
+//       );
+//     }
+//   });
+// }
+// var promise = sort();
+// promise.then(function() {
+//   $scope.resultsAvailable = true;
+// });
 
 
 //   var tripsArr = [ 

@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="info" ng-repeat="flight in flights">
+          <tr class="info" ng-repeat="flight in flights | filter:flight.price">
             <td>{{ flight.origin }} - {{ flight.destination }}</td>
             <td><div ng-repeat="leg in flight.legs">{{ leg[0] }} - {{ leg[1] }}</div></td>
             <td><div ng-repeat="leg in flight.legs">{{ leg[6] }} - {{ leg[8] }}</div></td>

@@ -10,7 +10,6 @@
         $scope.errorMessage = response.data;
       } else {
 
-
         var tripsArr = response.data; // array of trip objects
 
         // $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
@@ -78,7 +77,6 @@
           }
           $scope.flights.push(obj);
 
-
           var sort = function() {
             $scope.flights.sort(function(a,b) {
               if (a.price > b.price) {
@@ -90,12 +88,11 @@
               return 0;
             });
           }
+          sort();
 
-
-          $scope.resultsAvailable = true;
         } // ends for loop
       } // ends else statement (if checked for 'No results available')
-
+      $scope.resultsAvailable = true;
       console.log($scope.flights);
     }); // ends 1st func in controller
 

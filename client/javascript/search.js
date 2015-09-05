@@ -46,28 +46,31 @@
     //     $scope.destination5 = false;
     //   }
     //   if (destinations !== 1) {destinations--;}
+
+//     var arrays = [["$6"], ["$12"], ["$25"], ["$25"], ["$18"], ["$22"], ["$10"], ["$0"], ["$15"],["$3"], ["$75"], ["$5"], ["$100"], ["$7"], ["$3"], ["$75"], ["$5"]];
+// var merged = [];
+// merged = merged.concat.apply(merged, arrays);
     // }
     var queries = 0;
     var responses = 0;
+    var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
-      queries++;
       if (from !== undefined && to !== undefined && when !== undefined) {
+        queries++;
         return $http.post('/api/flights', {
           from: from,
           to: to,
           when: when
         }).then(function(response) {
-          var arrOfTripObjs = arrOfTripObjs || [];
+
+          arrOfTripObjs = arrOfTripObjs.concat.apply(arrOfTripObjs, response.data); // each response.data is an array of trip objects (for 1 destination)
           responses++;
-          console.log('response: ', response);
-          // each response is an array of trip objects (for 1 destination)
-          arrOfTripObjs.concat(response);
 
           if (queries === responses) {
+            console.log('arrOfTripObjs built up correctly:', arrOfTripObjs);
+            $rootScope.$broadcast('results', arrOfTripObjs);
             queries = 0;
             responses = 0;
-            console.log(arrOfTripObjs);
-            $rootScope.$broadcast('results', arrOfTripObjs);
             arrOfTripObjs = [];
           }
           if (response.data === 'No results available') {

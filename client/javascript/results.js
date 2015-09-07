@@ -77,7 +77,6 @@
           $scope.flights.push(obj);
         } // ends for loop
 
-        console.log('$scope.flights: ', $scope.flights);
 
         var destinations = {}; // destinations obj with keys for each destination
         // build up unique destination arrays full of their flight objects
@@ -92,7 +91,14 @@
         });
         console.log('destinations obj: ', destinations);
 
-        
+        var count = 0;
+        for (var key in destinations) {
+          count++;
+          $scope['destination' + count] = destinations[key]; // gets unique destination arrays attached to $scope
+          $scope['destination' + count + 'city'] = destinations[key][0].destination; // gets city names
+        }
+
+
 
       } // ends else statement (if checked for 'No results available')
       $scope.resultsAvailable = true;
@@ -103,7 +109,25 @@
 
 })();
 
+// for (var i=0; i<tripSolutions.length; i++) {
+//   var tripDetails = tripSolutions[i]; // will have 4 (or however many) tripSolutions
+//   var trip = tripsArr[i];
 
+//   var legOfTrip = 1;
+//   while (tripDetails.length) {
+//     trip['legStart' + legOfTrip] = tripDetails.shift();
+//     trip['legEnd' + legOfTrip] = tripDetails.shift();
+//     trip['legDuration' + legOfTrip] = Math.round(tripDetails.shift() / 60);
+//     trip['legCarrier' + legOfTrip] = tripDetails.shift();
+//     trip['legFlightNumber' + legOfTrip] = tripDetails.shift();
+//     trip['legDepartureDate' + legOfTrip] = tripDetails.shift();
+//     trip['legDepartureTime' + legOfTrip] = tripDetails.shift();
+//     trip['legArrivalDate' + legOfTrip] = tripDetails.shift();
+//     trip['legArrivalTime' + legOfTrip] = tripDetails.shift();
+//     legOfTrip++;
+//   }
+// }
+// console.log('tripsArr with specific flight objects: ', tripsArr);
 
 
 //   var tripsArr = [ 

@@ -11,7 +11,7 @@
       } else {
 
         var tripsArr = response; // array of trip objects (not response.data anymore)
-        console.log('tripsArr in results.js: ', tripsArr);
+        // console.log('tripsArr in results.js: ', tripsArr);
 
         // $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
         // $scope.origin = tripsArr[0].origin;
@@ -76,6 +76,23 @@
           }
           $scope.flights.push(obj);
         } // ends for loop
+
+        console.log('$scope.flights: ', $scope.flights);
+
+        var destinations = {}; // destinations obj with keys for each destination
+        // build up unique destination arrays full of their flight objects
+        $scope.flights.forEach(function(flightObj) {
+          var city = flightObj.destination;
+          if (!destinations.hasOwnProperty(city)) {
+            destinations[city] = [];
+            destinations[city].push(flightObj);
+          } else {
+            destinations[city].push(flightObj);
+          }
+        });
+        console.log('destinations obj: ', destinations);
+
+        
 
       } // ends else statement (if checked for 'No results available')
       $scope.resultsAvailable = true;

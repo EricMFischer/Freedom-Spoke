@@ -56,58 +56,46 @@ module.exports = {
         // console.log('Body of succ. request: ', body);
         // console.log('Body.trips.data: ', body.trips.data);
         // console.log('Body.trips.tripOption: ', body.trips.tripOption);
+        console.log('trip.city: ', trip.city);
+        console.log('trip.airport: ', trip.airport);
 
         // STEP 1: GATHER GENERAL FLIGHT INFORMATION
         // stores general information for all flight solutions
         var general = {};
         general.origincode = requestData.request.slice[0].origin;
         general.destinationcode = requestData.request.slice[0].destination;
-        for (var i=0; i<trip.city.length; i++) {
-          var cityCode = trip.city[i].code;
-          if (cityCode === general.origincode) {
-            general.origin = trip.city[i].name;
-          }
-          // if (cityCode === general.destinationcode) { // search for LHR has a city code of LON
-          //   general.destination = trip.city[i].name;
-          // }
-        }
 
-        // for general.destination
+        // for general.origin & general.destination
         for (var i=0; i<trip.airport.length; i++) {
           var airportCode = trip.airport[i].code;
+          if (airportCode === general.origincode) {
+            var originCityCode = trip.airport[i].city;
+            general.originairportname = trip.airport[i].name; 
+
+          }
           if (airportCode === general.destinationcode) {
-            var cityCode = trip.airport[i].city;
+            var destinationCityCode = trip.airport[i].city;
+            general.destinationairportname = trip.airport[i].name;
           }
         }
         for (var i=0; i<trip.city.length; i++) {
-          if (cityCode === trip.city[i].code) {
+          var cityCode = trip.city[i].code;
+          if (cityCode === originCityCode) {
+            general.origin = trip.city[i].name;
+          }
+          if (cityCode === destinationCityCode) {
             general.destination = trip.city[i].name;
           }
         }
 
-        for (var i=0; i<trip.airport.length; i++) {
-          var airportCode = trip.airport[i].code;
-          // if (airportCode === general.destinationcode) { // in the event dest. was undefined
-          //   general.destination = general.destination || trip.airport[i].name;
-          // }
-          if (airportCode === general.origincode) {
-            general.originairportname = trip.airport[i].name;    
-          }
-          if (airportCode === general.destinationcode) {
-            general.destinationairportname = trip.airport[i].name;
-          }
-        }
-        console.log('trip.city: ', trip.city);
-        console.log('trip.airport: ', trip.airport);
-
-        if (general.destinationairportname === undefined) { // when actual destination code (IAH) doesn't match user's inputted destinationcode (HOU)
-          for (var i=0; i<trip.city.length; i++) {
-            var cityCode = trip.city[i].code;
-            if (cityCode === general.destinationcode) {
-              general.destinationairportname = trip.city[i].name;
-            }
-          }
-        }
+        // if (general.destinationairportname === undefined) { // when actual destination code (IAH) doesn't match user's inputted destinationcode (HOU)
+        //   for (var i=0; i<trip.city.length; i++) {
+        //     var cityCode = trip.city[i].code;
+        //     if (cityCode === general.destinationcode) {
+        //       general.destinationairportname = trip.city[i].name;
+        //     }
+        //   }
+        // }
         
 
         // STEP 2: GATHER UNIQUE FLIGHT INFORMATION FOR VARIOUS SOLUTIONS

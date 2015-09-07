@@ -41,10 +41,15 @@
   margin-top: 50px;
 }
 
-/*.results {
-  position: relative;
-  top: 50%;
-}*/
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
 
 .css-form input.ng-invalid.ng-touched {
   background-color: #FA787E;
@@ -55,6 +60,6 @@
 }
 
 .div-table-content {
-  height:300spx;
+  height:300px;
   overflow-y:auto;
 }

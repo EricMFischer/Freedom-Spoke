@@ -7,7 +7,7 @@
     $scope.$on('results', function(event, response) {
       $scope.noResults = false;
       $scope.resultsAvailable = false;
-      
+
       if (response === 'No results available') {
         $scope.noResults = true;
       } else {

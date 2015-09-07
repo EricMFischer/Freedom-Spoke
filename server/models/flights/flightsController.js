@@ -45,6 +45,8 @@ module.exports = {
       },
       body: requestData // don't need to JSON.stringify here
     }, function (error, response, body) {
+      console.log('body.trips.data: ', body.trips.data);
+      if (body.trips === undefined) {res.send('No results available'); return;}
       // console.log('Body of request: ', body.error.errors[0]);
       if (!error && body.trips.data.airport !== undefined && response.statusCode === 200) {
         var trip = body.trips.data;
@@ -87,6 +89,10 @@ module.exports = {
             general.destination = trip.city[i].name;
           }
         }
+
+        if (general.destination === undefined || general.origin === undefined) {
+          res.send('No results available'); return;
+        } // need this check for inputs like NYC that don't correspond to any airport
 
         // if (general.destinationairportname === undefined) { // when actual destination code (IAH) doesn't match user's inputted destinationcode (HOU)
         //   for (var i=0; i<trip.city.length; i++) {

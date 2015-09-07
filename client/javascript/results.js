@@ -4,9 +4,15 @@
   
   app.controller('ResultsController', ['$scope', function($scope) {
 
-    $scope.$on('results', function(event, response) {
-      console.log('results was hit');
+    $scope.$on('loading', function(event) {
+      $scope.loading = true;
       $scope.noResults = false;
+    });
+
+    $scope.$on('results', function(event, response) {
+      // console.log('results was hit');
+      $scope.noResults = false;
+      $scope.loading = false;
       // $scope.resultsAvailable;
 
       if (response === 'No results available') {

@@ -21,6 +21,7 @@
     var responses = 0;
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
+      $rootScope.$broadcast('loading');
       if (from !== undefined && to !== undefined && when !== undefined) {
         queries++;
         return $http.post('/api/flights', {

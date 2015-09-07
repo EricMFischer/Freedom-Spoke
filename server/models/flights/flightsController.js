@@ -46,11 +46,10 @@ module.exports = {
       body: requestData // don't need to JSON.stringify here
     }, function (error, response, body) {
       // console.log('Body of request: ', body.error.errors[0]);
-      if (!error && response.statusCode === 200) {
+      if (!error && body.trips.data.city !== undefined && response.statusCode === 200) {
         var trip = body.trips.data;
         // if (!body.trips.tripOption || !trip) { // 1st edge case: flight searches that have no direct flights
-        //   res.send('No direct flights available to this location');
-        //   res.end();
+        //   res.send('No results available');
         // } else {
 
 
@@ -206,10 +205,11 @@ module.exports = {
         }
         console.log('tripsArr with specific flight objects: ', tripsArr);
 
-        // } attached to old if-else chain handling errors
+        // } // attached to old if-else chain handling errors
       } else {
         console.log("response.statusCode: " + response.statusCode);
         res.send('No results available');
+        res.end();
       }
       res.send(tripsArr); // send tripsArr back to client
     });

@@ -28,20 +28,22 @@
           to: to,
           when: when
         }).then(function(response) {
-
-          arrOfTripObjs = arrOfTripObjs.concat.apply(arrOfTripObjs, response.data); // each response.data is an array of trip objects (for 1 destination)
-          responses++;
-
-          if (queries === responses) {
-
-            $rootScope.$broadcast('results', arrOfTripObjs);
-            queries = 0;
-            responses = 0;
-            arrOfTripObjs = [];
-          }
           if (response.data === 'No results available') {
-            // make input box red or something...
+            console.log('line 33 of search.js: ', response.data);
+            $rootScope.$broadcast('results', response.data);
+          } else {
+
+            arrOfTripObjs = arrOfTripObjs.concat.apply(arrOfTripObjs, response.data); // each response.data is an array of trip objects (for 1 destination)
+            responses++;
+
+            if (queries === responses) {
+              $rootScope.$broadcast('results', arrOfTripObjs);
+              queries = 0;
+              responses = 0;
+              arrOfTripObjs = [];
+            }
           }
+
         }); 
       }
     };

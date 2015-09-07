@@ -5,9 +5,11 @@
   app.controller('ResultsController', ['$scope', function($scope) {
 
     $scope.$on('results', function(event, response) {
-      // console.log('Response made it to results.js: ', response);
-      if (response.data === 'No results available') {
-        $scope.errorMessage = response.data;
+      $scope.noResults = false;
+      $scope.resultsAvailable = false;
+      
+      if (response === 'No results available') {
+        $scope.noResults = true;
       } else {
 
         var tripsArr = response; // array of trip objects (not response.data anymore)
@@ -91,6 +93,16 @@
         });
         console.log('destinations obj: ', destinations);
 
+        $scope.destination1 = [];
+        $scope.destination2 = [];
+        $scope.destination3 = [];
+        $scope.destination4 = [];
+        $scope.destination5 = [];
+        $scope.destination1Avail = false;
+        $scope.destination2Avail = false;
+        $scope.destination3Avail = false;
+        $scope.destination4Avail = false;
+        $scope.destination5Avail = false;
         // with destinations obj, make unique $scope properties for results.html view
         var count = 0;
         for (var key in destinations) {
@@ -107,11 +119,12 @@
             }
             return 0;
           });
-          $scope['destination' + count + 'city'] = destinations[key][0].destination; // gets city names
+          // makes destinations available for template
+          $scope['destination' + count + 'Avail'] = true;
+          
+          // gets cities for template
+          $scope['destination' + count + 'city'] = destinations[key][0].destination;
         }
-
-        console.log('scope.destination1: ', $scope.destination1);
-        console.log('scope.destination2: ', $scope.destination2);
 
 
         // lastly, sort $scope.flights array for the ALL tab before you make the resultsAvailable
@@ -125,8 +138,11 @@
           return 0;
         });
 
+        $scope.resultsAvailable = true;
+
       } // ends else statement (if checked for 'No results available')
-      $scope.resultsAvailable = true;
+
+      // empty destination arrays
     }); // ends 1st func in controller
 
 

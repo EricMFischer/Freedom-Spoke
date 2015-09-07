@@ -28,13 +28,14 @@
           to: to,
           when: when
         }).then(function(response) {
+          responses++;
+          console.log('response was returned: ', response);
           if (response.data === 'No results available') {
             console.log('line 33 of search.js: ', response.data);
             $rootScope.$broadcast('results', response.data);
           } else {
 
             arrOfTripObjs = arrOfTripObjs.concat.apply(arrOfTripObjs, response.data); // each response.data is an array of trip objects (for 1 destination)
-            responses++;
 
             if (queries === responses) {
               $rootScope.$broadcast('results', arrOfTripObjs);

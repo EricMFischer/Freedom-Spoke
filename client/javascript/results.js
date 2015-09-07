@@ -5,8 +5,9 @@
   app.controller('ResultsController', ['$scope', function($scope) {
 
     $scope.$on('results', function(event, response) {
+      console.log('results was hit');
       $scope.noResults = false;
-      $scope.resultsAvailable = false;
+      // $scope.resultsAvailable;
 
       if (response === 'No results available') {
         $scope.noResults = true;

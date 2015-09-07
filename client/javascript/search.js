@@ -34,16 +34,6 @@
 
           if (queries === responses) {
 
-            arrOfTripObjs.sort(function(a,b) {
-              if (Number(a.price) > Number(b.price)) {
-                return 1;
-              }
-              if (Number(a.price) < Number(b.price)) {
-                return -1;
-              }
-              return 0;
-            });
-
             $rootScope.$broadcast('results', arrOfTripObjs);
             queries = 0;
             responses = 0;

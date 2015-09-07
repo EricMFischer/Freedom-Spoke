@@ -91,14 +91,39 @@
         });
         console.log('destinations obj: ', destinations);
 
+        // with destinations obj, make unique $scope properties for results.html view
         var count = 0;
         for (var key in destinations) {
           count++;
-          $scope['destination' + count] = destinations[key]; // gets unique destination arrays attached to $scope
+          // gets unique destination arrays attached to $scope
+          $scope['destination' + count] = destinations[key];
+          // and sort the destination arrays by price
+          $scope['destination' + count].sort(function(a,b) {
+            if (Number(a.price) > Number(b.price)) {
+              return 1;
+            }
+            if (Number(a.price) < Number(b.price)) {
+              return -1;
+            }
+            return 0;
+          });
           $scope['destination' + count + 'city'] = destinations[key][0].destination; // gets city names
         }
 
+        console.log('scope.destination1: ', $scope.destination1);
+        console.log('scope.destination2: ', $scope.destination2);
 
+
+        // lastly, sort $scope.flights array for the ALL tab before you make the resultsAvailable
+        $scope.flights.sort(function(a,b) {
+          if (Number(a.price) > Number(b.price)) {
+            return 1;
+          }
+          if (Number(a.price) < Number(b.price)) {
+            return -1;
+          }
+          return 0;
+        });
 
       } // ends else statement (if checked for 'No results available')
       $scope.resultsAvailable = true;

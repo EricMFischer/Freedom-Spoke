@@ -53,3 +53,8 @@
 .css-form input.ng-valid.ng-touched {
   background-color: #78FA89;
 }
+
+.div-table-content {
+  height:280px;
+  overflow-y:auto;
+}

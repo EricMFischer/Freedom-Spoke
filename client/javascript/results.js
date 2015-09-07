@@ -11,14 +11,12 @@
       } else {
 
         var tripsArr = response; // array of trip objects (not response.data anymore)
-        console.log('tripsArr in results.js before sorting: ', tripsArr);
+        console.log('tripsArr in results.js: ', tripsArr);
 
         // $scope.plane = 'https://cdn0.iconfinder.com/data/icons/gcons-2/22/airplane1-48.png';
         // $scope.origin = tripsArr[0].origin;
         // $scope.destination = tripsArr[0].destination;
-
-        // $scope.sortType = 'price'; // set the default sort type
-        $scope.flights = $scope.flights || [];
+        $scope.flights = [];
 
         for (var i=0; i<tripsArr.length; i++) {
           var trip = tripsArr[i]; // trip obj
@@ -79,32 +77,8 @@
           $scope.flights.push(obj);
         } // ends for loop
 
-        // function compare(a,b) {
-        //   if (a.last_nom < b.last_nom)
-        //     return -1;
-        //   if (a.last_nom > b.last_nom)
-        //     return 1;
-        //   return 0;
-        // }
-
-        // objs.sort(compare);
-
-        var sort = function() {
-          return $scope.flights.sort(function(a,b) {
-            if (a.price > b.price) {
-              return 1;
-            }
-            if (a.price < b.price) {
-              return -1;
-            }
-            return 0;
-          });
-        }
-        $scope.flights = sort();
-
       } // ends else statement (if checked for 'No results available')
       $scope.resultsAvailable = true;
-      console.log('$scope.flights in results.js after sorting: ', $scope.flights);
     }); // ends 1st func in controller
 
 

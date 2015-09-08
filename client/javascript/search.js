@@ -3,8 +3,8 @@
   var app = angular.module('Search', []);
   
 
-  app.controller('SearchController', ['$scope', '$rootScope', '$http', 
-    function($scope, $rootScope, $http) {
+  app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 
+    function($scope, $rootScope, $http, UserFactory) {
 
     $scope.master = {};
     $scope.update = function(search) {
@@ -16,6 +16,8 @@
     $scope.reset();
 
 
+    $scope.logout = UserFactory.signout;
+    
 
     var queries = 0;
     var responses = 0;

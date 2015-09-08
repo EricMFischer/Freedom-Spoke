@@ -9,30 +9,66 @@
   function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '/home',
         views: {
-          'search': {
-            templateUrl: 'views/search.html',
-            data: { publicallyAccessible: false }
-            // controller: 'SearchController'
+          // main template is placed here (relatively named)
+          '': { templateUrl: './views/home.html'},
+          // child views defined here (absolutely named)
+          'search@home': {
+            templateUrl: './views/search.html',
+            // controller: 'SearchController',
+            data: { publicallyAccessible: true }
           },
-          'results': {
-            templateUrl: 'views/results.html',
-            data: { publicallyAccessible: false }
-            // controller: 'ResultsController'
+          'results@home': {
+            templateUrl: './views/results.html',
+            // controller: 'ResultsController',
+            data: { publicallyAccessible: true }
           }
         }
       })
-      .state('signup', {
-        url: '/signup',
-        templateUrl: 'views/signup.html',
-        data: { publicallyAccessible: true }
-      })
-      .state('signin', {
-        url: '/signin',
-        templateUrl: 'views/signin.html',
-        data: { publicallyAccessible: true }
-      });
+
+
+      // .state('home', {
+      //   url: '/home',
+      //   views: {
+      //     'search': {
+      //       templateUrl: 'views/search.html',
+      //       data: { publicallyAccessible: true }
+      //     },
+      //     'results': {
+      //       templateUrl: 'views/results.html',
+      //       data: { publicallyAccessible: true }
+      //     }
+      //   }
+      // })
+
+
+      // .state('home', {
+      //   url: '/home',
+      //   templateUrl: 'views/home.html',
+      //   data: { publicallyAccessible: true }
+      // })
+      // .state('search', {
+      //   // url: '/home',
+      //   templateUrl: 'views/search.html',
+      //   data: { publicallyAccessible: true }
+      // })
+      // .state('results', {
+      //   // url: '/home',
+      //   templateUrl: 'views/results.html',
+      //   data: { publicallyAccessible: true }
+      // })
+
+      // .state('signup', {
+      //   url: '/signup',
+      //   templateUrl: 'views/signup.html',
+      //   data: { publicallyAccessible: true }
+      // })
+      // .state('signin', {
+      //   url: '/signin',
+      //   templateUrl: 'views/signin.html',
+      //   data: { publicallyAccessible: true }
+      // });
     $urlRouterProvider.otherwise('home');
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

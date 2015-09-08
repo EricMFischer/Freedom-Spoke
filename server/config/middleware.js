@@ -5,7 +5,7 @@ var helpers = require('./helper.js'); // my custom middleware in helper.js
 
 module.exports = function (app, express) {
   // Express 4 allows me to use multiple routers with their own configurations
-  // var userRouter = express.Router();
+  var userRouter = express.Router();
   var flightsRouter = express.Router();
 
   app.use(morgan('dev'));
@@ -14,7 +14,7 @@ module.exports = function (app, express) {
   app.use(express.static(__dirname + '/../../client'));
 
 
-  // app.use('/api/users', userRouter); // use user router for all user requests
+  app.use('/api/users', userRouter); // use user router for all user requests
   app.use('/api/flights', flightsRouter);
 
   // authentication middleware used to decode token on a request to the server
@@ -22,6 +22,6 @@ module.exports = function (app, express) {
   app.use(helpers.errorHandler);
 
   // with another require statement, inject routers into their respective route files
-  // require('../models/users/userRoutes.js')(userRouter);
+  require('../models/users/userRoutes.js')(userRouter);
   require('../models/flights/flightsRoutes.js')(flightsRouter);
 };

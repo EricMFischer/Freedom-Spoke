@@ -103,3 +103,8 @@ h3 {
     -webkit-transform: rotate( 360deg );  
   }
 }
+
+/*/signin and /signout css*/
+.signin-margin, .signup-margin {
+  margin: 5px 0;
+}

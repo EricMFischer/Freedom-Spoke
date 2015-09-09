@@ -1,6 +1,6 @@
 var User = require('./userModel.js');
-var Q = require('q');
-var jwt = require('jwt-simple');
+var Q = require('q'); // Node's asynchronous functions do not return promises; they take callbacks. Q makes them return promises
+var jwt = require('jwt-simple'); // JWT encodes a string of a small JSON object and hashes it
 
 var secret = 'I kissed your mom';
 

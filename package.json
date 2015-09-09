@@ -1,14 +1,31 @@
 {
   "name": "Eric",
-  "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "FreedomSpoke",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "grunt test",
+    "start": "nodemon app.js",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricMFischer/thesis-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EricMFischer/thesis-project/issues"
+  },
+  "homepage": "https://github.com/EricMFischer/thesis-project#readme",
   "dependencies": {
     "bcrypt": "^0.8.5",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",
-    "ejs": "~0.8.5",
+    "crypto": "0.0.3",
     "express": "^4.13.3",
+    "express-partials": "^0.3.0",
+    "grunt": "^0.4.5",
     "jwt-simple": "^0.3.0",
+    "mongodb-autoincrement": "^1.0.0",
     "mongoose": "^4.1.3",
     "morgan": "^1.6.1",
     "path": "^0.11.14",
@@ -17,7 +34,5 @@
     "topojson": "1"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-util": "^3.0.6"
   }
 }

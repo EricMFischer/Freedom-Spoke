@@ -1,7 +1,7 @@
 {
   "name": "Eric",
-  "version": "1.0.0",
   "description": "FreedomSpoke",
+  "version": "1.0.0",
   "main": "server/app.js",
   "scripts": {
     "test": "grunt test",

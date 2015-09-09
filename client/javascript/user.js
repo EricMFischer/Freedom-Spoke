@@ -34,6 +34,7 @@
           $location.path('/home'); // takes you now to home page, after signing up
         })
         .catch(function (error) {
+          console.log('Error is below');
           console.error(error);
         });
     };

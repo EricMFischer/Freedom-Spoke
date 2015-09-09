@@ -29,7 +29,25 @@ UserSchema.pre('save', function (next) {
   }
 
   // otherwise, first generate a salt
-  
-})
+  // .genSalt takes # of rounds to process data for, and callback fired once salt is generated
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+    if (err) {
+      return next(err);
+    }
+
+    // now hash the password along with our new salt
+    // .hash takes 1) data to be encrypted, 2) salt used to hash the password, 3) a 'progress' callback called during hashing to signify progress, and 4) a callback fired once data is encrypted
+    bcrypt.hash(user.password, salt, null, function(err, hash) {
+      if (err) {
+        return next(err);
+      }
+
+      // override the plain text password with the hashed one
+      user.password = hash;
+      user.salt = salt;
+      next();
+    });
+  });
+});
 
 module.exports = mongoose.model('users', UserSchema);

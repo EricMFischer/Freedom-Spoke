@@ -8,49 +8,101 @@
   '$httpProvider',
   function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
-      .state('home', {
-        url: '/home',
-        views: {
-          // main template is placed here (relatively named)
-          '': { templateUrl: './views/home.html'},
-          // child views defined here (absolutely named)
-          'search@home': {
-            templateUrl: './views/search.html',
-            // controller: 'SearchController',
-            data: { publicallyAccessible: true }
-          },
-          'results@home': {
-            templateUrl: './views/results.html',
-            // controller: 'ResultsController',
-            data: { publicallyAccessible: true }
-          }
-        }
-      })
-
-
       // .state('home', {
       //   url: '/home',
       //   views: {
-      //     'search': {
-      //       templateUrl: 'views/search.html',
+      //     // main template is placed here (relatively named)
+      //     '': { templateUrl: './views/home.html'},
+      //     // child views defined here (absolutely named)
+      //     'search@home': {
+      //       templateUrl: './views/search.html',
+      //       // controller: 'SearchController',
       //       data: { publicallyAccessible: true }
       //     },
-      //     'results': {
-      //       templateUrl: 'views/results.html',
+      //     'results@home': {
+      //       templateUrl: './views/results.html',
+      //       // controller: 'ResultsController',
       //       data: { publicallyAccessible: true }
       //     }
       //   }
       // })
 
 
+// app.config(['$stateProvider', '$urlRouterProvider',
+//   function ($stateProvider, $urlRouterProvider) {
+
+//     $urlRouterProvider.otherwise('/papers');
+//     // States
+//     $stateProvider
+//     .state( 'papers',  {
+//         url: "/papers",
+//         templateUrl: 'papers.html'
+//     }) // nested paper state + views
+//     .state( 'papers.views', {
+//         views: {
+//           '@papers': {
+//             templateUrl: 'papers.home.html'
+//           },
+//           'paper1@papers': {
+//             templateUrl: 'papers.paper1.html'
+//           },
+//           'paper2@papers': {
+//             templateUrl: 'papers.paper2.html'
+//           }
+//         }
+//     })
+//   }
+// ])
+
+      .state('home', {
+        abstract: true,
+        url: '/home',
+        templateUrl: 'views/home.html'
+      })
+        // data: { publicallyAccessible: true }
+        // views: {
+        //   'search': {
+        //     templateUrl: 'views/search.html',
+        //     data: { publicallyAccessible: true }
+        //   },
+        //   'results': {
+        //     templateUrl: 'views/results.html',
+        //     data: { publicallyAccessible: true }
+        //   }
+        // }
+      
+      // nested home state and views
+      .state('home.views', {
+        url: '',
+        views: {
+          'search@home': {
+            templateUrl: 'views/home.search.html'
+          },
+          'results@home': {
+            templateUrl: 'views/home.results.html'
+          }
+        }
+      })
+
+
+
+
+
+      // .state('home.search', {
+      //   url: '',
+      //   // loaded into ui-view of parent's template
+      //   templateUrl: 'views/home.search.html'
+      // })
+
+      // .state('home.results', {
+      //   url: '',
+      //   // loaded into ui-view of parent's template
+      //   templateUrl: 'views/home.results.html'
+      // })
+
       // .state('home', {
       //   url: '/home',
       //   templateUrl: 'views/home.html',
-      //   data: { publicallyAccessible: true }
-      // })
-      // .state('search', {
-      //   // url: '/home',
-      //   templateUrl: 'views/search.html',
       //   data: { publicallyAccessible: true }
       // })
       // .state('results', {
@@ -59,16 +111,18 @@
       //   data: { publicallyAccessible: true }
       // })
 
-      // .state('signup', {
-      //   url: '/signup',
-      //   templateUrl: 'views/signup.html',
-      //   data: { publicallyAccessible: true }
-      // })
-      // .state('signin', {
-      //   url: '/signin',
-      //   templateUrl: 'views/signin.html',
-      //   data: { publicallyAccessible: true }
-      // });
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'views/signup.html',
+        data: { publicallyAccessible: true }
+      })
+
+      .state('signin', {
+        url: '/signin',
+        templateUrl: 'views/signin.html',
+        data: { publicallyAccessible: true }
+      });
+
     $urlRouterProvider.otherwise('home');
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
@@ -109,5 +163,10 @@
     });
   });
   */
+  .run(['$rootScope', '$state', '$stateParams',
+    function ($rootScope, $state, $stateParams) {
+      $rootScope.$state = $state;
+      $rootScope.$stateParams = $stateParams;
+  }])
 
 })();

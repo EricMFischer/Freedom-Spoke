@@ -1,0 +1,137 @@
+<div ng-controller="SearchController">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Freedom Spoke</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav navbar-nav">
+          <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li> -->
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expand Search<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" ng-click="addDestination()">Add destination</a></li>
+              <li><a href="#" ng-click="removeDestination()">Remove destination</a></li>
+            </ul>
+          </li> -->
+
+        <form class="navbar-form" role="search">
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Date" ng-model="search.date" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Origin" ng-model="search.origin" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Destination" ng-model="search.destination" required>
+          </div>
+
+          <div class="form-group">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More Destinations<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Destination 2" ng-model="search.destination2">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Destination 3" ng-model="search.destination3">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Destination 4" ng-model="search.destination4">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Destination 5" ng-model="search.destination5">
+              </div>
+              </ul>
+            </li>
+          </div>
+
+          <button type="submit" class="btn btn-default" ng-click="getFlights(search.origin, search.destination, search.date); getFlights(search.origin, search.destination2, search.date); getFlights(search.origin, search.destination3, search.date); getFlights(search.origin, search.destination4, search.date); getFlights(search.origin, search.destination5, search.date);">Submit</button>
+          <button type="submit" class="btn btn-default" ng-click="reset()">New Search</button>
+        </form>
+
+        <!-- <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" ng-click=
+            "logout()";>Logout</a></li>
+        </ul> -->
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<iframe width="100%" height="520" frameborder="0" src="https://ericfischer.cartodb.com/viz/97d7857c-5138-11e5-84df-0e9d821ea90d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="search" layout="row" ng-controller="SearchController">
+
+  <form novalidate class="css-form">
+    <cite>Please use 3 letter airport code</cite><br/>
+    Origin airport: <input type="text" ng-model="search.origin" required /><br/>
+    Destination airport: <input type="text" ng-model="search.destination" required /><br/>
+    
+    <cite>Please use this format: 2015-28-10</cite><br/>
+    Departure date: <input type="text" ng-model="search.departuredate" required /><br/>
+
+    <input type="button" ng-click="reset()" value="Clear" />
+    <input type="submit" ng-click="update(search); getFlights(search.origin, search.destination, search.departuredate)" value="Submit" />
+  </form>
+
+</div> -->
+
+<!-- <form name="myForm" ng-controller="ExampleController">
+  <label>Single word:
+    <input type="text" name="input" ng-model="example.text"
+           ng-pattern="example.word" required ng-trim="false">
+  </label>
+  <div role="alert">
+    <span class="error" ng-show="myForm.input.$error.required">
+      Required!</span>
+    <span class="error" ng-show="myForm.input.$error.pattern">
+      Single word only!</span>
+  </div> -->
+  <!-- <tt>text = {{example.text}}</tt><br/>
+  <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+  <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
+  <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+  <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+ </form> -->
+

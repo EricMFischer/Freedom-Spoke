@@ -3,6 +3,7 @@ var bcrypt = require('bcrypt-nodejs'); // a key derivation hashing algorithm for
 var Q = require('q'); // Node's asynchronous functions do not return promises; they take callbacks. Q makes them return promises
 var SALT_WORK_FACTOR = 10; // hashes password 2^10 times
 
+
 var UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -15,9 +16,10 @@ var UserSchema = new mongoose.Schema({
   salt: String
 });
 
-// middleware that's passed control during execution of asynchronous functions
-// this a pre hook (serial, not parallel)
-// serial middleware are executed one after another, when each middleware calls next
+
+// Below is middleware that's passed control during execution of asynchronous functions
+// this is a pre hook (serial, not parallel)
+// serial middleware are executed one after another, when each middleware calls next()
 
 // the hooked method 'save' will not be executed until 'done' is called by each middleware
 UserSchema.pre('save', function (next) {

@@ -26,7 +26,7 @@ module.exports = {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 4,
+        "solutions": 8,
         "refundable": false
       }
     }

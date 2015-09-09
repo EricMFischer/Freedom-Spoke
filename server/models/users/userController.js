@@ -10,8 +10,12 @@ module.exports = {
     var password = req.body.password;
     var create;
     var newUser;
+    console.log('username in ctrl: ', username);
+    console.log('password in ctrl: ', password);
+
 
     var findOne = Q.nbind(User.findOne, User);
+    console.log('hitting findOne fn');
     // check to see if user exists already
     findOne({username: username})
       .then(function(user) {

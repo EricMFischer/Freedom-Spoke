@@ -21,6 +21,7 @@ var UserSchema = new mongoose.Schema({
 
 // the hooked method 'save' will not be executed until 'done' is called by each middleware
 UserSchema.pre('save', function (next) {
+  console.log('got to presave in userModel');
   var user = this;
 
   // if the password has not been modified (i.e. it's already a stored password), return next()

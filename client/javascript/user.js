@@ -31,7 +31,7 @@
           console.log('resp.data.token: ', token);
           $window.localStorage.setItem('com.FreedomSpoke', token);
           $window.localStorage.setItem('com.FreedomSpoke.username', $scope.user.username);
-          $location.path('/'); // takes you now to home page, after signing up
+          $location.path('/home'); // takes you now to home page, after signing up
         })
         .catch(function (error) {
           console.error(error);

@@ -3,13 +3,20 @@
   var app = angular.module('Results', []);
   
   app.controller('ResultsController', ['$scope', function($scope) {
+    
+    var destCount = 0;
+    $scope.$on('skiplaggedUrl', function (event, response) {
+      destCount++;
+      var destUrl = response;
+      $scope['dest' + destCount + 'url'] = destUrl;
+    })
 
-    $scope.$on('loading', function(event) {
+    $scope.$on('loading', function (event) {
       $scope.loading = true;
       $scope.noResults = false;
     });
 
-    $scope.$on('results', function(event, response) {
+    $scope.$on('results', function (event, response) {
       // console.log('results was hit');
       $scope.noResults = false;
       $scope.loading = false;

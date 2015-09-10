@@ -17,24 +17,29 @@
 
 
     $scope.logout = UserFactory.signout;
-    
+
 
     var queries = 0;
     var responses = 0;
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
+
+      // send skiplagged url to results.js
+      var destUrl = 'https://skiplagged.com/' + '?src=' + from + '&dst=' + to + '&when=' + when;
+      $rootScope.$broadcast('skiplaggedUrl', destUrl);
+
       $rootScope.$broadcast('loading');
       if (from !== undefined && to !== undefined && when !== undefined) {
         queries++;
+
         return $http.post('/api/flights', {
           from: from,
           to: to,
           when: when
         }).then(function(response) {
+
           responses++;
-          console.log('response was returned: ', response);
           if (response.data === 'No results available') {
-            console.log('line 33 of search.js: ', response.data);
             $rootScope.$broadcast('results', response.data);
           } else {
 

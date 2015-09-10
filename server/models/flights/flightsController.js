@@ -45,7 +45,7 @@ module.exports = {
       },
       body: requestData // don't need to JSON.stringify here
     }, function (error, response, body) {
-      console.log('body.trips.data: ', body.trips.data);
+      // console.log('body.trips.data: ', body.trips.data);
       if (body.trips === undefined) {res.send('No results available'); return;}
       // console.log('Body of request: ', body.error.errors[0]);
       if (!error && body.trips.data.airport !== undefined && response.statusCode === 200) {

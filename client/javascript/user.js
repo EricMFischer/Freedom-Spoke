@@ -39,7 +39,7 @@
     $scope.signup = function() {
       UserFactory.signup($scope.user)
         .then(function (token) {
-          console.log('token returned to controller: ', token);
+          console.log('token returned to signup controller: ', token);
           $window.localStorage.setItem('com.FreedomSpoke', token);
           $window.localStorage.setItem('com.FreedomSpoke.username', $scope.user.username);
           $location.path('/home'); // takes you now to home page, after signing up
@@ -52,32 +52,18 @@
     
     // signin
     $scope.signin = function() {
-
+      UserFactory.signin($scope.user)
+        .then(function (token) {
+          $window.localStorage.setItem('com.FreedomSpoke', token);
+          $window.localStorage.setItem('com.FreedomSpoke.username', $scope.user.username);
+          $location.path('/home');
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
     };
-
 
   }]);
 
 })();
 
-// $scope.signin = function () {
-//   Auth.signin($scope.user)
-//     .then(function (token) {
-//       $window.localStorage.setItem('com.shortly', token);
-//       $location.path('/links');
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//     });
-// };
-
-// $scope.signup = function () {
-//   Auth.signup($scope.user)
-//     .then(function (token) {
-//       $window.localStorage.setItem('com.shortly', token);
-//       $location.path('/links');
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//     });
-// };

@@ -46,7 +46,7 @@ module.exports = {
         res.statusCode = 500; // internal server error
         res.json({error: 'Server error'});
       });
-  }
+  },
 
   signin: function(req, res) {
     var username = req.body.username;
@@ -56,6 +56,7 @@ module.exports = {
 
     var findOne = Q.nbind(User.findOne, User); // promise-returning function
     console.log('hitting signin findOne fn');
+    findUser({username: username})
       .then(function (user) {
         console.log('User in signin: ', User);
         // first deal with potential error

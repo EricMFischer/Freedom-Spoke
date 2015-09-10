@@ -6,15 +6,15 @@
 
     var obj = {}; // export obj from factory so you have the freedom to add new objects and methods later
 
-    // obj.signin = function(user) {
-    //   return $http.post('api/users/signin', {
-    //     username: user.username,
-    //     password: user.password
-    //   })
-    //   .then(function (resp)  {
-        
-    //   })
-    // }
+    obj.signin = function(user) {
+      return $http.post('api/users/signin', {
+        username: user.username,
+        password: user.password
+      })
+      .then(function (resp)  {
+
+      })
+    }
 
     obj.signup = function(user) { // signup takes empty user object from controller
       return $http.post('/api/users/signup', {
@@ -38,7 +38,7 @@
     $scope.signup = function() {
       UserFactory.signup($scope.user)
         .then(function (token) {
-          console.log('resp.data.token: ', token);
+          console.log('token returned to controller: ', token);
           $window.localStorage.setItem('com.FreedomSpoke', token);
           $window.localStorage.setItem('com.FreedomSpoke.username', $scope.user.username);
           $location.path('/home'); // takes you now to home page, after signing up

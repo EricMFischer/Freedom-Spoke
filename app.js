@@ -11,7 +11,7 @@ var app = express();
 require('./server/config/middleware.js')(app, express);
 
 
-mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/FreedomSpoke';
+mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/Freedom-Spoke';
 mongoose.connect(mongoURI);
 
 var db = mongoose.connection;

@@ -6,6 +6,16 @@
 
     var obj = {}; // export obj from factory so you have the freedom to add new objects and methods later
 
+    // obj.signin = function(user) {
+    //   return $http.post('api/users/signin', {
+    //     username: user.username,
+    //     password: user.password
+    //   })
+    //   .then(function (resp)  {
+        
+    //   })
+    // }
+
     obj.signup = function(user) { // signup takes empty user object from controller
       return $http.post('/api/users/signup', {
         username: user.username,

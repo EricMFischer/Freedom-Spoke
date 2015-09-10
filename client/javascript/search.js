@@ -1,6 +1,6 @@
 (function() {
 
-  var app = angular.module('Search', []);
+  var app = angular.module('Search', ['User']);
   
 
   app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 

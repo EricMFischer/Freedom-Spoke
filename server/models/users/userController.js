@@ -83,7 +83,7 @@ module.exports = {
       });
   },
 
-  // checkAuth: function(req, res) {
+  // checkAuth: function (req, res) {
 
   // }
 

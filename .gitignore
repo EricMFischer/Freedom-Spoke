@@ -27,10 +27,7 @@ dist/
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules/
 bower_components/
-
-.DS_Store
-build
-node_modules
+client/lib
 
 # API key
 server/api-config.js

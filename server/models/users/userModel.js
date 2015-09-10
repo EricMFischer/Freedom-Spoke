@@ -53,4 +53,21 @@ UserSchema.pre('save', function (next) {
   });
 });
 
+
+
+UserSchema.methods.comparePasswords = function(candidatePassword) {
+  var defer = Q.defer(); // returns a 'deferred' object with a promise property and 4 methods resolve(value), reject(reason), notify(value), and makeNodeResolver(). separates promise part from resolver part
+  var savedPassword = this.password; // user called fn
+  bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) { // data, encrypted, cb fires once compared (isMatch === true || false)
+    if (err) {
+      defer.reject(err);
+    } else {
+      defer.resolve(isMatch); // waits on passed promise
+    }
+  });
+  console.log('defer: ', defer);
+  console.log('defer.promise: ', defer.promise);
+  return defer.promise; // resolve and reject methods control the state of promise prop
+}
+
 module.exports = mongoose.model('users', UserSchema);

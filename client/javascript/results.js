@@ -3,15 +3,6 @@
   var app = angular.module('Results', []);
   
   app.controller('ResultsController', ['$scope', function($scope) {
-    
-    var destCount = 0;
-    $scope.$on('skiplaggedUrl', function (event, response) {
-      destCount++;
-      var destUrl = response;
-      $scope['dest' + destCount + 'url'] = destUrl;
-      console.log($scope['dest' + destCount + 'url']);
-    });
-
 
 
     $scope.$on('loading', function (event) {
@@ -20,12 +11,9 @@
     });
 
 
-
     $scope.$on('results', function (event, response) {
-      // console.log('results was hit');
       $scope.noResults = false;
       $scope.loading = false;
-      // $scope.resultsAvailable;
 
       if (response === 'No results available') {
         $scope.noResults = true;
@@ -48,14 +36,12 @@
           if (Object.keys(trip).length === 17) {
             obj.legs = [[trip.legStart1, trip.legEnd1, trip.legDuration1, trip.legCarrier1, trip.legFlightNumber1, trip.legDepartureDate1, trip.legDepartureTime1, trip.legArrivalDate1, trip.legArrivalTime1]];
           }
-
           if (Object.keys(trip).length === 26) {
             obj.legs = [
             [trip.legStart1, trip.legEnd1, trip.legDuration1, trip.legCarrier1, trip.legFlightNumber1, trip.legDepartureDate1, trip.legDepartureTime1, trip.legArrivalDate1, trip.legArrivalTime1], 
             [trip.legStart2, trip.legEnd2, trip.legDuration2, trip.legCarrier2, trip.legFlightNumber2, trip.legDepartureDate2, trip.legDepartureTime2, trip.legArrivalDate2, trip.legArrivalTime2]
             ];
           }
-
           if (Object.keys(trip).length === 35) {
             obj.legs = [
             [trip.legStart1, trip.legEnd1, trip.legDuration1, trip.legCarrier1, trip.legFlightNumber1, trip.legDepartureDate1, trip.legDepartureTime1, trip.legArrivalDate1, trip.legArrivalTime1], 
@@ -63,7 +49,6 @@
             [trip.legStart3, trip.legEnd3, trip.legDuration3, trip.legCarrier3, trip.legFlightNumber3, trip.legDepartureDate3, trip.legDepartureTime3, trip.legArrivalDate3, trip.legArrivalTime3]
             ];
           }
-
           if (Object.keys(trip).length === 44) {
             obj.legs = [
             [trip.legStart1, trip.legEnd1, trip.legDuration1, trip.legCarrier1, trip.legFlightNumber1, trip.legDepartureDate1, trip.legDepartureTime1, trip.legArrivalDate1, trip.legArrivalTime1], 
@@ -72,7 +57,6 @@
             [trip.legStart4, trip.legEnd4, trip.legDuration4, trip.legCarrier4, trip.legFlightNumber4, trip.legDepartureDate4, trip.legDepartureTime4, trip.legArrivalDate4, trip.legArrivalTime4] 
             ];
           }
-
           if (Object.keys(trip).length === 53) {
             obj.legs = [
             [trip.legStart1, trip.legEnd1, trip.legDuration1, trip.legCarrier1, trip.legFlightNumber1, trip.legDepartureDate1, trip.legDepartureTime1, trip.legArrivalDate1, trip.legArrivalTime1], 
@@ -82,7 +66,6 @@
             [trip.legStart5, trip.legEnd5, trip.legDuration5, trip.legCarrier5, trip.legFlightNumber5, trip.legDepartureDate5, trip.legDepartureTime5, trip.legArrivalDate5, trip.legArrivalTime5] 
             ];
           }
-
           if (Object.keys(trip).length === 62) {
             obj.legs = [
             [trip.legStart1, trip.legEnd1, trip.legDuration1, trip.legCarrier1, trip.legFlightNumber1, trip.legDepartureDate1, trip.legDepartureTime1, trip.legArrivalDate1, trip.legArrivalTime1], 
@@ -97,6 +80,7 @@
         } // ends for loop
 
 
+
         var destinations = {}; // destinations obj with keys for each destination
         // build up unique destination arrays full of their flight objects
         $scope.flights.forEach(function(flightObj) {
@@ -109,6 +93,24 @@
           }
         });
         console.log('destinations obj: ', destinations);
+
+
+
+        var destCount = 0;
+        // assign $scope.dest1url, $scope.dest2url, and so forth for results.html
+        for (var key in destinations) {
+          destCount++;
+          var legs = destinations[key][0].legs; // for 'to' property calculation
+
+          var from = destinations[key][0].legs[0][0];
+          var to = destinations[key][0].legs[legs.length - 1][1];
+          var when = destinations[key][0].legs[0][5];
+          var destUrl = 'https://skiplagged.com/' + '?src=' + from + '&dst=' + to + '&when=' + when;
+          $scope['dest' + destCount + 'url'] = destUrl;
+        }
+        destCount = 0; // reinitialize destCount to 0
+
+
 
         $scope.destination1 = [];
         $scope.destination2 = [];
@@ -144,6 +146,7 @@
         }
 
 
+
         // lastly, sort $scope.flights array for the ALL tab before you make the resultsAvailable
         $scope.flights.sort(function(a,b) {
           if (Number(a.price) > Number(b.price)) {
@@ -155,8 +158,8 @@
           return 0;
         });
 
-        $scope.resultsAvailable = true;
 
+        $scope.resultsAvailable = true;
       } // ends else statement (if checked for 'No results available')
 
       // empty destination arrays

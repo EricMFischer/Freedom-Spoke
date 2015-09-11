@@ -24,13 +24,8 @@
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
 
-
       $rootScope.$broadcast('loading');
       if (from !== undefined && to !== undefined && when !== undefined) {
-      
-      // send skiplagged url to results.js
-      var destUrl = 'https://skiplagged.com/' + '?src=' + from + '&dst=' + to + '&when=' + when;
-      $rootScope.$broadcast('skiplaggedUrl', destUrl);
 
         queries++;
 
@@ -41,6 +36,7 @@
         }).then(function(response) {
 
           responses++;
+          
           if (response.data === 'No results available') {
             $rootScope.$broadcast('results', response.data);
           } else {

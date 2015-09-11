@@ -28,18 +28,6 @@
       });
     };
 
-    // obj.isAuth = function () {
-    //   console.log($window.localStorage.getItem('com.FreedomSpoke'));
-    //   return !!$window.localStorage.getItem('com.FreedomSpoke');
-    // };
-
-    obj.signout = function () {
-      obj.currentUser = null;
-      $window.localStorage.removeItem('com.FreedomSpoke');
-      $window.localStorage.removeItem('com.FreedomSpoke.username');
-      $location.path('/signin');
-    };
-
     return obj;
   }]);
 

@@ -28,6 +28,18 @@
       });
     };
 
+    obj.isAuth = function () {
+      // console.log($window.localStorage.getItem('com.FreedomSpoke'));
+      return !!$window.localStorage.getItem('com.FreedomSpoke');
+    };
+
+    obj.signout = function () {
+      obj.currentUser = null;
+      $window.localStorage.removeItem('com.FreedomSpoke');
+      $window.localStorage.removeItem('com.FreedomSpoke.username');
+      $location.path('/signin');
+    };
+
     return obj;
   }]);
 
@@ -45,6 +57,7 @@
           $location.path('/home'); // takes you now to home page, after signing up
         })
         .catch(function (error) {
+          $("[data-toggle=popover]").popover();
           console.log('Error is below');
           console.error(error);
         });
@@ -52,6 +65,7 @@
     
     // signin
     $scope.signin = function() {
+      $("[data-toggle=popover]").popover();
       UserFactory.signin($scope.user)
         .then(function (token) {
           $window.localStorage.setItem('com.FreedomSpoke', token);
@@ -59,6 +73,7 @@
           $location.path('/home');
         })
         .catch(function (error) {
+          $("[data-toggle=popover]").popover();
           console.error(error);
         });
     };

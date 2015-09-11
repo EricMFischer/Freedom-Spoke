@@ -98,14 +98,16 @@
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's invalid, we'll redirect back to signin/signup
   
-  // .run(function ($rootScope, $state, UserFactory) {
-  //   $rootScope.$on('$stateChangeStart', function(event, next) {
-  //     if (!next.data.publicallyAccessible && !UserFactory.isAuth()) {
-  //       event.preventDefault();
-  //       $state.go('signin');
-  //     }
-  //   });
-  // });
+  // fired at $rootScope level
+  // $stateChangeStart - fired when the transition begins
+  .run(function ($rootScope, $state, UserFactory) {
+    $rootScope.$on('$stateChangeStart', function(event, next) {
+      if (!next.data.publicallyAccessible && !UserFactory.isAuth()) {
+        event.preventDefault(); // prevents transition from happening; transitionTo() promise will be rejected with a 'transition prevented' error
+        $state.go('signin');
+      }
+    });
+  });
   
   // .run(['$rootScope', '$state', '$stateParams',
   //   function ($rootScope, $state, $stateParams) {

@@ -102,6 +102,7 @@
   // $stateChangeStart - fired when the transition begins
   .run(function ($rootScope, $state, UserFactory) {
     $rootScope.$on('$stateChangeStart', function(event, next) {
+      if (!next.data) {return;}
       if (!next.data.publicallyAccessible && !UserFactory.isAuth()) {
         event.preventDefault(); // prevents transition from happening; transitionTo() promise will be rejected with a 'transition prevented' error
         $state.go('signin');

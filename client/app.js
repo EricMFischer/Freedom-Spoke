@@ -26,51 +26,22 @@
       //     }
       //   }
       // })
-
-
-// app.config(['$stateProvider', '$urlRouterProvider',
-//   function ($stateProvider, $urlRouterProvider) {
-
-//     $urlRouterProvider.otherwise('/papers');
-//     // States
-//     $stateProvider
-//     .state( 'papers',  {
-//         url: "/papers",
-//         templateUrl: 'papers.html'
-//     }) // nested paper state + views
-//     .state( 'papers.views', {
-//         views: {
-//           '@papers': {
-//             templateUrl: 'papers.home.html'
-//           },
-//           'paper1@papers': {
-//             templateUrl: 'papers.paper1.html'
-//           },
-//           'paper2@papers': {
-//             templateUrl: 'papers.paper2.html'
-//           }
-//         }
-//     })
-//   }
-// ])
-
       .state('home', {
         abstract: true,
         url: '/home',
         templateUrl: 'views/home.html'
       })
-        // data: { publicallyAccessible: true }
-        // views: {
-        //   'search': {
-        //     templateUrl: 'views/search.html',
-        //     data: { publicallyAccessible: true }
-        //   },
-        //   'results': {
-        //     templateUrl: 'views/results.html',
-        //     data: { publicallyAccessible: true }
-        //   }
-        // }
-      
+      // data: { publicallyAccessible: true }
+      // views: {
+      //   'search': {
+      //     templateUrl: 'views/search.html',
+      //     data: { publicallyAccessible: true }
+      //   },
+      //   'results': {
+      //     templateUrl: 'views/results.html',
+      //     data: { publicallyAccessible: true }
+      //   }
+      // }
       // nested home state and views
       .state('home.views', {
         url: '',
@@ -83,33 +54,6 @@
           }
         }
       })
-
-
-
-
-
-      // .state('home.search', {
-      //   url: '',
-      //   // loaded into ui-view of parent's template
-      //   templateUrl: 'views/home.search.html'
-      // })
-
-      // .state('home.results', {
-      //   url: '',
-      //   // loaded into ui-view of parent's template
-      //   templateUrl: 'views/home.results.html'
-      // })
-
-      // .state('home', {
-      //   url: '/home',
-      //   templateUrl: 'views/home.html',
-      //   data: { publicallyAccessible: true }
-      // })
-      // .state('results', {
-      //   // url: '/home',
-      //   templateUrl: 'views/results.html',
-      //   data: { publicallyAccessible: true }
-      // })
 
       .state('signup', {
         url: '/signup',
@@ -153,20 +97,20 @@
   // when it does change routes, we then look for the token in localstorage
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's invalid, we'll redirect back to signin/signup
-  /*
-  .run(function ($rootScope, $state, UserFactory) {
-    $rootScope.$on('$stateChangeStart', function(event, next) {
-      if (!next.data.publicallyAccessible && !UserFactory.isAuth()) {
-        event.preventDefault();
-        $state.go('signin');
-      }
-    });
-  });
-  */
-  .run(['$rootScope', '$state', '$stateParams',
-    function ($rootScope, $state, $stateParams) {
-      $rootScope.$state = $state;
-      $rootScope.$stateParams = $stateParams;
-  }])
+  
+  // .run(function ($rootScope, $state, UserFactory) {
+  //   $rootScope.$on('$stateChangeStart', function(event, next) {
+  //     if (!next.data.publicallyAccessible && !UserFactory.isAuth()) {
+  //       event.preventDefault();
+  //       $state.go('signin');
+  //     }
+  //   });
+  // });
+  
+  // .run(['$rootScope', '$state', '$stateParams',
+  //   function ($rootScope, $state, $stateParams) {
+  //     $rootScope.$state = $state;
+  //     $rootScope.$stateParams = $stateParams;
+  // }])
 
 })();

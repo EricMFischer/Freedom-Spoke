@@ -68,6 +68,6 @@ UserSchema.methods.comparePasswords = function(candidatePassword) {
   console.log('defer: ', defer);
   console.log('defer.promise: ', defer.promise);
   return defer.promise; // resolve and reject methods control the state of promise prop
-}
+};
 
 module.exports = mongoose.model('users', UserSchema);

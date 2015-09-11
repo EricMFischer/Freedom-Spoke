@@ -54,11 +54,10 @@ module.exports = {
     var create;
     var newUser;
 
-    var findOne = Q.nbind(User.findOne, User); // promise-returning function
-    console.log('hitting signin findOne fn');
+    var findUser = Q.nbind(User.findOne, User); // promise-returning function
+    console.log('hitting signin findUser fn');
     findUser({username: username})
       .then(function (user) {
-        console.log('User in signin: ', User);
         // first deal with potential error
         if (!user) {
           res.statusCode = 403; // forbidden by server
@@ -81,7 +80,7 @@ module.exports = {
         res.statusCode = 403;
         res.json({error: 'Incorrect username or password'});
       });
-  },
+  }
 
   // checkAuth: function (req, res) {
 

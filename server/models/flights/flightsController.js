@@ -35,6 +35,7 @@ module.exports = {
     url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBADz2kTEj7MKBEOa6CTrDuxC6SBK_WH5c";
     // AIzaSyDuoEYWoXSOt73uaOH9JODD4AyA3lwQ6ks
     // AIzaSyBkgyeYsv7WDqxULKXvaA8fFCM-BtH0JeM
+    
     // fires request
     request({
       url: url,

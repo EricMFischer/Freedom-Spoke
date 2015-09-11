@@ -24,12 +24,14 @@
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
 
+
+      $rootScope.$broadcast('loading');
+      if (from !== undefined && to !== undefined && when !== undefined) {
+      
       // send skiplagged url to results.js
       var destUrl = 'https://skiplagged.com/' + '?src=' + from + '&dst=' + to + '&when=' + when;
       $rootScope.$broadcast('skiplaggedUrl', destUrl);
 
-      $rootScope.$broadcast('loading');
-      if (from !== undefined && to !== undefined && when !== undefined) {
         queries++;
 
         return $http.post('/api/flights', {

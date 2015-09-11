@@ -4,13 +4,13 @@
 }
 */
 
-.background {
-  background: no-repeat center center fixed; 
+/*.background {
+  background: url('http://cdb.io/1UqQfV5') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+}*/
 
 .land {
   fill: #ddd;
@@ -68,7 +68,7 @@
 }
 
 .div-table-content {
-  height:500px;
+  height:375px;
   overflow-y:auto;
 }
 

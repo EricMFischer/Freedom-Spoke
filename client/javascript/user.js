@@ -57,7 +57,8 @@
           $location.path('/home'); // takes you now to home page, after signing up
         })
         .catch(function (error) {
-          $("[data-toggle=popover]").popover();
+          // show error message
+          $scope.incorrectSignup = true;
           console.log('Error is below');
           console.error(error);
         });
@@ -73,7 +74,8 @@
           $location.path('/home');
         })
         .catch(function (error) {
-          $("[data-toggle=popover]").popover();
+          // show error message
+          $scope.incorrectSignin = true;
           console.error(error);
         });
     };

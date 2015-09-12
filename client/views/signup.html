@@ -42,12 +42,17 @@
       <!-- signin button -->
       <div class="row">
         <div class="signin-margin">
-          <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Check your username and password" value="Submit" ng-click="signup()">Submit</button>
+          <button type="button" class="btn btn-default" value="Submit" ng-click="signup()">Submit</button>
         </div>
       </div>
       
+      </br>
+      <div class="alert alert-dismissible alert-danger" ng-show="incorrectSignup">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        Username taken
+      </div>
+
       <!-- new account option -->
-      <br>
       <div class="row">
         <div class="col-md-12">
           Already have an account?
@@ -58,6 +63,8 @@
           <a href="/#/signin">Sign In</a>
         </div>
       </div>
+      
+
     </div>
 
   </div>

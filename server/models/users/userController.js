@@ -19,7 +19,6 @@ module.exports = {
     // check to see if user exists already
     findOne({username: username})
       .then(function (user) {
-        console.log('User in signup: ', user);
         // if user exists
         if (user) {
           res.statusCode = 403;

@@ -1,4 +1,3 @@
-var Flights = require('./flightsModel');
 var Q = require('q');
 var request = require('request'); // creates http req client to consume the QPX API
 

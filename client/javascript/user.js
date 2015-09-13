@@ -66,7 +66,6 @@
     
     // signin
     $scope.signin = function() {
-      $("[data-toggle=popover]").popover();
       UserFactory.signin($scope.user)
         .then(function (token) {
           $window.localStorage.setItem('com.FreedomSpoke', token);

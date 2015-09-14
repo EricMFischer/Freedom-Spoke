@@ -107,6 +107,7 @@
           var when = destinations[key][0].legs[0][5];
           var destUrl = 'https://skiplagged.com/' + '?src=' + from + '&dst=' + to + '&when=' + when;
           $scope['dest' + destCount + 'url'] = destUrl;
+          $scope['dest' + destCount] = key;
         }
         destCount = 0; // reinitialize destCount to 0
 

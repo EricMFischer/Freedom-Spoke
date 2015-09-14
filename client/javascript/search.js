@@ -60,4 +60,46 @@
 
   }]); // closes controller
 
+
+
+  // app.directive('psDatetimePicker', function (moment) {
+  //   var format = 'MM/DD/YYYY hh:mm A';
+
+  //   return {
+  //       restrict: 'A',
+  //       require: 'ngModel',
+  //       link: function (scope, element, attributes, ctrl) {
+  //           element.datetimepicker({
+  //               format: format
+  //           });
+  //           var picker = element.data("DateTimePicker");
+
+  //           ctrl.$formatters.push(function (value) {
+  //               var date = moment(value);
+  //               if (date.isValid()) {
+  //                   return date.format(format);
+  //               }
+  //               return '';
+  //           });
+
+  //           /**
+  //           * Update datetime picker's value from ng-model when opening the datetime picker's dropdown
+  //           */
+  //           element.on('dp.show', function() {
+  //               picker.setDate(ctrl.$viewValue);
+  //           });
+
+  //           /**
+  //           * Update ng-model when  datetime picker's value changes
+  //           */
+  //           element.on('change', function (event) {
+  //               scope.$apply(function () {
+  //                   var date = picker.getDate();
+  //                   ctrl.$setViewValue(date);
+  //               });
+  //           });
+  //       }
+  //   };
+  // });
+
 })();

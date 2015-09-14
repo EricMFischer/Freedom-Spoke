@@ -19,18 +19,35 @@
 
           <div class="form-group">
             <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" placeholder="Date" ng-model="search.date" required/>
+              <input type='text' class="form-control" placeholder="Date" ps-datetime-picker ng-model="search.date" required/>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
           </div>
           <script type="text/javascript">
-              $(function () {
-                  $('#datetimepicker1').datetimepicker({
-                    format: 'YYYY/MM/DD'
-                  });
+            $(function () {
+              var datepicker = $('#datetimepicker1').parent();
+              $('#datetimepicker1').datetimepicker({
+                format: 'YYYY/MM/DD'
               });
+              datepicker.on('dp.change', function(e) {
+                var dateNum = e.date;
+                var formatDate = function(date) {
+                  var d = new Date(date),
+                      month = '' + (d.getMonth() + 1),
+                      day = '' + d.getDate(),
+                      year = d.getFullYear();
+
+                  if (month.length < 2) month = '0' + month;
+                  if (day.length < 2) day = '0' + day;
+
+                  return [year, month, day].join('-');
+                }
+                var result = formatDate(e.date);
+                console.log('result: ', result);
+              });
+            });
           </script>
 
 

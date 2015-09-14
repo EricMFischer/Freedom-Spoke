@@ -23,6 +23,8 @@
     var responses = 0;
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
+      console.log('got to getFlights');
+      console.log(from, to, when);
 
       $rootScope.$broadcast('loading');
       if (from !== undefined && to !== undefined && when !== undefined) {

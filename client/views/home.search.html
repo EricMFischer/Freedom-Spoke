@@ -12,35 +12,29 @@
         <a class="navbar-brand" href="#">Freedom Spoke</a>
       </div>
 
+
+
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
         <form class="navbar-form navbar-left" role="search">
-          
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Date" ng-model="search.date" required>
-          </div>
 
-          <!-- <div class="form-group">
-            <div id="datetimepicker4" class="input-append">
-              <input data-format="yyyy-MM-dd" type="text" class="form-control" placeholder="Date" ng-model="search.date" required></input>
-              <span class="add-on">
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" placeholder="Date" ng-model="search.date" required/>
+              <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
           </div>
           <script type="text/javascript">
-            $(function() {
-              $('#datetimepicker4').datetimepicker({
-                pickTime: false
+              $(function () {
+                  $('#datetimepicker1').datetimepicker({
+                    format: 'YYYY/MM/DD'
+                  });
               });
-            });
-          </script> -->
+          </script>
 
-          <!-- <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" />
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-          </div> -->
+
+
 
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Origin" ng-model="search.origin" required>

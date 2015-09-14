@@ -3,8 +3,16 @@
   var app = angular.module('Search', []);
   
 
-  app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 
-    function($scope, $rootScope, $http, UserFactory) {
+  app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 'AirportsFactory', function($scope, $rootScope, $http, UserFactory, AirportsFactory) {
+
+
+
+
+
+    
+
+
+
 
     $scope.master = {};
     $scope.update = function(search) {
@@ -60,9 +68,7 @@
 
   }]); // closes controller
 
-
-
-  // app.directive('psDatetimePicker', function (moment) {
+  // app.directive('psDatetimePicker', ['moment', function (moment) {
   //   var format = 'MM/DD/YYYY hh:mm A';
 
   //   return {
@@ -100,6 +106,6 @@
   //           });
   //       }
   //   };
-  // });
+  // }]);
 
 })();

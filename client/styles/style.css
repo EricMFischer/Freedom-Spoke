@@ -83,8 +83,8 @@ h3 {
 .loader {
   width: 200px;
   height: 200px;
-  -webkit-animation: spin 1.9s infinite linear;
-  -moz-animation: spin 1.9s infinite linear;
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
   display: block;
   margin: 0 auto;
 }

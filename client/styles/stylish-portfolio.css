@@ -152,7 +152,7 @@ hr.small {
 
 .header {
     display: table;
-    /*position: relative;*/
+    position: relative;
     width: 100%;
     height: 820px;
     background: url(../img/bg.jpg) no-repeat center center scroll;
@@ -183,13 +183,13 @@ hr.small {
 .callout {
     display: table;
     width: 100%;
-    height: 400px;
+    height: 600px;
     color: #fff;
     background: url(../img/hiddencity.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
 }
 
 /* Portfolio */
@@ -204,6 +204,11 @@ hr.small {
 
 .img-portfolio {
     margin: 0 auto;
+    /*background: no-repeat center center scroll;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -o-background-size: 100% 100%;*/
 }
 
 .img-portfolio:hover {

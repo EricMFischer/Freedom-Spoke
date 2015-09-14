@@ -26,31 +26,30 @@
       //     }
       //   }
       // })
+      .state('splash', {
+        url: '/',
+        templateUrl: 'views/splash.html',
+        data: { publicallyAccessible: true }
+      })
+
       .state('home', {
         abstract: true,
         url: '/home',
-        templateUrl: 'views/home.html'
+        templateUrl: 'views/home.html',
+        data: { publicallyAccessible: true }
       })
-      // data: { publicallyAccessible: true }
-      // views: {
-      //   'search': {
-      //     templateUrl: 'views/search.html',
-      //     data: { publicallyAccessible: true }
-      //   },
-      //   'results': {
-      //     templateUrl: 'views/results.html',
-      //     data: { publicallyAccessible: true }
-      //   }
-      // }
+
       // nested home state and views
       .state('home.views', {
         url: '',
         views: {
           'search@home': {
-            templateUrl: 'views/home.search.html'
+            templateUrl: 'views/home.search.html',
+            data: { publicallyAccessible: true }
           },
           'results@home': {
-            templateUrl: 'views/home.results.html'
+            templateUrl: 'views/home.results.html',
+            data: { publicallyAccessible: true }
           }
         }
       })

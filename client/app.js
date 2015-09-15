@@ -36,7 +36,7 @@
         abstract: true,
         url: '/home',
         templateUrl: 'views/home.html',
-        data: { publicallyAccessible: true }
+        data: { publicallyAccessible: false }
       })
 
       // nested home state and views
@@ -45,11 +45,11 @@
         views: {
           'search@home': {
             templateUrl: 'views/home.search.html',
-            data: { publicallyAccessible: true }
+            data: { publicallyAccessible: false }
           },
           'results@home': {
             templateUrl: 'views/home.results.html',
-            data: { publicallyAccessible: true }
+            data: { publicallyAccessible: false }
           }
         }
       })
@@ -66,7 +66,7 @@
         data: { publicallyAccessible: true }
       });
 
-    $urlRouterProvider.otherwise('home');
+    $urlRouterProvider.otherwise('splash');
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');

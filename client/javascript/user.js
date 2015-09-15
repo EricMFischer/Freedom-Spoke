@@ -12,7 +12,7 @@
         password: user.password
       })
       .then(function (resp) {
-        console.log('response in signup factory: ', resp);
+        // console.log('response in signup factory: ', resp);
         return resp.data.token;
       });
     };
@@ -23,7 +23,7 @@
         password: user.password
       })
       .then(function (resp) {
-        console.log('response in signin factory: ', resp);
+        // console.log('response in signin factory: ', resp);
         return resp.data.token;
       });
     };
@@ -59,7 +59,7 @@
         .catch(function (error) {
           // show error message
           $scope.incorrectSignup = true;
-          console.log('Error is below');
+          console.log('Incorrect signup');
           console.error(error);
         });
     };
@@ -75,6 +75,7 @@
         .catch(function (error) {
           // show error message
           $scope.incorrectSignin = true;
+          console.log('Incorrect signin');
           console.error(error);
         });
     };

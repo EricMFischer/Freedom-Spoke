@@ -3,18 +3,18 @@
   var app = angular.module('Search', []);
   
 
-  app.directive('autoComplete', function($timeout) {
-    return function(scope, iElement, iAttrs) {
-      iElement.autocomplete({
-        source: scope[iAttrs.uiItems],
-        select: function() {
-          $timeout(function() {
-            iElement.trigger('input');
-          }, 0);
-        }
-      });
-    };
-  });
+  // app.directive('autoComplete', function($timeout) {
+  //   return function(scope, iElement, iAttrs) {
+  //     iElement.autocomplete({
+  //       source: scope[iAttrs.uiItems],
+  //       select: function() {
+  //         $timeout(function() {
+  //           iElement.trigger('input');
+  //         }, 0);
+  //       }
+  //     });
+  //   };
+  // });
 
 
   app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 'AirportsFactory', function($scope, $rootScope, $http, UserFactory, AirportsFactory) {

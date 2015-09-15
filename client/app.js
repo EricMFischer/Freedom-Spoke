@@ -1,6 +1,6 @@
 (function() {
 
-  var app = angular.module('FreedomSpoke', ['ui.router', 'Search', 'Results', 'User', 'Splash']);
+  var app = angular.module('FreedomSpoke', ['ui.router', 'Search', 'Results', 'User', 'Splash', 'Airports']);
 
   app.config([
   '$stateProvider',

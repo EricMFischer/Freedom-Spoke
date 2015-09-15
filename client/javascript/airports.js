@@ -2,7 +2,7 @@
 
   var app = angular.module('Airports', []);
 
-  app.factory('AirportsFactory', ['$scope', function($scope) {
+  app.factory('AirportsFactory', [function() {
 
     var airports = [
     "Aalborg, Denmark|AAL",
@@ -3598,6 +3598,8 @@
     "Zugapa, Indonesia|UGU",
     "Zurich, Switzerland|ZRH"
     ];
+
+    return airports;
 
   }]);
 

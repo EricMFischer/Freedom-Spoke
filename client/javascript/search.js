@@ -3,15 +3,48 @@
   var app = angular.module('Search', []);
   
 
+  app.directive('autoComplete', function($timeout) {
+    return function(scope, iElement, iAttrs) {
+      iElement.autocomplete({
+        source: scope[iAttrs.uiItems],
+        select: function() {
+          $timeout(function() {
+            iElement.trigger('input');
+          }, 0);
+        }
+      });
+    };
+  });
+
+
   app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 'AirportsFactory', function($scope, $rootScope, $http, UserFactory, AirportsFactory) {
 
+    // For airport codes
+    $scope.airports = AirportsFactory.airports;
 
+    // getting a variable 'date' in the event user uses calendar
+    var date;
+    $scope.datepicker = function () {
+      var datepicker = $('#datetimepicker1').parent();
 
+      datepicker.on('dp.change', function(e) {
+        var dateNum = e.date;
+        var formatDate = function(date) {
+          var d = new Date(date),
+              month = '' + (d.getMonth() + 1),
+              day = '' + d.getDate(),
+              year = d.getFullYear();
 
+          if (month.length < 2) month = '0' + month;
+          if (day.length < 2) day = '0' + day;
 
-    
-
-
+          return [year, month, day].join('-');
+        }
+        var result = formatDate(e.date);
+        date = result;
+        console.log('result: ', result);
+      });
+    };
 
 
     $scope.master = {};
@@ -31,11 +64,16 @@
     var responses = 0;
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
+      
+      // if the ng-model didn't pick up the date (bc user used calendar)
+      if (when === undefined) {
+        when = date; // then when is equal to date
+      }
       console.log('got to getFlights');
       console.log(from, to, when);
 
-      $rootScope.$broadcast('loading');
       if (from !== undefined && to !== undefined && when !== undefined) {
+        $rootScope.$broadcast('loading');
 
         queries++;
 
@@ -61,8 +99,10 @@
             }
           }
 
-        }); 
-      }
+        });
+
+      } 
+
     };
 
 

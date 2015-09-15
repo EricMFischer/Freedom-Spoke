@@ -1,10 +1,54 @@
 <div ng-controller="UserController">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="styles/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="fonts/googlefonts.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <!-- Navigation -->
+  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+      <li class="sidebar-brand">
+        <a href="#top"  onclick = $("#menu-close").click(); >Freedom Spoke</a>
+      </li>
+      <li>
+        <a href="#" onclick = $("#menu-close").click(); >Home</a>
+      </li>
+      <li>
+        <a href="#signup" onclick = $("#menu-close").click();>Sign Up</a>
+      </li>
+      <li>
+        <a href="#signin" onclick = $("#menu-close").click(); >Log In</a>
+      </li>
+      <!-- <li>
+          <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
+      </li> -->
+    </ul>
+  </nav>
+
+
+
   <div class="row">
 
     <!-- wrapper column for signin -->
     <div class="col-md-2 col-md-offset-5">
       <div>
-        <h3>Sign In</h3>
+        <h3>Log In</h3>
       </div>
 
       <!-- name or email input -->
@@ -38,9 +82,14 @@
       </div>
 
       </br>
-      <div class="alert alert-dismissible alert-danger" ng-show="incorrectSignin">
+      <div class="alert alert-dismissible alert-danger" ng-show="badSignin">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        Check username and password
+        Check username and password.
+      </div>
+
+      <div class="alert alert-dismissible alert-success" ng-show="goodSignin">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        Successful sign in.
       </div>
 
       <!-- new account option -->
@@ -51,12 +100,80 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <a href="/#/signup">Sign Up</a>
+          <a href="#signup">Sign Up</a>
         </div>
       </div>
     </div>
 
   </div>
+
+
+
+  <!-- Footer -->
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-10 col-lg-offset-1 text-center">
+                  <h4><strong>Freedom Spoke</strong>
+                  </h4>
+                  <p>2825 Folsom Street<br>San Francisco, CA 94110</p>
+                  <ul class="list-unstyled">
+                      <li><i class="fa fa-phone fa-fw"></i> (310) 408-0200</li>
+                      <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:ericf712@gmail.com">ericf712@gmail.com</a>
+                      </li>
+                  </ul>
+                  <br>
+                  <ul class="list-inline">
+                      <li>
+                          <a target="_blank" href="https://github.com/EricMFischer"><i class="fa fa-github fa-fw fa-3x"></i></a>
+                      </li>
+                      <li>
+                          <a target="_blank" href="https://www.linkedin.com/in/ericmfischer"><i class="fa fa-linkedin fa-fw fa-3x"></i></a>
+                      </li>
+                  </ul>
+                  <hr class="small">
+                  <p class="text-muted">Copyright &copy; Freedom Spoke 2015</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- jQuery -->
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script>
+  // Closes the sidebar menu
+  $("#menu-close").click(function(e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+  });
+
+  // Opens the sidebar menu
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+  });
+
+  // Scrolls to the selected menu item on the page
+  $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+              if (target.length) {
+                  $('html,body').animate({
+                      scrollTop: target.offset().top
+                  }, 1000);
+                  return false;
+              }
+          }
+      });
+  });
+  </script>
+
+
 </div>
-<br/>
-<br/>

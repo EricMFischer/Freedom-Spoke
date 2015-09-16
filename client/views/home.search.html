@@ -42,8 +42,11 @@
           </div>
 
 
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Origin" ng-model="search.origin" auto-complete ui-items="airports" required>
+          <!-- <div class="form-group">
+            <input auto-complete ui-items="airports" type="text" class="form-control" placeholder="Origin" ng-model="search.origin"  required>
+          </div> -->
+          <div class="form-group" class="ui-widget">
+            <input id="airports" type="text" class="form-control" placeholder="Origin" ng-model="search.origin" required>
           </div>
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Destination" ng-model="search.destination" required>

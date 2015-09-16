@@ -116,3 +116,11 @@ h3 {
 .signin-margin, .signup-margin {
   margin: 5px 0;
 }
+
+.ui-widget {
+  max-height: 150px; 
+  max-width: 250px;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+  background-color: white;
+}

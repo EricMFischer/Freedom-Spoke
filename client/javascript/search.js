@@ -47,6 +47,11 @@
         console.log('result: ', result);
       });
     };
+  
+    // console.log(typeof $('#datetimepicker1').datetimepicker);
+    $('#datetimepicker1').datetimepicker({
+      format: 'YYYY/MM/DD'
+    });
 
 
     $scope.master = {};
@@ -105,6 +110,13 @@
         });
       } 
     };
+
+
+    $scope.signout = function() {
+      console.log('reached signout in ctrlr');
+      // UserFactory.signout();
+      // $location.path
+    }
 
 
   }]); // closes controller

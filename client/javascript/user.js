@@ -34,6 +34,8 @@
     };
 
     obj.signout = function () {
+      debugger;
+      console.log('reached signout func');
       obj.currentUser = null;
       $window.localStorage.removeItem('com.FreedomSpoke');
       $window.localStorage.removeItem('com.FreedomSpoke.username');
@@ -85,7 +87,7 @@
           $scope.goodSignin = true;
           $timeout(function() {
             $location.path('/home'); // takes you now to home page, after signing up
-          }, 2000);
+          }, 1000);
         })
         .catch(function (error) {
           // show error message
@@ -95,6 +97,7 @@
           console.error(error);
         });
     };
+
   }]);
 
 

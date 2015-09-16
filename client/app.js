@@ -36,7 +36,7 @@
         abstract: true,
         url: '/home',
         templateUrl: 'views/home.html',
-        data: { publicallyAccessible: false }
+        data: { publicallyAccessible: true }
       })
 
       // nested home state and views
@@ -45,11 +45,11 @@
         views: {
           'search@home': {
             templateUrl: 'views/home.search.html',
-            data: { publicallyAccessible: false }
+            data: { publicallyAccessible: true }
           },
           'results@home': {
             templateUrl: 'views/home.results.html',
-            data: { publicallyAccessible: false }
+            data: { publicallyAccessible: true }
           }
         }
       })

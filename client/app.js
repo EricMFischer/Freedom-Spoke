@@ -75,7 +75,7 @@
   app.factory('AttachTokens', function($window) {
     // this is an $httpInterceptor
     // its job is to stop all outgoing requests to look in local storage and find the user's token
-    // then it add the token to the header so the server can validate the request
+    // then it adds the token to the header so the server can validate the request
     var attach = {
       request: function(object) {
         var jwt = $window.localStorage.getItem('com.FreedomSpoke');

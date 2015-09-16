@@ -37,7 +37,7 @@
       obj.currentUser = null;
       $window.localStorage.removeItem('com.FreedomSpoke');
       $window.localStorage.removeItem('com.FreedomSpoke.username');
-      $location.path('/signin');
+      $location.path('/');
     };
 
     return obj;

@@ -19,8 +19,10 @@
 
   app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 'AirportsFactory', function($scope, $rootScope, $http, UserFactory, AirportsFactory) {
 
+
     // For airport codes
     $scope.airports = AirportsFactory.airports;
+
 
     // getting a variable 'date' in the event user uses calendar
     var date;
@@ -57,7 +59,9 @@
     $scope.reset();
 
 
-    $scope.logout = UserFactory.signout;
+
+    $scope.signout = UserFactory.signout;
+
 
 
     var queries = 0;

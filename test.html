@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
+        <link href="//skipcdn.net/css/077518048d6e7814ef4a9d9237e59c11.desktop.css" rel="stylesheet">
+
+        <meta name="google" value="notranslate">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+
+        <title>Cheap flights to Los Angeles, California (LAX) - Skiplagged</title>
+        <meta name="description" content="Skiplagged will help you find the cheapest flights to Los Angeles better than any other website!">
+
+        <script src="//skipcdn.net/js/db68f70e9f88ee5b005705b817277c10.desktop.js"></script>
+
+        <script>
+            platform = 'desktop';
+            cdn = '//skipcdn.net/';
+
+            UserVoice = [['set', {
+                        accent_color: '#448dd6',
+                        trigger_color: 'white',
+                        trigger_background_color: '#366681'
+                    }]];
+
+            currency = {
+                code: 'USD',
+                rate: 1,
+                format: '${amount}'
+            };
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+    mobile = false;
+    mobileAppIOS = false;
+
+    UserVoice.push(['addTrigger', {mode: 'contact', trigger_position: 'bottom-right', trigger_style: 'tab'}]);
+</script>
+
+<div id="install-ios-app" class="install-prompt">
+    <div class="install-prompt-message">
+        <div style="padding: 0 8px;">
+            <i class="icon-remove"></i>
+        </div>
+        <div>
+            <div class="install-prompt-title">Skiplagged for iPhone</div>
+            <div class="install-prompt-subtitle">Available in the App Store</div>
+        </div>
+    </div>
+    <div class="install-prompt-action">
+        <div>
+            <img id="install-ios-app-button" src="/img/install.jpg"/>
+        </div>
+    </div>
+</div>
+
+<div id="header" class="row-fluid">
+    <div class="header-body-shadow">
+        <div id="trip-filter-shadow" class="span6 offset6 trip-filter">
+            <div class="span6">
+                <div class="input-prepend input-append span11" style="position: relative;">
+                    <input class="span6 src" type="text" data-code="SFO" data-description="San Francisco Intl, San Francisco, CA" value="SFO San Francisco Intl, San Francisco, CA"/>
+
+                    <span class="add-on add-on-separator srcDstSep">to</span>
+
+                    <input class="span6 dst" type="text" data-code="LAX" data-description="Los Angeles Intl, Los Angeles, CA" value="LAX Los Angeles Intl, Los Angeles, CA"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-body">
+        <div class="span6">
+    <a href="/"><img class="cdn-image" src="//skipcdn.net/img/logo.png" id="logo"/></a>
+
+    <ul class="nav nav-tabs">
+                    <li><a href="/me" class="">Sign in</a></li>
+        
+        <li><a href="/" class=" active">Flights</a></li>
+
+        
+<!--        <li><a href="/" class="--><!--">Help</a></li>-->
+<!--        <li><a href="http://news.skiplagged.com" target="_blank">News</a></li>-->
+<!--        <li><a href="/explore" target="_blank">Explore</a></li>-->
+    </ul>
+</div>
+
+<div id="social-buttons">
+    <div>
+        <iframe id="social-like-fb"
+                src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FSkiplagged&amp;width=250&amp;height=35&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true"
+                scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+
+    <div>
+        <iframe id="social-like-tw" allowtransparency="true" frameborder="0" scrolling="no"
+                src="//platform.twitter.com/widgets/follow_button.html?screen_name=Skiplagged&show_count=true&show_screen_name=false"></iframe>
+    </div>
+</div>
+        <div id="trip-filter" class="span6 trip-filter">
+            <div class="span6">
+                <div class="input-prepend input-append span11" style="position: relative;">
+                    <input class="span6" type="text" placeholder="Origin" id="src" tabindex="1" value="SFO"/>
+
+                    <span class="add-on add-on-separator" id="srcDstSep" title="swap from and to">to</span>
+
+                    <input class="span6" type="text" placeholder="Destination" id="dst" value="" tabindex="2"/>
+
+                    <span id="skipsy-trigger" title="click to see the cheapest destinations given your departing airport and travel date(s)">
+                        <i class="icon-globe"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="span6 trip-filter-when">
+                <div id="trip-filter-when-type" class="trip-filter-when-type-one-way">
+                    <div>
+                        <div id="trip-filter-when-type-one-way">
+                            <span>one-way</span>
+                        </div>
+
+                        <div id="trip-filter-when-type-sep">
+                            <span>/</span>
+                        </div>
+
+                        <div id="trip-filter-when-type-round-trip">
+                            <span>round-trip</span>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="trip-filter-when-quick" id="trip-filter-when-quick-return">
+                    <span id="trip-filter-when2-remove" class="trip-filter-when-group1"
+                          title="click to clear return date">
+                        <i class="icon-remove"></i>
+                    </span>
+                </span>
+
+                <input class="span6 when" type="text" placeholder="Depart" id="when" tabindex="3"
+                       data-date="Wed, Sep 30, 2015" value="Wed, Sep 30" readonly/>
+                <input class="span6 when" type="text" placeholder="Return" id="when2" tabindex="4"
+                       data-date="Thu, Jan 1, 1970" value="" readonly/>
+            </div>
+        </div>
+
+    </div>
+</div>
+        <div id="trip-highlight" data-skip-top="78" data-skip-size="72" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="trip-highlight-title" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <div id="trip-highlight-title">New York – San Francisco<span id="trip-highlight-title-sub">Monday, June 17</span></div>
+    </div>
+    <div class="trip-highlight-skip">
+        <div class="trip-highlight-skip-wrapper2">
+            <div class="trip-highlight-skip-wrapper">
+                <div class="trip-highlight-skip-text">SKIP</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body row-fluid">
+        <div class="trip-highlight-path-title trip-highlight-path-depart-title">
+            <span class="trip-highlight-path-title-sub">Thursday, November 21</span>
+            <span class="trip-highlight-path-title-hidden">NO CHECKED BAGS</span>
+        </div>
+
+        <div class="trip-highlight-path-title trip-highlight-path-return-title">
+            <span class="trip-highlight-path-title-sub">Thursday, November 28</span>
+            <span class="trip-highlight-path-title-hidden">NO CHECKED BAGS</span>
+        </div>
+
+        <div class="trip-highlight-flight-item trip-highlight-flight-leg-item">
+            <div class="trip-highlight-flight-skip"></div>
+
+            <div class="trip-highlight-flight-item-inner">
+                <div class="trip-highlight-flight-leg">
+                    <div>
+                        <div class="span9 trip-highlight-flight">Sun Country 248</div>
+                        <div class="span3 trip-highlight-flight-timespan">9:00 pm – 11:09 pm</div>
+                    </div>
+                    <div>
+                        <div class="span9 trip-highlight-flight-cities">New York to Minneapolis<span>JFK-MSP</span></div>
+                        <div class="span3 trip-highlight-flight-duration">3h 09m</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trip-highlight-flight-item trip-highlight-flight-layover-item">
+            <div class="trip-highlight-flight-skip"></div>
+
+            <div class="trip-highlight-flight-item-inner">
+                <div class="trip-highlight-flight-layover">
+                    <div class="span9">
+                        <div class="trip-highlight-layover-city">Minneapolis<span>MSP</span></div>
+                    </div>
+                    <div class="span3">
+                        <div class="trip-highlight-layover-duration">7h 51m layover</div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+        <div class="trip-highlight-flight-item">
+            <div class="trip-highlight-flight-skip"></div>
+
+            <div class="trip-highlight-flight-item-inner">
+                <div class="trip-highlight-flight-leg">
+                    <div>
+                        <div class="span9 trip-highlight-flight airline-sc">Sun Country 248</div>
+                        <div class="span3 trip-highlight-flight-timespan">9:00 pm – 11:09 pm</div>
+                    </div>
+                    <div>
+                        <div class="span9 trip-highlight-flight-cities">New York to Minneapolis<span>JFK-MSP</span></div>
+                        <div class="span3 trip-highlight-flight-duration">3h 09m</div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row-fluid">
+            <div class="span3" id="trip-highlight-cost">
+                <div id="trip-highlight-cost-number">$216</div>
+            </div>      
+            <div class="span9 trip-highlight-book">
+                <div class="trip-highlight-ticket-count trip-highlight-ticket-count-adult btn-group" data-count="1">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="trip-highlight-ticket-count-text">1 Ticket</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                    </ul>
+                </div>  
+
+                <div class="trip-highlight-ticket-count trip-highlight-ticket-count-child btn-group" data-count="0">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="trip-highlight-ticket-count-text">No Children</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">0</a>
+                        </li>
+                        <li>
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                    </ul>
+                </div>  
+
+                <div class="trip-highlight-ticket-buttons btn-group"></div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        <div id="loading" class="animation-disabled">
+            <div>K</div>
+        </div>
+
+        <div id="favorites-help">
+            <button type="button" class="close" aria-hidden="true">×</button>
+
+            <div>
+                <h1>Introducing Airfare Watch <img class="cdn-image" src="//skipcdn.net/img/star3.png" class="rotate" /></h1>
+            </div>
+
+            <div>
+                <h3>Favorites<span>save searches</span></h3>
+                <img class="cdn-image" src="//skipcdn.net/img/airfare-watch-promo/favorites.png" />
+            </div>
+
+            <div>
+                <h3>Graphs<span>see how the price fluctuates</span></h3>
+                <img class="cdn-image" src="//skipcdn.net/img/airfare-watch-promo/graph.png" />
+            </div>
+
+            <div>
+                <h3>Alerts<span>receive notifications via text and/or email</span></h3>
+                <img class="cdn-image" src="//skipcdn.net/img/airfare-watch-promo/alert.png" />
+            </div>
+
+            <div>
+                <h2>Completely Free!</h2>
+            </div>
+        </div>
+
+        <div id="wrapper" class="container-narrow">
+            <div id="trip-list-loading">
+                <div id="trip-list-loading-spinner"></div>
+            </div>
+
+            
+<script>
+    view = JSON.parse('{"lat":51.894058,"lon":85.827054,"city":"","state":"Altai Republic","country":"Russia","heading":-106.73522294891,"pitch":-20.895694598248,"airport_code":"RGK","permalink":"altai-republic-russia","id":"4","description":"Altai Republic, Russia"}');
+</script>
+
+<div id="landing-wrapper">
+
+    <div id="explore">
+        <div id="explore-panaromas">
+            <div class="panorama" id="panorama0" style="background-image: url(//skipcdn.net/explore/altai-republic-russia/large.jpg);"></div>
+        </div>
+
+        <div id="explore-ad-wrapper">
+            <div id="explore-ad">
+                <div id="explore-ad-claim">We're better at finding cheap flights than any other website!*</div>
+                <div id="explore-mobile-prompt">Download the free app now!</div>
+                <div id="explore-mobile">
+                    <a href="https://itunes.apple.com/us/app/skiplagged-actually-cheap/id823443083" target="_blank"><img src="/img/badge-ios.png" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.skiplagged" target="_blank"><img src="/img/badge-android.png" /></a>
+                </div>
+                <div id="explore-ad-proof">*We're so good, United Airlines actually <a href="http://www.gofundme.com/skiplagged" target="_blank">sued us for it<span class="external-icon external-icon-light"></span></a></div>
+            </div>
+        </div>
+
+        <a href="/explore/altai-republic-russia" target="_blank">
+            <div id="explore-info">
+                <div id="explore-info-city">
+                    <span id="explore-info-city-airport">RGK</span>
+                    <span id="explore-info-city-name">Altai Republic, Russia</span>
+                </div>
+
+                <div id="explore-info-expand">
+                    <img src="/img/expand2.png" />
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="landing-topics">
+        <div class="landing-topic">
+            <div class="landing-topic-header">
+                <span class="landing-topic-arrow"></span>
+                <span class="landing-topic-label">What is Skiplagged?</span>
+            </div>
+
+            <div class="landing-topic-body">
+                <div class="landing-topic-body-text">
+                    Skiplagged is a pro-consumer travel website that aims to make it easier to experience the world. We expose secrets of the industry by finding airfares <b>not found anywhere else</b> that can easily save you up to 80%.
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-topic">
+            <div class="landing-topic-header">
+                <span class="landing-topic-arrow"></span>
+                <span class="landing-topic-label">Examples<span>found by users in the last 24 hours</span></span>
+            </div>
+
+            <div id="landing-pin-info">
+                <div id="landing-pin-info-from">Los Angeles</div>
+                <div class="landing-pin-info-label">to</div>
+                <div id="landing-pin-info-to">New York</div>
+                <div class="landing-pin-info-label">on</div>
+                <div id="landing-pin-info-when">Tuesday, May 13, 2014</div>
+                <div id="landing-pin-info-discount">46% OFF</div>
+            </div>
+
+            <div class="landing-topic-body">
+                <div class="landing-topic-body-text">
+                    <div id="trip-list-ad-pin-wrapper">
+                        <div id="landing-pins">
+                            <ul>
+                                                                    <li id="pin-cvg" class="pin" data-is-destination="true" data-from-code="ORD" data-from="Chicago" data-to-code="CVG" data-to="Cincinnati" data-when="2015-10-26" data-discount="52" data-them="17060" data-us="8160">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/cvg.jpg" />
+                                    </li>
+                                                                    <li id="pin-nyc" class="pin" data-is-destination="false" data-from-code="NYC" data-from="New York" data-to-code="PAR" data-to="Paris" data-when="2015-10-14" data-discount="15" data-them="42930" data-us="36450">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/nyc.jpg" />
+                                    </li>
+                                                                    <li id="pin-par" class="pin" data-is-destination="true" data-from-code="NYC" data-from="New York" data-to-code="PAR" data-to="Paris" data-when="2015-10-14" data-discount="15" data-them="42930" data-us="36450">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/par.jpg" />
+                                    </li>
+                                                                    <li id="pin-clt" class="pin" data-is-destination="true" data-from-code="TPA" data-from="Tampa" data-to-code="CLT" data-to="Charlotte" data-when="2015-11-30" data-discount="54" data-them="24760" data-us="11510">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/clt.jpg" />
+                                    </li>
+                                                                    <li id="pin-cdg" class="pin" data-is-destination="true" data-from-code="LGA" data-from="New York" data-to-code="CDG" data-to="Paris" data-when="2015-10-01" data-discount="57" data-them="89480" data-us="38900">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/cdg.jpg" />
+                                    </li>
+                                                                    <li id="pin-pdx" class="pin" data-is-destination="false" data-from-code="PDX" data-from="Portland" data-to-code="DTW" data-to="Detroit" data-when="2015-12-26" data-discount="21" data-them="22060" data-us="17460">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/pdx.jpg" />
+                                    </li>
+                                                                    <li id="pin-btv" class="pin" data-is-destination="false" data-from-code="BTV" data-from="Burlington" data-to-code="CHI" data-to="Chicago" data-when="2015-12-10" data-discount="31" data-them="15119" data-us="10484">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/btv.jpg" />
+                                    </li>
+                                                                    <li id="pin-stl" class="pin" data-is-destination="false" data-from-code="STL" data-from="St. Louis" data-to-code="YYZ" data-to="Toronto" data-when="2015-11-24" data-discount="15" data-them="16784" data-us="14220">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/stl.jpg" />
+                                    </li>
+                                                                    <li id="pin-lga" class="pin" data-is-destination="false" data-from-code="LGA" data-from="New York" data-to-code="CDG" data-to="Paris" data-when="2015-10-01" data-discount="57" data-them="89480" data-us="38900">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/lga.jpg" />
+                                    </li>
+                                                                    <li id="pin-phl" class="pin" data-is-destination="true" data-from-code="PVD" data-from="Providence" data-to-code="PHL" data-to="Philadelphia" data-when="2015-10-14" data-discount="41" data-them="14770" data-us="8660">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/phl.jpg" />
+                                    </li>
+                                                                    <li id="pin-dtw" class="pin" data-is-destination="true" data-from-code="PDX" data-from="Portland" data-to-code="DTW" data-to="Detroit" data-when="2015-12-26" data-discount="21" data-them="22060" data-us="17460">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/dtw.jpg" />
+                                    </li>
+                                                                    <li id="pin-chi" class="pin" data-is-destination="true" data-from-code="BTV" data-from="Burlington" data-to-code="CHI" data-to="Chicago" data-when="2015-12-10" data-discount="31" data-them="15119" data-us="10484">
+                                        <img class="cdn-image" data-src="//skipcdn.net/img/cities/chi.jpg" />
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-topic">
+            <div class="landing-topic-header">
+                <span class="landing-topic-arrow"></span>
+                <span class="landing-topic-label">Comparison</span>
+            </div>
+
+            <div class="landing-topic-body">
+                <div id="compare-info">
+                    <div class="compare-info-header">
+                        <div class="compare-info-topic"></div>
+                        <div class="compare-info-left"><span style="color: #113050;">skip</span><span style="color: #0B8D82;">lagged</span></div>
+                        <div class="compare-info-right"><span style="color: #EE8322">KAYAK</span>, <span style="color: #176CED">G</span><span style="color: #D6412B">o</span><span style="color: #FFB800">o</span><span style="color: #1469EB">g</span><span style="color: #009C59">l</span><span style="color: #D7432C">e</span> Flights, <span style="color: #00355F">Expedia</span>, etc.</div>
+                    </div>
+
+                    <div class="compare-info-feature">
+                        <div class="compare-info-topic">Standard fares</div>
+                        <div class="compare-info-left"><span class="feature-icon plus" /></div>
+                        <div class="compare-info-right"><span class="feature-icon plus" /></div>
+                    </div>
+
+                    <div class="compare-info-feature">
+                        <div class="compare-info-topic">Hidden-city fares</div>
+                        <div class="compare-info-left"><span class="feature-icon plus" /></div>
+                        <div class="compare-info-right"><span class="feature-icon minus" /></div>
+                    </div>
+
+                    <div class="compare-info-feature">
+                        <div class="compare-info-topic">Arbitrary round-trips</div>
+                        <div class="compare-info-left"><span class="feature-icon plus" /></div>
+                        <div class="compare-info-right"><span class="feature-icon minus" /></div>
+                    </div>
+
+                    <div class="compare-info-feature">
+                        <div class="compare-info-topic">Other inefficiencies</div>
+                        <div class="compare-info-left"><span class="feature-icon plus" /></div>
+                        <div class="compare-info-right"><span class="feature-icon minus" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--        <div class="landing-topic">-->
+<!--            <div class="landing-topic-header">-->
+<!--                <span class="landing-topic-arrow"></span>-->
+<!--                <span class="landing-topic-label">What are hidden-city fares?<span>skiplagging</span></span>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="landing-topic-body">-->
+<!--                <div class="landing-topic-body-text">-->
+<!--                    It's where your destination is a stopover for another destination.-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="landing-topic">-->
+<!--            <div class="landing-topic-header">-->
+<!--                <span class="landing-topic-arrow"></span>-->
+<!--                <span class="landing-topic-label">What are arbitrary round-trips?</span>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="landing-topic-body">-->
+<!--                <div class="landing-topic-body-text">-->
+<!--                    foo-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="landing-topic">
+            <div class="landing-topic-header">
+                <span class="landing-topic-arrow"></span>
+                <span class="landing-topic-label">Press</span>
+            </div>
+
+            <div class="landing-topic-body">
+                <div class="landing-topic-body-text mosaicflow" id="press">
+                                            <a class="press" rel="nofollow" href="https://youtu.be/yBuCaMusQEY?t=4m48s" target="_blank"><span><img src="//skipcdn.net/img/press/abc.png" alt="abc nightline" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.bbc.com/news/technology-30634144" target="_blank"><span><img src="//skipcdn.net/img/press/bbcnews.png" alt="bbc news" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.bloomberg.com/news/articles/2015-05-01/judge-tosses-united-airlines-lawsuit-over-hidden-city-tickets" target="_blank"><span><img src="//skipcdn.net/img/press/bloomberg.png" alt="bloomberg business" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://boingboing.net/2014/12/30/united-and-orbitz-sue-skiplagg.html" target="_blank"><span><img src="//skipcdn.net/img/press/boingboing.png" alt="boingboing" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.boston.com/travel/2014/12/31/airline-suing-year-old-for-promoting-stopover-trick/hrtOynBVd4aYR9Y0QllKOK/story.html" target="_blank"><span><img src="//skipcdn.net/img/press/boston.png" alt="boston" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.businessinsider.com/what-is-throwaway-ticketing-2015-4" target="_blank"><span><img src="//skipcdn.net/img/press/businessinsider.png" alt="business insider" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.buzzfeed.com/alanwhite/united-airlines-and-orbitz-are-suing-a-guy-who-found-a-geniu" target="_blank"><span><img src="//skipcdn.net/img/press/buzzfeed.png" alt="buzzfeed" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.cbsnews.com/news/finding-cheap-airfare-made-easier-with-skiplagged-startup/" target="_blank"><span><img src="//skipcdn.net/img/press/cbs.jpg" alt="cbs this morning" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.chicagotribune.com/lifestyles/travel/sns-201501270000--tms--travelpkctnxf-c20150127-20150127-column.html" target="_blank"><span><img src="//skipcdn.net/img/press/chicagotribune.png" alt="chicago tribune" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.cnbc.com/id/102303434" target="_blank"><span><img src="//skipcdn.net/img/press/cnbc.png" alt="cnbc" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://money.cnn.com/2015/05/01/investing/united-airlines-lawsuit-skiplagged/" target="_blank"><span><img src="//skipcdn.net/img/press/cnn.jpg" alt="cnn money" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://consumerist.com/2015/05/01/judge-throws-out-uniteds-lawsuit-against-hidden-city-airfare-site-skiplagged-com/" target="_blank"><span><img src="//skipcdn.net/img/press/consumerist.jpg" alt="the consumerist" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.dailydot.com/business/aktarer-zaman-skiplagged-united-orbitz-lawsuit/" target="_blank"><span><img src="//skipcdn.net/img/press/dailydot.png" alt="the daily dot" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.elconfidencial.com/tecnologia/2015-07-02/skiplagged-aerolineas-aktarer-zaman_911501/" target="_blank"><span><img src="//skipcdn.net/img/press/elconfidencial.png" alt="el confidencial" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.engadget.com/2015/05/04/court-tosses-united-lawsuit-vs-skiplagged/" target="_blank"><span><img src="//skipcdn.net/img/press/engadget.png" alt="engadget" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.entrepreneur.com/article/241358" target="_blank"><span><img src="//skipcdn.net/img/press/entrepreneur.png" alt="entrepreneur" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.forbes.com/sites/andrewbender/2014/11/26/the-cheapest-airfares-youve-never-heard-of-and-why-they-may-disappear/" target="_blank"><span><img src="//skipcdn.net/img/press/forbes.jpg" alt="forbes" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://video.foxnews.com/v/3967275904001/orbitz-united-suing-22-year-old-who-exposed-cheaper-fares/" target="_blank"><span><img src="//skipcdn.net/img/press/fox.png" alt="fox news" /></span></a>
+                                            <a class="press" rel="nofollow" href="live.huffingtonpost.com/r/segment/54ac914802a7603a49000342" target="_blank"><span><img src="//skipcdn.net/img/press/huffpost.png" alt="the huffington post" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.inc.com/oscar-raymundo/skiplagged-founder-22-raises-funds-to-fight-united-and-orbitz-in-court.html" target="_blank"><span><img src="//skipcdn.net/img/press/inc.png" alt="inc." /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.latimes.com/business/la-fi-united-and-orbitz-sue-to-halt-hidden-city-booking-20141121-story.html" target="_blank"><span><img src="//skipcdn.net/img/press/latimes.png" alt="los angeles times" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://lifehacker.com/skiplagged-finds-hidden-city-fares-for-the-cheapest-p-1663768555" target="_blank"><span><img src="//skipcdn.net/img/press/lifehacker.png" alt="lifehacker" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://mashable.com/2014/12/30/hidden-city-ticketing/" target="_blank"><span><img src="//skipcdn.net/img/press/mashable.png" alt="mashable" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.news.com.au/travel/travel-advice/skiplaggedcom-sued-by-united-airways-for-selling-hidden-city-airfares/story-fn6yjmoc-1227151851724" target="_blank"><span><img src="//skipcdn.net/img/press/newsau.png" alt="news.com.au" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.newsweek.com/united-airlines-and-orbitz-team-shut-down-22-year-olds-travel-website-295691" target="_blank"><span><img src="//skipcdn.net/img/press/newsweek.png" alt="newsweek" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.newyorker.com/business/currency/united-skiplagged-problem-hidden-city-ticketing" target="_blank"><span><img src="//skipcdn.net/img/press/newyorker.png" alt="the new yorker" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://hereandnow.wbur.org/2014/12/31/skiplagged-lawsuit-jansen" target="_blank"><span><img src="//skipcdn.net/img/press/npr.png" alt="npr here & now" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://nypost.com/2015/01/02/take-a-flyer-on-innovation/" target="_blank"><span><img src="//skipcdn.net/img/press/nypost.png" alt="new york post" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://pix11.com/2014/12/29/united-airlines-suing-22-year-old-nyc-man-who-figured-out-how-to-get-cheaper-plane-tickets/" target="_blank"><span><img src="//skipcdn.net/img/press/pix11.png" alt="pix 11" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://qz.com/319485/united-airlines-and-orbitz-are-suing-a-22-year-old-who-discovered-a-hack-to-get-cheap-tickets/" target="_blank"><span><img src="//skipcdn.net/img/press/quartz.jpg" alt="quartz" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.reddit.com/r/IAmA/comments/2o831k/i_run_skiplagged_a_site_being_sued_by_united/" target="_blank"><span><img src="//skipcdn.net/img/press/reddit.png" alt="reddit" /></span></a>
+                                            <a class="press" rel="nofollow" href="https://www.youtube.com/watch?v=u4UBMmd-O3k" target="_blank"><span><img src="//skipcdn.net/img/press/rt.png" alt="russia today" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://skift.com/2015/01/06/interview-with-hidden-city-startup-founder-is-he-naive-or-an-innovator/" target="_blank"><span><img src="//skipcdn.net/img/press/skift.png" alt="skift" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.slate.com/blogs/business_insider/2014/12/31/skiplagged_founder_fights_lawsuit_from_united_and_orbitz.html" target="_blank"><span><img src="//skipcdn.net/img/press/slate.png" alt="slate" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://techcrunch.com/2014/12/30/united-and-orbitz-sue-hidden-cities-flight-search-engine-skiplagged/" target="_blank"><span><img src="//skipcdn.net/img/press/techcrunch.png" alt="techcrunch" /></span></a>
+                                            <a class="press" rel="nofollow" href="https://www.techdirt.com/articles/20141230/07022629547/why-united-airlines-orbitz-are-suing-entrepreneur-who-helps-people-find-cheaper-flights.shtml" target="_blank"><span><img src="//skipcdn.net/img/press/techdirt.png" alt="techdirt" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.telegraph.co.uk/travel/travelnews/11317074/Man-sued-for-sharing-cheap-flight-loophole.html" target="_blank"><span><img src="//skipcdn.net/img/press/telegraph.gif" alt="the telegraph" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://time.com/money/3650206/united-airlines-orbitz-sue-22-year-old-airfare-website-founder/" target="_blank"><span><img src="//skipcdn.net/img/press/time.png" alt="time" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.tnooz.com/article/skiplagged-uniteds-case-tossed-out-against-hidden-city-site/" target="_blank"><span><img src="//skipcdn.net/img/press/tnooz.jpg" alt="tnooz" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.washingtontimes.com/news/2014/dec/29/united-airlines-sues-entrepreneur-22-for-tip-websi/" target="_blank"><span><img src="//skipcdn.net/img/press/washingtontimes.jpg" alt="the washington times" /></span></a>
+                                            <a class="press" rel="nofollow" href="http://www.usatoday.com/story/todayinthesky/2015/05/04/united-skiplagged-lawsuit-federal/26864961/" target="_blank"><span><img src="//skipcdn.net/img/press/usatoday.png" alt="usatoday" /></span></a>
+                                            <a class="press" rel="nofollow" href="https://www.yahoo.com/travel/no-more-flying-and-dashing-airlines-sue-over-hidden-103205483587.html" target="_blank"><span><img src="//skipcdn.net/img/press/yahoo.png" alt="yahoo" /></span></a>
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="landing-footer">-->
+<!--    footer under construction-->
+<!--</div>--></div>
+
+            <div id="trip-list-skipsy-wrapper">
+                <div id="trip-list-skipsy-box">
+                    <div id="skipsy-header" class="trip-list-header">
+                        <div id="skipsy-header-name" class="trip-list-header-name">Cheap Flights from New York</div>
+                    </div>
+
+                    <div id="trip-list-skipsy">
+                        <ul id="trip-list-skipsy-tiles">
+                            <li>
+                                <a href="#">
+                                    <div class="tile-header row-fluid">
+                                        <div class="skipsy-city span8">New York<span class="skipsy-region">New York</span></div>
+                                        <div class="skipsy-cost span4">$176</div>
+                                    </div>
+                                    <div class="cities">
+                                        <div class="city-nickname row-fluid">
+                                            <div class="span12"></div>
+                                        </div>
+                                        <div class="city-image row-fluid">
+                                            <div class="span12"></div>
+                                            <div class="image-unavailable"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="trip-list-wrapper" class="row-fluid">
+                <div id="trip-list-wrapper2">
+                    <div class="trip-list-header">
+                        <div class="trip-list-header-watch-promo bubble">
+                            Ever noticed that airfare changes often? Interested in seeing how that happens for this search? Want to get alerts via text and/or email? Simply click the star.
+                        </div>
+
+                        <div class="trip-list-header-main">
+                            <div class="trip-list-header-watch" title="Add to Favorites!">
+                                <div></div>
+                            </div>
+                            <div class="trip-list-header-name">New York to San Francisco</div>
+                            <div class="trip-list-header-period">May 6 – Jul 8 (3 days)</div>
+                        </div>
+
+                        <div class="trip-flex">
+                            <div class="trip-flex-info">
+                                <div class="trip-flex-info-wrapper">
+                                    <div class="trip-flex-info-top">
+                                        <div class="trip-flex-info-cost">$118</div>
+                                        <div class="trip-flex-info-period">May 18</div>
+                                    </div>
+                                    <div class="trip-flex-info-bottom">
+                                        <div class="trip-flex-nav">
+                                            <div class="btn-group" data-toggle="buttons-radio">
+                                                <button type="button" class="btn btn-info active trip-flex-nav-depart" data-page="depart">Depart</button>
+                                                <button type="button" class="btn trip-flex-nav-return" data-page="return">Return</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trip-flex-main">
+                                <div class="trip-flex-chart"></div>
+                            </div>
+                        </div>
+
+                        <div class="compare">
+                            <a rel="nofollow" class="compare-kayak" target="_blank" href="http://kayak.com">KAYAK</a>
+                            <span class="external-icon"></span>
+                        </div>
+                    </div>
+                    <div id="trip-list-sections-wrapper">
+                        <div id="trip-list-sections">
+                            <div class="trip-list-section">
+                                <div id="trip-list-header-sort" class="row-fluid">
+                                    <div id="trip-list-header-sort-duration" class="span1" data-name="duration"></div>
+                                    <div id="trip-list-header-sort-path" class="span9" data-name="path"></div>
+                                    <div id="trip-list-header-sort-cost" class="span2 trip-list-header-sort-active" data-name="cost"></div>
+                                </div>
+
+                                <div id="trip-list">
+                                    <div class="trip">
+                                        <div class="span1 trip-duration">6h</div>
+
+                                        <div class="span9 trip-path">
+                                            <div class="trip-path-point">
+                                                <div class="trip-path-point-airport">JFK</div>
+                                                <div class="trip-path-point-time">7:00am</div>
+                                            </div>
+                                            <div class="trip-path-spacer">
+                                                <div class="trip-path-spacer-label"><span class="airline-delta"></span>6h 13min</div>
+                                                <div class="trip-path-spacer-arrow-wrapper trip-path-spacer-arrow-wrapper-init">
+                                        <span class="trip-path-spacer-line">
+                                            <div></div>
+                                        </span>
+                                                    <span class="trip-path-spacer-arrow">
+                                                        <img class="trip-path-spacer-arrow-regular" src="/img/arrow.png" />
+                                                        <img class="trip-path-spacer-arrow-regular-mobile" src="/img/arrow3.png" />
+                                                        <img class="trip-path-spacer-arrow-skip-mobile" src="/img/arrow2.png" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="trip-path-point">
+                                                <div class="trip-path-point-airport">SFO</div>
+                                                <div class="trip-path-point-time">10:16am</div>
+                                            </div>
+                                            <div class="trip-path-spacer">
+                                                <div class="trip-path-spacer-label">1h 26min</div>
+                                                <div class="trip-path-spacer-arrow-wrapper">
+                                        <span class="trip-path-spacer-line">
+                                            <div></div>
+                                        </span>
+                                                </div>
+                                            </div>
+                                            <div class="trip-path-point">
+                                                <div class="trip-path-point-airport">SFO</div>
+                                                <div class="trip-path-point-time">11:42am</div>
+                                            </div>
+                                            <div class="trip-path-spacer trip-path-point-skipped">
+                                                <div class="trip-path-spacer-label"><span class="airline-virgin"></span>2h 17min</div>
+                                                <div class="trip-path-spacer-arrow-wrapper">
+                                        <span class="trip-path-spacer-line">
+                                            <div></div>
+                                        </span>
+                                                    <span class="trip-path-spacer-arrow">&gt;</span>
+                                                </div>
+                                            </div>
+                                            <div class="trip-path-point trip-path-point-skipped">
+                                                <div class="trip-path-point-airport">SEA</div>
+                                                <div class="trip-path-point-time">1:59pm</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="span2 trip-cost text-success">
+                                            <p>$223</p>
+                                            <button class="btn btn-info trip-btn-cost">$223</button>
+                                            <button class="btn btn-danger trip-btn-close">close</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="trip-return-container">
+                                        <div class="trip-return-header">Choose a Returning Flight</div>
+                                        <div class="trip-return-list"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="trip-list-section" id="trip-list-filters">
+                                <div class="trip-list-filters-unavailable"><div></div></div>
+
+                                <div class="trip-list-filter trip-list-filter-sort">
+                                    <div class="btn-group" data-toggle="buttons-radio">
+                                        <button id="trip-list-filter-sort-duration" class="btn" data-name="duration">Duration</button>
+                                        <button id="trip-list-filter-sort-path" class="btn" data-name="path">Legs</button>
+                                        <button id="trip-list-filter-sort-cost" class="btn active" data-name="cost">Cost</button>
+                                    </div>
+                                </div>
+
+                                <div class="trip-list-filter trip-list-filter-type">
+                                    <span class="reset"></span>
+                                    <span class="trip-list-filter-num-excluded"></span>
+                                    <label><input type="checkbox" class="trip-list-filter-type-hidden-city" data-cookie="filter-type-hidden-city" checked /><span class="main">Hidden-city</span><span class="only">only</span></label>
+                                    <label><input type="checkbox" class="trip-list-filter-type-standard" data-cookie="filter-type-standard" checked /><span class="main">Standard</span><span class="only">only</span></label>
+                                </div>
+
+                                <div class="trip-list-filter trip-list-filter-stops">
+                                    <span class="reset"></span>
+                                    <span class="trip-list-filter-num-excluded"></span>
+                                    <label><input type="checkbox" class="trip-list-filter-stops-none" data-cookie="filter-stop-none" checked /><span class="main">None</span><span class="only">only</span></label>
+                                    <label><input type="checkbox" class="trip-list-filter-stops-one" data-cookie="filter-stop-one" checked /><span class="main">1</span><span class="only">only</span></label>
+                                    <label><input type="checkbox" class="trip-list-filter-stops-many" data-cookie="filter-stop-many" checked /><span class="main">2+</span><span class="only">only</span></label>
+                                </div>
+
+                                <div class="trip-list-filter trip-list-filter-slider trip-list-filter-take-off">
+                                    <span class="reset"></span>
+                                    <span class="trip-list-filter-num-excluded"></span>
+                                    <div>
+                                        <div>
+                                            <div class="lower-bound"></div>
+
+                                            <div>
+                                                <div class="nstSlider" data-cookie="filter-take-off" data-range_min="0" data-range_max="100" data-cur_min="0" data-cur_max="100">
+                                                    <div class="bar"></div>
+                                                    <div class="leftGrip"></div>
+                                                    <div class="rightGrip"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="upper-bound"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trip-list-filter trip-list-filter-slider trip-list-filter-landing">
+                                    <span class="reset"></span>
+                                    <span class="trip-list-filter-num-excluded"></span>
+                                    <div>
+                                        <div>
+                                            <div class="lower-bound"></div>
+
+                                            <div>
+                                                <div class="nstSlider" data-cookie="filter-landing" data-range_min="0" data-range_max="100" data-cur_min="0" data-cur_max="100">
+                                                    <div class="bar"></div>
+                                                    <div class="leftGrip"></div>
+                                                    <div class="rightGrip"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="upper-bound"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trip-list-filter trip-list-filter-airlines">
+                                    <span class="reset"></span>
+                                    <span class="trip-list-filter-num-excluded"></span>
+                                    <label><input type="checkbox" class="trip-list-filter-airline" value="AA" checked /><span class="main">American Airlines</span><span class="only">only</span></label>
+                                </div>
+
+                                <div class="trip-list-filter trip-list-filter-airports">
+                                    <span class="reset"></span>
+                                    <span class="trip-list-filter-num-excluded"></span>
+                                    <label><input type="checkbox" class="trip-list-filter-airport" value="ATL" checked /><span class="main">Atlanta</span><span class="emp">ATL</span><span class="only">only</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+    if (!window.skiplagged) {
+        (function() {
+            function updateAttr(e, name) {
+                var val = e.getAttribute(name);
+                if (!val) return;
+
+                var src = e.getAttribute(name).replace(cdn, '/');
+                e.setAttribute(name, src);
+            }
+
+            var cdnImages = document.getElementsByClassName('cdn-image');
+
+            for (var i = 0; i < cdnImages.length; i++) {
+                updateAttr(cdnImages[i], 'data-src');
+                updateAttr(cdnImages[i], 'src');
+            }
+        })();
+
+        document.write('<link href="/css/077518048d6e7814ef4a9d9237e59c11.desktop.css" rel="stylesheet">');
+        document.write('<script src="/js/db68f70e9f88ee5b005705b817277c10.desktop.js"><\/script>');
+        cdn = '/';
+    }
+</script>
+        <script>
+            (function() {
+                var uv = document.createElement('script');
+                uv.type = 'text/javascript';
+                uv.async = true;
+                uv.src = '//widget.uservoice.com/QAAkypxLkRR8gdOGlCmQ.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(uv, s)
+            })();
+        </script>
+
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5899919-11', 'skiplagged.com');
+  ga('send', 'pageview');
+
+</script>
+    </body>
+</html>

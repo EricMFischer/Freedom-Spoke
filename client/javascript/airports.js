@@ -4,7 +4,9 @@
 
   app.factory('AirportsFactory', [function() {
 
-    var airports = [
+    var obj = {};
+
+    obj.airports = [
     "Aalborg, Denmark|AAL",
     "Aalesund, Norway|AES",
     "Aarhus, Denmark - Bus service|ZID",
@@ -3599,7 +3601,7 @@
     "Zurich, Switzerland|ZRH"
     ];
 
-    return airports;
+    return obj;
 
   }]);
 

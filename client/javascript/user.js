@@ -23,7 +23,7 @@
         password: user.password
       })
       .then(function (resp) {
-        console.log('response in signin factory: ', resp);
+        // console.log('response in signin factory: ', resp);
         return resp.data.token;
       });
     };
@@ -34,8 +34,6 @@
     };
 
     obj.signout = function () {
-      debugger;
-      console.log('reached signout func');
       obj.currentUser = null;
       $window.localStorage.removeItem('com.FreedomSpoke');
       $window.localStorage.removeItem('com.FreedomSpoke.username');
@@ -54,7 +52,7 @@
       if ($scope.user.initPassword === $scope.user.password) {
         UserFactory.signup($scope.user)
           .then(function (token) {
-            console.log('token returned to signup controller: ', token);
+            // console.log('token returned to signup controller: ', token);
             $window.localStorage.setItem('com.FreedomSpoke', token);
             $window.localStorage.setItem('com.FreedomSpoke.username', $scope.user.username);
             $scope.passwordsDontMatch = false;
@@ -62,15 +60,15 @@
             $scope.goodSignup = true;
             $timeout(function() {
               $location.path('/home'); // takes you now to home page, after signing up
-            }, 2000);
+            }, 500);
           })
           .catch(function (error) {
             // show error message
             $scope.passwordsDontMatch = false;
             $scope.goodSignup = false;
             $scope.badSignup = true;
-            console.log('Incorrect signup');
-            console.error(error);
+            // console.log('Incorrect signup');
+            // console.error(error);
           });
       } else {
         $scope.passwordsDontMatch = true;
@@ -87,14 +85,14 @@
           $scope.goodSignin = true;
           $timeout(function() {
             $location.path('/home'); // takes you now to home page, after signing up
-          }, 1000);
+          }, 500);
         })
         .catch(function (error) {
           // show error message
           $scope.goodSignin = false;
           $scope.badSignin = true;
-          console.log('Incorrect signin');
-          console.error(error);
+          // console.log('Incorrect signin');
+          // console.error(error);
         });
     };
 

@@ -3,18 +3,18 @@
   var app = angular.module('Search', []);
   
 
-  // app.directive('autoComplete', function($timeout) {
-  //   return function(scope, iElement, iAttrs) {
-  //     iElement.autocomplete({
-  //       source: scope[iAttrs.uiItems],
-  //       select: function() {
-  //         $timeout(function() {
-  //           iElement.trigger('input');
-  //         }, 0);
-  //       }
-  //     });
-  //   };
-  // });
+  app.directive('autoComplete', function($timeout) {
+    return function(scope, iElement, iAttrs) {
+      iElement.autocomplete({
+        source: scope[iAttrs.uiItems]
+        // select: function() {
+        //   $timeout(function() {
+        //     iElement.trigger('input');
+        //   }, 0);
+        // }
+      });
+    };
+  });
 
 
   app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 'AirportsFactory', function($scope, $rootScope, $http, UserFactory, AirportsFactory) {
@@ -44,7 +44,7 @@
         }
         var result = formatDate(e.date);
         date = result;
-        console.log('result: ', result);
+        // console.log('result: ', result);
       });
     };
   
@@ -78,8 +78,6 @@
       if (when === undefined) {
         when = date; // then when is equal to date
       }
-      console.log('got to getFlights');
-      console.log(from, to, when);
 
       if (from !== undefined && to !== undefined && when !== undefined) {
         $rootScope.$broadcast('loading');
@@ -110,13 +108,6 @@
         });
       } 
     };
-
-
-    $scope.signout = function() {
-      console.log('reached signout in ctrlr');
-      // UserFactory.signout();
-      // $location.path
-    }
 
 
   }]); // closes controller

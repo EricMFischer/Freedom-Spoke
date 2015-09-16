@@ -20,7 +20,7 @@
       } else {
 
         var tripsArr = response; // array of trip objects (not response.data anymore)
-        console.log('tripsArr in results.js: ', tripsArr);
+        // console.log('tripsArr in results.js: ', tripsArr);
 
 
         $scope.flights = [];
@@ -92,7 +92,7 @@
             destinations[city].push(flightObj);
           }
         });
-        console.log('destinations obj: ', destinations);
+        // console.log('destinations obj: ', destinations);
 
 
 

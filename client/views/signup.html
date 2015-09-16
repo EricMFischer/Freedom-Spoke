@@ -62,6 +62,7 @@
           <input type="password"
             class="form-control input-md"
             required class="text"
+            ng-model="user.initPassword"
             placeholder="Password"/>
         </div>
       </div>
@@ -89,6 +90,11 @@
       <div class="alert alert-dismissible alert-danger" ng-show="badSignup">
         <button type="button" class="close" data-dismiss="alert">×</button>
         Check your credentials. Username may be taken.
+      </div>
+
+      <div class="alert alert-dismissible alert-danger" ng-show="passwordsDontMatch">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        Your passwords don't match.
       </div>
 
       <div class="alert alert-dismissible alert-success" ng-show="goodSignup">

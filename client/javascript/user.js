@@ -49,24 +49,30 @@
     
     // signup
     $scope.signup = function() {
-      UserFactory.signup($scope.user)
-        .then(function (token) {
-          console.log('token returned to signup controller: ', token);
-          $window.localStorage.setItem('com.FreedomSpoke', token);
-          $window.localStorage.setItem('com.FreedomSpoke.username', $scope.user.username);
-          $scope.badSignup = false;
-          $scope.goodSignup = true;
-          $timeout(function() {
-            $location.path('/home'); // takes you now to home page, after signing up
-          }, 2000);
-        })
-        .catch(function (error) {
-          // show error message
-          $scope.goodSignup = false;
-          $scope.badSignup = true;
-          console.log('Incorrect signup');
-          console.error(error);
-        });
+      if ($scope.user.initPassword === $scope.user.password) {
+        UserFactory.signup($scope.user)
+          .then(function (token) {
+            console.log('token returned to signup controller: ', token);
+            $window.localStorage.setItem('com.FreedomSpoke', token);
+            $window.localStorage.setItem('com.FreedomSpoke.username', $scope.user.username);
+            $scope.passwordsDontMatch = false;
+            $scope.badSignup = false;
+            $scope.goodSignup = true;
+            $timeout(function() {
+              $location.path('/home'); // takes you now to home page, after signing up
+            }, 2000);
+          })
+          .catch(function (error) {
+            // show error message
+            $scope.passwordsDontMatch = false;
+            $scope.goodSignup = false;
+            $scope.badSignup = true;
+            console.log('Incorrect signup');
+            console.error(error);
+          });
+      } else {
+        $scope.passwordsDontMatch = true;
+      }
     };
     
     // signin

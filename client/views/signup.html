@@ -62,8 +62,7 @@
           <input type="password"
             class="form-control input-md"
             required class="text"
-            placeholder="Password"
-            ng-model="user.password"/>
+            placeholder="Password"/>
         </div>
       </div>
 
@@ -74,6 +73,7 @@
             class="form-control input-md"
             required class="text"
             placeholder="Confirm Password"
+            ng-model="user.password"
             ng-keyup="$event.keyCode == 13 && signup()"/>
         </div>
       </div>

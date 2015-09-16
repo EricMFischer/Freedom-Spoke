@@ -45,7 +45,7 @@
 
   app.controller('UserController', ['$location', '$window', '$scope', '$timeout', 'UserFactory', function($location, $window, $scope, $timeout, UserFactory) {
 
-    $scope.user = {};
+    $scope.user = {}; // username and password props. get set from ng-models in the html
     
     // signup
     $scope.signup = function() {

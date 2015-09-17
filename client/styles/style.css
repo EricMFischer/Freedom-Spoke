@@ -68,8 +68,8 @@
 }
 
 .div-table-content {
-  height:375px;
-  overflow-y:auto;
+  height: 420px;
+  overflow-y: auto;
 }
 
 h3 {
@@ -83,14 +83,14 @@ h3 {
 .loader {
   width: 200px;
   height: 200px;
-  -webkit-animation: spin 1.5s infinite linear;
-  -moz-animation: spin 1.5s infinite linear;
+  -webkit-animation: spin 1.2s infinite linear;
+  -moz-animation: spin 1.2s infinite linear;
   display: block;
   margin: 0 auto;
 }
 
 .trail {
-  fill: rgba( 255, 255, 255, 0.1 );
+  fill: rgba( 255, 255, 255, 0.9 );
   fill: none;
 }
 

@@ -13,7 +13,7 @@
     $("#origin").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 500,
+      delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -23,7 +23,7 @@
     $("#destinationOne").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 500,
+      delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -33,7 +33,7 @@
     $("#destinationTwo").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 500,
+      delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -43,7 +43,7 @@
     $("#destinationThree").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 500,
+      delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -53,7 +53,7 @@
     $("#destinationFour").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 500,
+      delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -63,7 +63,7 @@
     $("#destinationFive").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 500,
+      delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -174,8 +174,9 @@
 
           responses++;
           
-          if (response.data === 'No results available') {
+          if (response.data === 'No results available' && queries === responses) {
             $rootScope.$broadcast('results', response.data);
+
           } else {
 
             arrOfTripObjs = arrOfTripObjs.concat.apply(arrOfTripObjs, response.data); // each response.data is an array of trip objects (for 1 destination)

@@ -19,6 +19,52 @@
         $("#origin").val(airportStr.slice(-3));
       }
     });
+    $("#destinationOne").autocomplete({
+      source: AirportsFactory.airports,
+      minLength: 2,
+      select: function (event, airport) {
+        event.preventDefault();
+        var airportStr = airport.item.value;
+        $("#destinationOne").val(airportStr.slice(-3));
+      }
+    });
+    $("#destinationTwo").autocomplete({
+      source: AirportsFactory.airports,
+      minLength: 2,
+      select: function (event, airport) {
+        event.preventDefault();
+        var airportStr = airport.item.value;
+        $("#destinationTwo").val(airportStr.slice(-3));
+      }
+    });
+    $("#destinationThree").autocomplete({
+      source: AirportsFactory.airports,
+      minLength: 2,
+      select: function (event, airport) {
+        event.preventDefault();
+        var airportStr = airport.item.value;
+        $("#destinationThree").val(airportStr.slice(-3));
+      }
+    });
+    $("#destinationFour").autocomplete({
+      source: AirportsFactory.airports,
+      minLength: 2,
+      select: function (event, airport) {
+        event.preventDefault();
+        var airportStr = airport.item.value;
+        $("#destinationFour").val(airportStr.slice(-3));
+      }
+    });
+    $("#destinationFive").autocomplete({
+      source: AirportsFactory.airports,
+      minLength: 2,
+      select: function (event, airport) {
+        event.preventDefault();
+        var airportStr = airport.item.value;
+        $("#destinationFive").val(airportStr.slice(-3));
+      }
+    });
+
 
 
     // getting a variable 'date' in the event user uses calendar
@@ -61,24 +107,37 @@
     $scope.reset();
 
 
-
-    // $scope.origin = function() {
-    //   var origin = $('#origin').parent();
-    //   console.log('origin', origin);
-
-    // }
-
-
-
+    var callsToGetFlights = 0;
     var queries = 0;
     var responses = 0;
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
-      console.log('from, to, when: ', from, to, when);
-      // if the ng-model didn't pick up the date (bc user used calendar)
-      if (when === undefined) {
-        when = date; // then when is equal to date
+
+      from = $('#origin').val();
+      when = date;
+      callsToGetFlights++;
+
+      if (callsToGetFlights === 1) {
+        to = $('#destinationOne').val();
+        console.log('1st from, to, when: ', from, to, when);
       }
+      if (callsToGetFlights === 2) {
+        to = $('#destinationTwo').val();
+        console.log('2nd from, to, when: ', from, to, when);
+      }
+      if (callsToGetFlights === 3) {
+        to = $('#destinationThree').val();
+        console.log('3rd from, to, when: ', from, to, when);
+      }
+      if (callsToGetFlights === 4) {
+        to = $('#destinationFour').val();
+        console.log('4th from, to, when: ', from, to, when);
+      }
+      if (callsToGetFlights === 5) {
+        to = $('#destinationFive').val();
+        console.log('5th from, to, when: ', from, to, when);
+      }
+
 
       if (from !== undefined && to !== undefined && when !== undefined) {
         $rootScope.$broadcast('loading');
@@ -100,7 +159,9 @@
             arrOfTripObjs = arrOfTripObjs.concat.apply(arrOfTripObjs, response.data); // each response.data is an array of trip objects (for 1 destination)
 
             if (queries === responses) {
+              console.log('arroftripobjs: ', arrOfTripObjs);
               $rootScope.$broadcast('results', arrOfTripObjs);
+              callsToGetFlights = 0;
               queries = 0;
               responses = 0;
               arrOfTripObjs = [];

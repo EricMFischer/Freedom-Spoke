@@ -119,23 +119,23 @@
 
       if (callsToGetFlights === 1) {
         to = $('#destinationOne').val();
-        console.log('1st from, to, when: ', from, to, when);
+        // console.log('1st from, to, when: ', from, to, when);
       }
-      if (callsToGetFlights === 2) {
+      if (callsToGetFlights === 2 && $('#destinationTwo').val() !== '') {
         to = $('#destinationTwo').val();
-        console.log('2nd from, to, when: ', from, to, when);
+        // console.log('2nd from, to, when: ', from, to, when);
       }
-      if (callsToGetFlights === 3) {
+      if (callsToGetFlights === 3 && $('#destinationThree').val() !== '') {
         to = $('#destinationThree').val();
-        console.log('3rd from, to, when: ', from, to, when);
+        // console.log('3rd from, to, when: ', from, to, when);
       }
-      if (callsToGetFlights === 4) {
+      if (callsToGetFlights === 4 && $('#destinationFour').val() !== '') {
         to = $('#destinationFour').val();
-        console.log('4th from, to, when: ', from, to, when);
+        // console.log('4th from, to, when: ', from, to, when);
       }
-      if (callsToGetFlights === 5) {
+      if (callsToGetFlights === 5 && $('#destinationFive').val() !== '') {
         to = $('#destinationFive').val();
-        console.log('5th from, to, when: ', from, to, when);
+        // console.log('5th from, to, when: ', from, to, when);
       }
 
 

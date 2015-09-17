@@ -13,6 +13,7 @@
     $("#origin").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
+      delay: 500,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -22,6 +23,7 @@
     $("#destinationOne").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
+      delay: 500,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -31,6 +33,7 @@
     $("#destinationTwo").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
+      delay: 500,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -40,6 +43,7 @@
     $("#destinationThree").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
+      delay: 500,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -49,6 +53,7 @@
     $("#destinationFour").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
+      delay: 500,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -58,6 +63,7 @@
     $("#destinationFive").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
+      delay: 500,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -69,6 +75,8 @@
 
     // getting a variable 'date' in the event user uses calendar
     var date;
+    var tomorrow;
+    var yesterday;
     $scope.datepicker = function () {
       var datepicker = $('#datetimepicker1').parent();
 
@@ -87,14 +95,27 @@
         }
         var result = formatDate(e.date);
         date = result;
-        // console.log('result: ', result);
+        
+        // for tomorrow 
+        tomorrow = new Date(result);
+        tomorrow.setDate(tomorrow.getDate() + 2);
+        tomorrow = formatDate(tomorrow);
+        console.log('tomorrow: ', tomorrow);
+
+        // for yesterday
+        yesterday = new Date(result);
+        yesterday.setDate(yesterday.getDate());
+        yesterday = formatDate(yesterday);
+        console.log('yesterday: ', yesterday);
       });
     };
   
+
     // console.log(typeof $('#datetimepicker1').datetimepicker);
     $('#datetimepicker1').datetimepicker({
       format: 'YYYY/MM/DD'
     });
+
 
 
     $scope.master = {};
@@ -105,6 +126,7 @@
       $scope.search = angular.copy($scope.master);
     };
     $scope.reset();
+
 
 
     var callsToGetFlights = 0;
@@ -159,7 +181,7 @@
             arrOfTripObjs = arrOfTripObjs.concat.apply(arrOfTripObjs, response.data); // each response.data is an array of trip objects (for 1 destination)
 
             if (queries === responses) {
-              console.log('arroftripobjs: ', arrOfTripObjs);
+              // console.log('arroftripobjs: ', arrOfTripObjs);
               $rootScope.$broadcast('results', arrOfTripObjs);
               callsToGetFlights = 0;
               queries = 0;
@@ -170,6 +192,9 @@
         });
       } 
     };
+
+
+    
 
 
   }]); // closes controller

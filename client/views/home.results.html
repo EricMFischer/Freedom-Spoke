@@ -20,14 +20,20 @@
     </svg>
   </div>
 
-
   <div class="alert alert-dismissible alert-info" ng-show="noResults">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <strong>Woops!</strong> Check your origin and/or destination(s).
   </div>
 
 
+
   <div ng-show="resultsAvailable">
+
+    <ul class="pager">
+      <li><a href="#">Previous Day</a></li>
+      <li><a href="#">Next Day</a></li>
+    </ul>
+
     <ul class="nav nav-tabs">
       <li class="active"><a href="#all" data-toggle="tab" aria-expanded="true">All</a></li>
       <li class=""><a href="#destination1" data-toggle="tab" aria-expanded="false">{{ destination1city }}</a></li>

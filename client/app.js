@@ -36,7 +36,7 @@
         abstract: true,
         url: '/home',
         templateUrl: 'views/home.html',
-        data: { publicallyAccessible: false }
+        data: { publicallyAccessible: true }
       })
 
       // nested home state and views
@@ -45,11 +45,11 @@
         views: {
           'search@home': {
             templateUrl: 'views/home.search.html',
-            data: { publicallyAccessible: false }
+            data: { publicallyAccessible: true }
           },
           'results@home': {
             templateUrl: 'views/home.results.html',
-            data: { publicallyAccessible: false }
+            data: { publicallyAccessible: true }
           }
         }
       })
@@ -67,6 +67,16 @@
       });
 
     // $urlRouterProvider.otherwise('/');
+    // $urlRouterProvider.otherwise(function($injector, $location){
+    //    var state = $injector.get('$state');
+    //    console.log(state);
+    //    // if(....)
+    //    //   state.go('core');
+    //    // else(...)
+    //    //   state.go('dashboard');
+    //    // ...
+    //    // return $location.path();
+    // });
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');

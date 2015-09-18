@@ -71,10 +71,15 @@
       console.log('state: ', state);
       var location = $location.path();
       console.log('location:',location);
-      if (state.current.name !== 'home.views' && state.current.url !== '' && location !== '') {
-        $location.path('/');
-      } else {
+      // if (state.current.name !== 'home.views' && state.current.url !== '' && location !== '') {
+      //   $location.path('/');
+      // } else {
+      //   $location.path('/home');
+      // }
+      if (state.current.name === 'home.views') {
         $location.path('/home');
+      } else {
+        $location.path('/');
       }
       // if (location !== '' || location !== '/all' || location !== '/destination1' || location !== '/destination2' || location !== '/destination3' || location !== '/destination4' || location !== '/destination5') {
       //   $location.path('/');

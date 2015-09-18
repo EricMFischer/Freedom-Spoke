@@ -66,19 +66,20 @@
         data: { publicallyAccessible: true }
       });
 
-    $urlRouterProvider.otherwise('/home');
-    // $urlRouterProvider.otherwise(function($injector, $location){
-    //   var state = $injector.get('$state');
-    //   console.log('state: ', state);
-    //   var location = $location.path();
-    //   console.log('location: ', location);
-
-    //   if (location !== '/all' || location !== '/destination1' || location !== '/destination2' || location !== '/destination3' || location !== '/destination4' || location !== '/destination5') {
-    //     $location.path('/home');
-    //   } else {
-    //     // do nothing
-    //   }
-    // });
+    $urlRouterProvider.otherwise(function($injector, $location) {
+      var state = $injector.get('$state');
+      console.log('state: ', state);
+      var location = $location.path();
+      console.log('location:',location);
+      if (state.current.name !== 'home.views' && state.current.url !== '' && location !== '') {
+        $location.path('/');
+      } else {
+        $location.path('/home');
+      }
+      // if (location !== '' || location !== '/all' || location !== '/destination1' || location !== '/destination2' || location !== '/destination3' || location !== '/destination4' || location !== '/destination5') {
+      //   $location.path('/');
+      // }
+    });
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');

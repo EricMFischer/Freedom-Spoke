@@ -151,7 +151,7 @@
 
       if (callsToGetFlights === 1) {
         to = $('#destinationOne').val().toUpperCase();
-        // console.log('5th from, to, when: ', from, to, when);
+        console.log('from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 2 && $('#destinationTwo').val() !== '') {
         to = $('#destinationTwo').val().toUpperCase();

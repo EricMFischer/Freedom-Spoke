@@ -13,7 +13,6 @@ module.exports = {
     console.log('username in ctrl: ', username);
     console.log('password in ctrl: ', password);
 
-
     var findOne = Q.nbind(User.findOne, User);
     console.log('hitting signup findOne fn');
     // check to see if user exists already
@@ -84,6 +83,5 @@ module.exports = {
   // checkAuth: function(req, res) {
 
   // }
-
 }
 

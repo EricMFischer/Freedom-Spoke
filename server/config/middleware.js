@@ -8,12 +8,10 @@ module.exports = function (app, express) {
   var userRouter = express.Router();
   var flightsRouter = express.Router();
 
-
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../../client'));
-
 
   app.use('/api/users', userRouter); // use user router for all user requests
   app.use('/api/flights', flightsRouter);

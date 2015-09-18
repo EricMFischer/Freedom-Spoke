@@ -25,15 +25,13 @@ module.exports = {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 8,
+        "solutions": 10,
         "refundable": false
       }
     }
 
     // QPX REST API URL
     url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBADz2kTEj7MKBEOa6CTrDuxC6SBK_WH5c";
-    // AIzaSyDuoEYWoXSOt73uaOH9JODD4AyA3lwQ6ks
-    // AIzaSyBkgyeYsv7WDqxULKXvaA8fFCM-BtH0JeM
     
     // fires request
     request({
@@ -50,16 +48,13 @@ module.exports = {
       // console.log('Body of request: ', body.error.errors[0]);
       if (!error && body.trips.data.airport !== undefined && response.statusCode === 200) {
         var trip = body.trips.data;
-        // if (!body.trips.tripOption || !trip) { // 1st edge case: flight searches that have no direct flights
-        //   res.send('No results available');
-        // } else {
-
 
         // console.log('Body of succ. request: ', body);
         // console.log('Body.trips.data: ', body.trips.data);
         // console.log('Body.trips.tripOption: ', body.trips.tripOption);
         console.log('trip.city: ', trip.city);
         console.log('trip.airport: ', trip.airport);
+
 
         // STEP 1: GATHER GENERAL FLIGHT INFORMATION
         // stores general information for all flight solutions
@@ -93,15 +88,6 @@ module.exports = {
         if (general.destination === undefined || general.origin === undefined) {
           res.send('No results available'); return;
         } // need this check for inputs like NYC that don't correspond to any airport
-
-        // if (general.destinationairportname === undefined) { // when actual destination code (IAH) doesn't match user's inputted destinationcode (HOU)
-        //   for (var i=0; i<trip.city.length; i++) {
-        //     var cityCode = trip.city[i].code;
-        //     if (cityCode === general.destinationcode) {
-        //       general.destinationairportname = trip.city[i].name;
-        //     }
-        //   }
-        // }
         
 
         // STEP 2: GATHER UNIQUE FLIGHT INFORMATION FOR VARIOUS SOLUTIONS
@@ -161,7 +147,6 @@ module.exports = {
         console.log('tripSolutions: ', tripSolutions);
 
 
-
         // STEP 3: BUILD UP AN ARRAY WITH ALL FLIGHT OBJECTS
         var tripsArr = [];
         for (var i=0; i<requestData.request.solutions; i++) { // hard-coded # of solutions here too
@@ -209,196 +194,3 @@ module.exports = {
     });
   } // ends getFlights func
 }
-
-
-
-
-
-// tripsArr AFTER adding specific flight properties:  [ { originCode: 'EVV',
-//     origin: 'Evansville',
-//     originAirportName: 'Evansville Dress Regional',
-//     destinationCode: 'HOU',
-//     destination: 'Houston',
-//     destinationAirportName: 'Houston William P. Hobby',
-//     price: '$317.60',
-//     duration: 289,
-//     legStart1: 'EVV',
-//     legEnd1: 'ORD',
-//     legDuration1: 75,
-//     legCarrier1: 'UA',
-//     legFlightNumber1: '4610',
-//     legDepartureDate1: '2015-10-10',
-//     legDepartureTime1: '15:35',
-//     legArrivalDate1: '2015-10-10',
-//     legArrivalTime1: '16:50',
-//     legStart2: 'ORD',
-//     legEnd2: 'IAH',
-//     legDuration2: 164,
-//     legCarrier2: 'UA',
-//     legFlightNumber2: '262',
-//     legDepartureDate2: '2015-10-10',
-//     legDepartureTime2: '17:40',
-//     legArrivalDate2: '2015-10-10',
-//     legArrivalTime2: '20:24' },
-//   { originCode: 'EVV',
-//     origin: 'Evansville',
-//     originAirportName: 'Evansville Dress Regional',
-//     destinationCode: 'HOU',
-//     destination: 'Houston',
-//     destinationAirportName: 'Houston William P. Hobby',
-//     price: '$317.60',
-//     duration: 290,
-//     legStart1: 'EVV',
-//     legEnd1: 'DFW',
-//     legDuration1: 136,
-//     legCarrier1: 'US',
-//     legFlightNumber1: '3598',
-//     legDepartureDate1: '2015-10-10',
-//     legDepartureTime1: '14:04',
-//     legArrivalDate1: '2015-10-10',
-//     legArrivalTime1: '16:20',
-//     legStart2: 'DFW',
-//     legEnd2: 'HOU',
-//     legDuration2: 69,
-//     legCarrier2: 'US',
-//     legFlightNumber2: '5785',
-//     legDepartureDate2: '2015-10-10',
-//     legDepartureTime2: '17:45',
-//     legArrivalDate2: '2015-10-10',
-//     legArrivalTime2: '18:54' },
-//   { originCode: 'EVV',
-//     origin: 'Evansville',
-//     originAirportName: 'Evansville Dress Regional',
-//     destinationCode: 'HOU',
-//     destination: 'Houston',
-//     destinationAirportName: 'Houston William P. Hobby',
-//     price: '$317.60',
-//     duration: 285,
-//     legStart1: 'EVV',
-//     legEnd1: 'ORD',
-//     legDuration1: 75,
-//     legCarrier1: 'UA',
-//     legFlightNumber1: '4642',
-//     legDepartureDate1: '2015-10-10',
-//     legDepartureTime1: '10:24',
-//     legArrivalDate1: '2015-10-10',
-//     legArrivalTime1: '11:39',
-//     legStart2: 'ORD',
-//     legEnd2: 'IAH',
-//     legDuration2: 169,
-//     legCarrier2: 'UA',
-//     legFlightNumber2: '436',
-//     legDepartureDate2: '2015-10-10',
-//     legDepartureTime2: '12:20',
-//     legArrivalDate2: '2015-10-10',
-//     legArrivalTime2: '15:09' },
-//   { originCode: 'EVV',
-//     origin: 'Evansville',
-//     originAirportName: 'Evansville Dress Regional',
-//     destinationCode: 'HOU',
-//     destination: 'Houston',
-//     destinationAirportName: 'Houston William P. Hobby',
-//     price: '$317.60',
-//     duration: 278,
-//     legStart1: 'EVV',
-//     legEnd1: 'DFW',
-//     legDuration1: 136,
-//     legCarrier1: 'US',
-//     legFlightNumber1: '3598',
-//     legDepartureDate1: '2015-10-10',
-//     legDepartureTime1: '14:04',
-//     legArrivalDate1: '2015-10-10',
-//     legArrivalTime1: '16:20',
-//     legStart2: 'DFW',
-//     legEnd2: 'IAH',
-//     legDuration2: 72,
-//     legCarrier2: 'US',
-//     legFlightNumber2: '2326',
-//     legDepartureDate2: '2015-10-10',
-//     legDepartureTime2: '17:30',
-//     legArrivalDate2: '2015-10-10',
-//     legArrivalTime2: '18:42' } ]
-
-// from, to, when:  EVV HOU 2015-10-10
-// General object:  { origincode: 'EVV',
-//   destinationcode: 'HOU',
-//   origin: 'Evansville',
-//   destination: 'Houston',
-//   originairportname: 'Evansville Dress Regional',
-//   destinationairportname: 'Houston William P. Hobby' }
-// uniqueAirlines:  [ { airline: 'United Airlines, Inc.', airlineCode: 'UA' },
-//   { airline: 'US Airways, Inc.', airlineCode: 'US' } ]
-// uniquePrices:  [ '$317.60', '$317.60', '$317.60', '$317.60' ]
-// uniqueDurations:  [ 289, 290, 285, 278 ]
-// tripSolutions:  [ [ 'EVV',
-//     'ORD',
-//     75,
-//     'UA',
-//     '4610',
-//     '2015-10-10',
-//     '15:35',
-//     '2015-10-10',
-//     '16:50',
-//     'ORD',
-//     'IAH',
-//     164,
-//     'UA',
-//     '262',
-//     '2015-10-10',
-//     '17:40',
-//     '2015-10-10',
-//     '20:24' ],
-//   [ 'EVV',
-//     'DFW',
-//     136,
-//     'US',
-//     '3598',
-//     '2015-10-10',
-//     '14:04',
-//     '2015-10-10',
-//     '16:20',
-//     'DFW',
-//     'HOU',
-//     69,
-//     'US',
-//     '5785',
-//     '2015-10-10',
-//     '17:45',
-//     '2015-10-10',
-//     '18:54' ],
-//   [ 'EVV',
-//     'ORD',
-//     75,
-//     'UA',
-//     '4642',
-//     '2015-10-10',
-//     '10:24',
-//     '2015-10-10',
-//     '11:39',
-//     'ORD',
-//     'IAH',
-//     169,
-//     'UA',
-//     '436',
-//     '2015-10-10',
-//     '12:20',
-//     '2015-10-10',
-//     '15:09' ],
-//   [ 'EVV',
-//     'DFW',
-//     136,
-//     'US',
-//     '3598',
-//     '2015-10-10',
-//     '14:04',
-//     '2015-10-10',
-//     '16:20',
-//     'DFW',
-//     'IAH',
-//     72,
-//     'US',
-//     '2326',
-//     '2015-10-10',
-//     '17:30',
-//     '2015-10-10',
-//     '18:42' ] ]

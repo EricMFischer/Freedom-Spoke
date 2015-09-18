@@ -10,7 +10,6 @@ var app = express();
 // configure our server with all the middleware and routing
 require('./server/config/middleware.js')(app, express);
 
-
 mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/Freedom-Spoke';
 mongoose.connect(mongoURI);
 
@@ -20,15 +19,12 @@ db.once('open', function (callback) {
   console.log('db success');
 });
 
-
 // only run server if app.js was run directly (rather than being imported as a module)
 if (!module.parent) {
   var port = process.env.PORT || 3000;
-
   var server = app.listen(port, function () {
     var host = server.address().address;
     var port = server.address().port;
-
     console.log('App listening at http://%s:%s', host, port);
   });
 }

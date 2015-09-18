@@ -2,12 +2,9 @@
 
   var app = angular.module('Search', []);
 
-
   app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 'AirportsFactory', function($scope, $rootScope, $http, UserFactory, AirportsFactory) {
 
-
     $scope.signout = UserFactory.signout;
-
 
     // For airport codes
     $("#origin").autocomplete({
@@ -72,6 +69,11 @@
     });
 
 
+    // console.log(typeof $('#datetimepicker1').datetimepicker);
+    $('#datetimepicker1').datetimepicker({
+      format: 'YYYY/MM/DD'
+    });
+
 
     // getting a variable 'date' in the event user uses calendar
     var date;
@@ -87,10 +89,8 @@
               month = '' + (d.getMonth() + 1),
               day = '' + d.getDate(),
               year = d.getFullYear();
-
           if (month.length < 2) month = '0' + month;
           if (day.length < 2) day = '0' + day;
-
           return [year, month, day].join('-');
         }
         var result = formatDate(e.date);
@@ -109,13 +109,6 @@
         console.log('yesterday: ', yesterday);
       });
     };
-  
-
-    // console.log(typeof $('#datetimepicker1').datetimepicker);
-    $('#datetimepicker1').datetimepicker({
-      format: 'YYYY/MM/DD'
-    });
-
 
 
     $scope.master = {};
@@ -128,36 +121,30 @@
     $scope.reset();
 
 
-
     var callsToGetFlights = 0;
     var queries = 0;
     var responses = 0;
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
-
       from = $('#origin').val().toUpperCase();
       when = date;
       callsToGetFlights++;
 
       if (callsToGetFlights === 1) {
         to = $('#destinationOne').val().toUpperCase();
-        // console.log('1st from, to, when: ', from, to, when);
+        // console.log('5th from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 2 && $('#destinationTwo').val() !== '') {
         to = $('#destinationTwo').val().toUpperCase();
-        // console.log('2nd from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 3 && $('#destinationThree').val() !== '') {
         to = $('#destinationThree').val().toUpperCase();
-        // console.log('3rd from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 4 && $('#destinationFour').val() !== '') {
         to = $('#destinationFour').val().toUpperCase();
-        // console.log('4th from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 5 && $('#destinationFive').val() !== '') {
         to = $('#destinationFive').val().toUpperCase();
-        // console.log('5th from, to, when: ', from, to, when);
       }
 
 
@@ -193,10 +180,6 @@
         });
       } 
     };
-
-
-    
-
 
   }]); // closes controller
 

@@ -54,7 +54,6 @@ UserSchema.pre('save', function (next) {
 });
 
 
-
 UserSchema.methods.comparePasswords = function(candidatePassword) {
   var defer = Q.defer(); // returns a 'deferred' object with a promise property and 4 methods resolve(value), reject(reason), notify(value), and makeNodeResolver(). separates promise part from resolver part
   var savedPassword = this.password; // user called fn

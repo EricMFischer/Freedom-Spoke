@@ -68,8 +68,8 @@
 
     $urlRouterProvider.otherwise('/home');
     // $urlRouterProvider.otherwise(function($injector, $location){
-    //   // var state = $injector.get('$state');
-    //   // console.log('state: ', state);
+    //   var state = $injector.get('$state');
+    //   console.log('state: ', state);
     //   var location = $location.path();
     //   console.log('location: ', location);
 

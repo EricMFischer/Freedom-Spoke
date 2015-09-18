@@ -1,12 +1,13 @@
 var jwt  = require('jwt-simple'); // lets me authenticate HTTP requests using JWT tokens (protects API endpoint)
 
 module.exports = {
+
   errorLogger: function (error, req, res, next) {
     // log the error then send it to the next middleware in middleware.js
-
     console.error(error.stack);
     next(error);
   },
+
   errorHandler: function (error, req, res, next) {
     // send error message to client
     // message for graceful error handling on app
@@ -30,6 +31,6 @@ module.exports = {
     } catch(error) {
       return next(error);
     }
-
   }
+  
 };

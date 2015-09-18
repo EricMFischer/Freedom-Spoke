@@ -37,8 +37,7 @@
     "morgan": "^1.6.1",
     "path": "^0.11.14",
     "q": "^1.4.1",
-    "request": "^2.61.0",
-    "topojson": "1"
+    "request": "^2.61.0"
   },
   "devDependencies": {
     "chai": "^3.2.0",

@@ -1,45 +1,7 @@
 # Project Name
 
-> Pithy project description
+> Freedom Spoke is a flight platform that 1) lets you search for multiple destinations at once, and 2) lets you compare results from Google (which sources Expedia, Orbitz, etc.) to those from Skiplagged. Skiplagged is a hidden-city search engine that finds the best deals by taking a person's destination and checking to see if it's a connecting city for some cheaper flight.
 
 ## Team
 
   - __Product Owner__: Eric Fischer
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-sudo npm install -g bower
-npm install
-bower install
-```
-
-### Roadmap
-
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)

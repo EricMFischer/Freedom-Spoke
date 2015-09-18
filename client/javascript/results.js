@@ -4,12 +4,10 @@
   
   app.controller('ResultsController', ['$scope', function($scope) {
 
-
     $scope.$on('loading', function (event) {
       $scope.loading = true;
       $scope.noResults = false;
     });
-
 
     $scope.$on('results', function (event, response) {
       $scope.noResults = false;
@@ -18,11 +16,8 @@
       if (response === 'No results available') {
         $scope.noResults = true;
       } else {
-
-        var tripsArr = response; // array of trip objects (not response.data anymore)
+        var tripsArr = response; // array of trip objects
         // console.log('tripsArr in results.js: ', tripsArr);
-
-
         $scope.flights = [];
 
         for (var i=0; i<tripsArr.length; i++) {
@@ -80,7 +75,6 @@
         } // ends for loop
 
 
-
         var destinations = {}; // destinations obj with keys for each destination
         // build up unique destination arrays full of their flight objects
         $scope.flights.forEach(function(flightObj) {
@@ -93,7 +87,6 @@
           }
         });
         // console.log('destinations obj: ', destinations);
-
 
 
         var destCount = 0;
@@ -110,7 +103,6 @@
           $scope['dest' + destCount] = key;
         }
         destCount = 0; // reinitialize destCount to 0
-
 
 
         $scope.destination1 = [];
@@ -141,11 +133,9 @@
           });
           // makes destinations available for template
           $scope['destination' + count + 'Avail'] = true;
-          
           // gets cities for template
           $scope['destination' + count + 'city'] = destinations[key][0].destination;
         }
-
 
 
         // lastly, sort $scope.flights array for the ALL tab before you make the resultsAvailable
@@ -162,10 +152,7 @@
 
         $scope.resultsAvailable = true;
       } // ends else statement (if checked for 'No results available')
-
-      // empty destination arrays
     }); // ends 1st func in controller
-
 
   }]);
 

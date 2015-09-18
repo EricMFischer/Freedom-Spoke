@@ -47,7 +47,6 @@
 
     $scope.user = {}; // username and password props. get set from ng-models in the html
     
-    // signup
     $scope.signup = function() {
       if ($scope.user.initPassword === $scope.user.password) {
         UserFactory.signup($scope.user)
@@ -75,7 +74,6 @@
       }
     };
     
-    // signin
     $scope.signin = function() {
       UserFactory.signin($scope.user)
         .then(function (token) {

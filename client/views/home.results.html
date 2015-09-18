@@ -28,7 +28,11 @@
 
 
   <div ng-show="resultsAvailable">
-
+    
+    <ul class="pager">
+      <li><button class="btn btn-default" ng-click="previousDay()">+1 Day</button></li>
+      <li><button class="btn btn-default" ng-click="nextDay()">-1 Day</button></li>
+    </ul>
 
     <ul class="nav nav-tabs">
       <li class="active"><a href="#all" data-toggle="tab" aria-expanded="true">All</a></li>

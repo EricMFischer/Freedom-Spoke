@@ -75,40 +75,59 @@
     });
 
 
+    var formatDate = function(date) {
+      var d = new Date(date),
+          month = '' + (d.getMonth() + 1),
+          day = '' + d.getDate(),
+          year = d.getFullYear();
+      if (month.length < 2) month = '0' + month;
+      if (day.length < 2) day = '0' + day;
+      return [year, month, day].join('-');
+    }
+
+
     // getting a variable 'date' in the event user uses calendar
     var date;
-    var tomorrow;
-    var yesterday;
     $scope.datepicker = function () {
       var datepicker = $('#datetimepicker1').parent();
-
       datepicker.on('dp.change', function(e) {
         var dateNum = e.date;
-        var formatDate = function(date) {
-          var d = new Date(date),
-              month = '' + (d.getMonth() + 1),
-              day = '' + d.getDate(),
-              year = d.getFullYear();
-          if (month.length < 2) month = '0' + month;
-          if (day.length < 2) day = '0' + day;
-          return [year, month, day].join('-');
-        }
-        var result = formatDate(e.date);
-        date = result;
-        
-        // for tomorrow 
-        tomorrow = new Date(result);
-        tomorrow.setDate(tomorrow.getDate() + 2);
-        tomorrow = formatDate(tomorrow);
-        console.log('tomorrow: ', tomorrow);
-
-        // for yesterday
-        yesterday = new Date(result);
-        yesterday.setDate(yesterday.getDate());
-        yesterday = formatDate(yesterday);
-        console.log('yesterday: ', yesterday);
+        date = formatDate(e.date);
       });
     };
+
+
+    var yesterday;
+    $scope.$on('previousDay', function (event) {
+      yesterday = new Date(date);
+      yesterday.setDate(yesterday.getDate());
+      yesterday = formatDate(yesterday);
+      // console.log('yesterday: ', yesterday);
+      $('#date').val(yesterday);
+      
+      date = $('#date').val();
+      $scope.getFlights(null, null, yesterday);
+      $scope.getFlights(null, null, yesterday);
+      $scope.getFlights(null, null, yesterday);
+      $scope.getFlights(null, null, yesterday);
+      $scope.getFlights(null, null, yesterday);
+    });
+
+    var tomorrow;
+    $scope.$on('nextDay', function (event) {
+      tomorrow = new Date(date);
+      tomorrow.setDate(tomorrow.getDate() + 2);
+      tomorrow = formatDate(tomorrow);
+      // console.log('tomorrow: ', tomorrow);
+      $('#date').val(tomorrow);
+      
+      date = $('#date').val();
+      $scope.getFlights(null, null, tomorrow);
+      $scope.getFlights(null, null, tomorrow);
+      $scope.getFlights(null, null, tomorrow);
+      $scope.getFlights(null, null, tomorrow);
+      $scope.getFlights(null, null, tomorrow);
+    });
 
 
     $scope.master = {};
@@ -127,7 +146,7 @@
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
       from = $('#origin').val().toUpperCase();
-      when = date;
+      when = when || date;
       callsToGetFlights++;
 
       if (callsToGetFlights === 1) {

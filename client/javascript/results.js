@@ -2,7 +2,16 @@
 
   var app = angular.module('Results', []);
   
-  app.controller('ResultsController', ['$scope', function($scope) {
+  app.controller('ResultsController', ['$scope', '$rootScope', function($scope, $rootScope) {
+
+    $scope.previousDay = function() {
+      $rootScope.$broadcast('previousDay');
+    }
+
+    $scope.nextDay = function() {
+      $rootScope.$broadcast('nextDay');
+    }
+
 
     $scope.$on('loading', function (event) {
       $scope.loading = true;

@@ -6,7 +6,7 @@
   '$stateProvider',
   '$urlRouterProvider',
   '$httpProvider',
-  function($stateProvider, $urlRouterProvider, $httpProvider) {
+  function($stateProvider, $urlRouterProvider, $httpProvider, $injector) {
     $stateProvider
       // .state('home', {
       //   url: '/home',
@@ -66,21 +66,24 @@
         data: { publicallyAccessible: true }
       });
 
-    // $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/home');
     // $urlRouterProvider.otherwise(function($injector, $location){
-    //    var state = $injector.get('$state');
-    //    console.log(state);
-    //    // if(....)
-    //    //   state.go('core');
-    //    // else(...)
-    //    //   state.go('dashboard');
-    //    // ...
-    //    // return $location.path();
+    //   // var state = $injector.get('$state');
+    //   // console.log('state: ', state);
+    //   var location = $location.path();
+    //   console.log('location: ', location);
+
+    //   if (location !== '/all' || location !== '/destination1' || location !== '/destination2' || location !== '/destination3' || location !== '/destination4' || location !== '/destination5') {
+    //     $location.path('/home');
+    //   } else {
+    //     // do nothing
+    //   }
     // });
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
   }]);
+
 
   app.factory('AttachTokens', function($window) {
     // this is an $httpInterceptor

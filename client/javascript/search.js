@@ -135,28 +135,28 @@
     var arrOfTripObjs = [];
     $scope.getFlights = function(from, to, when) {
 
-      from = $('#origin').val();
+      from = $('#origin').val().toUpperCase();
       when = date;
       callsToGetFlights++;
 
       if (callsToGetFlights === 1) {
-        to = $('#destinationOne').val();
+        to = $('#destinationOne').val().toUpperCase();
         // console.log('1st from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 2 && $('#destinationTwo').val() !== '') {
-        to = $('#destinationTwo').val();
+        to = $('#destinationTwo').val().toUpperCase();
         // console.log('2nd from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 3 && $('#destinationThree').val() !== '') {
-        to = $('#destinationThree').val();
+        to = $('#destinationThree').val().toUpperCase();
         // console.log('3rd from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 4 && $('#destinationFour').val() !== '') {
-        to = $('#destinationFour').val();
+        to = $('#destinationFour').val().toUpperCase();
         // console.log('4th from, to, when: ', from, to, when);
       }
       if (callsToGetFlights === 5 && $('#destinationFive').val() !== '') {
-        to = $('#destinationFive').val();
+        to = $('#destinationFive').val().toUpperCase();
         // console.log('5th from, to, when: ', from, to, when);
       }
 

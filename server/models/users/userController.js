@@ -22,7 +22,7 @@ module.exports = {
         // if user exists
         if (user) {
           res.statusCode = 403;
-          res.json({error: 'Username taken'});
+          res.json({error: 'Username taken'}); // Throw an error to advance to catch block, instead of going to 'then'
         } else {
           // make a user
           create = Q.nbind(User.create, User);

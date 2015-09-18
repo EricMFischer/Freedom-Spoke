@@ -26,3 +26,5 @@ module.exports = function (app, express) {
   require('../models/users/userRoutes.js')(userRouter);
   require('../models/flights/flightsRoutes.js')(flightsRouter);
 };
+
+// secure endpoints on the server-side by checking for the validity of a token in the middleware

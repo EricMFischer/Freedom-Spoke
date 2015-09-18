@@ -3341,10 +3341,9 @@ $.extend( $.ui.autocomplete, {
 $.widget( "ui.autocomplete", $.ui.autocomplete, {
 	options: {
 		messages: {
-			noResults: "No search results.",
+			noResults: "",
 			results: function( amount ) {
-				return amount + ( amount > 1 ? " results are" : " result is" ) +
-					" available, use up and down arrow keys to navigate.";
+				return '' + ( amount >= 1 ? "");
 			}
 		}
 	},
@@ -3361,7 +3360,7 @@ $.widget( "ui.autocomplete", $.ui.autocomplete, {
 			message = this.options.messages.noResults;
 		}
 		this.liveRegion.children().hide();
-		$( "<div>" ).text( message ).appendTo( this.liveRegion );
+		// $( "<div>" ).text( message ).appendTo( this.liveRegion );
 	}
 });
 

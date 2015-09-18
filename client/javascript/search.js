@@ -13,7 +13,7 @@
     $("#origin").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 250,
+      // delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -23,7 +23,7 @@
     $("#destinationOne").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 250,
+      // delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -33,7 +33,7 @@
     $("#destinationTwo").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 250,
+      // delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -43,7 +43,7 @@
     $("#destinationThree").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 250,
+      // delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -53,7 +53,7 @@
     $("#destinationFour").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 250,
+      // delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;
@@ -63,7 +63,7 @@
     $("#destinationFive").autocomplete({
       source: AirportsFactory.airports,
       minLength: 2,
-      delay: 250,
+      // delay: 250,
       select: function (event, airport) {
         event.preventDefault();
         var airportStr = airport.item.value;

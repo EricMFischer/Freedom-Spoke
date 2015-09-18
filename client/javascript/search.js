@@ -182,6 +182,10 @@
           
           if (response.data === 'No results available' && queries === responses) {
             $rootScope.$broadcast('results', response.data);
+            callsToGetFlights = 0;
+            queries = 0;
+            responses = 0;
+            arrOfTripObjs = [];
 
           } else {
 

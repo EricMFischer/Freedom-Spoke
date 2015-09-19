@@ -7,6 +7,7 @@
 
 
 <div ng-controller="SearchController">
+
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
@@ -20,13 +21,9 @@
         <div class="navbar-brand">Freedom Spoke</div>
       </div>
 
-
-
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
         <form class="navbar-form navbar-left" role="search">
-
-
-          <div class="form-group">
+          <div id="datefield" class="form-group">
             <div class='input-group date' id='datetimepicker1'>
               <input id="date" type='text' class="form-control" placeholder="Date" ng-focus="datepicker()" required/>
               <span class="input-group-addon">
@@ -35,8 +32,6 @@
             </div>
           </div>
 
-
-         
           <div class="form-group" class="ui-widget">
             <input id="origin" type="text" class="form-control" placeholder="Origin" required>
           </div>
@@ -66,8 +61,7 @@
           </div>
 
           <button type="submit" class="btn btn-default" ng-click="getFlights(); getFlights(); getFlights(); getFlights(); getFlights();">Submit</button>
-
-          <button type="submit" class="btn btn-default" ng-click="reset()">Refresh Search</button>
+          <button type="submit" class="btn btn-default" ng-click="reset()">Refresh</button>
         </form>
 
         <ul class="nav navbar-nav navbar-right">
@@ -78,4 +72,3 @@
     </div>
   </nav>
 </div>
-

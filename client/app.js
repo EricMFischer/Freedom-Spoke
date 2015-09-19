@@ -76,7 +76,7 @@
       // } else {
       //   $location.path('/home');
       // }
-      if (state.current.name === 'home.views' || location === '') {
+      if (state.current.name === 'home.views') {
         $location.path('/home');
       } else {
         $location.path('/');

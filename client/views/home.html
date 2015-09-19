@@ -1,3 +1,42 @@
+<head>
+  <link rel="stylesheet" href="lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+  <script src="lib/jquery-ui/jquery-ui.min.js"></script>
+  <script src="lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <link href="styles/stylish-portfolio.css" rel="stylesheet">
+
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="fonts/googlefonts.css" rel="stylesheet" type="text/css">
+</head>
+
+  <!-- Navigation -->
+  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+      <li class="sidebar-brand">
+        <a href="#top"  onclick = $("#menu-close").click(); >Freedom Spoke</a>
+      </li>
+      <li>
+        <a href="#home" onclick = $("#menu-close").click(); >Home</a>
+      </li>
+      <li>
+        <a href="#signin" onclick = $("#menu-close").click(); >Sign In</a>
+      </li>
+      <li>
+        <a href="/" onclick = $("#menu-close").click(); ng-click="signout()">Sign Out</a>
+      </li>
+    </ul>
+  </nav>
+
 <div ui-view="search"></div>
 <div ui-view="results"></div>
 
@@ -10,44 +49,6 @@
 <iframe width="100%" height="600" frameborder="0" src="https://ericfischer.cartodb.com/viz/97d7857c-5138-11e5-84df-0e9d821ea90d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 
-<!-- <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="styles/stylish-portfolio.css" rel="stylesheet">
-
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="fonts/googlefonts.css" rel="stylesheet" type="text/css">
-  </head> -->
-
-<!-- Navigation -->
-   <!--  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand">
-                <a href="#top"  onclick = $("#menu-close").click(); >Freedom Spoke</a>
-            </li>
-            <li>
-                <a href="#top" onclick = $("#menu-close").click(); >Home</a>
-            </li>
-            <li>
-                <a href="#signup" onclick = $("#menu-close").click(); >Sign Up</a>
-            </li>
-            <li>
-                <a href="#signin" onclick = $("#menu-close").click(); >Log In</a>
-            </li>
-            <li>
-                <a href="/" onclick = $("#menu-close").click(); >Log Out</a>
-            </li>
-        </ul>
-    </nav> -->
-
 <br/><br/>
 <!-- Footer -->
 <footer>
@@ -56,10 +57,10 @@
             <div class="col-lg-10 col-lg-offset-1 text-center">
                 <h4><strong>Freedom Spoke</strong>
                 </h4>
-                <p>2825 Folsom Street<br>San Francisco, CA 94110</p>
+                <!-- <p>2825 Folsom Street<br>San Francisco, CA 94110</p> -->
                 <ul class="list-unstyled">
-                    <li><i class="fa fa-phone fa-fw"></i>(310) 408-0200</li>
-                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:ericf712@gmail.com">ericf712@gmail.com</a>
+                    <!-- <li><i class="fa fa-phone fa-fw"></i>(310) 408-0200</li> -->
+                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:ericf712@gmail.com">FreedomSpoke@gmail.com</a>
                     </li>
                 </ul>
                 <br>

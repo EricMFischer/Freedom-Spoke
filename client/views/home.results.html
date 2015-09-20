@@ -20,6 +20,7 @@
     </svg>
   </div>
 
+  <br/>
   <div class="alert alert-dismissible alert-info" ng-show="noResults">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <strong>Woops!</strong> Check your origin and/or destination(s).
@@ -30,17 +31,21 @@
   <div ng-show="resultsAvailable">
     
     <ul class="pager">
-      <li><button class="btn btn-default" ng-click="previousDay()">+1 Day</button></li>
-      <li><button class="btn btn-default" ng-click="nextDay()">-1 Day</button></li>
+      <li><button class="btn btn-info" ng-click="previousDay()">Previous Day</button></li>
+      <li><button class="btn btn-info" ng-click="nextDay()">Next Day</button></li>
     </ul>
+
+    <blockquote>
+      <p>Compare Google's prices below to Skiplagged's prices here:</p>
+    </blockquote>
     
     <div class="results">
       <div class="btn-group btn-group-justified">
-        <a href=" {{ dest1url }} " target="_blank" class="btn btn-info" ng-show="destination1Avail">Hidden-city airfares to {{ dest1 }}</a>
-        <a href=" {{ dest2url }} " target="_blank" class="btn btn-info" ng-show="destination2Avail">Hidden-city airfares to {{ dest2 }}</a>
-        <a href=" {{ dest3url }} " target="_blank" class="btn btn-info" ng-show="destination3Avail">Hidden-city airfares to {{ dest3 }}</a>
-        <a href=" {{ dest4url }} " target="_blank" class="btn btn-info" ng-show="destination4Avail">Hidden-city airfares to {{ dest4 }}</a>
-        <a href=" {{ dest5url }} " target="_blank" class="btn btn-info" ng-show="destination5Avail">Hidden-city airfares to {{ dest5 }}</a>
+        <a href=" {{ dest1url }} " target="_blank" class="btn btn-default" ng-show="destination1Avail">{{ dest1 }}</a>
+        <a href=" {{ dest2url }} " target="_blank" class="btn btn-default" ng-show="destination2Avail">{{ dest2 }}</a>
+        <a href=" {{ dest3url }} " target="_blank" class="btn btn-default" ng-show="destination3Avail">{{ dest3 }}</a>
+        <a href=" {{ dest4url }} " target="_blank" class="btn btn-default" ng-show="destination4Avail">{{ dest4 }}</a>
+        <a href=" {{ dest5url }} " target="_blank" class="btn btn-default" ng-show="destination5Avail">{{ dest5 }}</a>
       </div>
       <br/>
 
@@ -69,13 +74,7 @@
               </tr>
             </thead>
           </table>
-          <!-- <div class="btn-group btn-group-justified">
-            <a href=" {{ dest1url }} " target="_blank" class="btn btn-default">{{ dest1 }}</a>
-            <a href=" {{ dest2url }} " target="_blank" class="btn btn-default">{{ dest2 }}</a>
-            <a href=" {{ dest3url }} " target="_blank" class="btn btn-default">{{ dest3 }}</a>
-            <a href=" {{ dest4url }} " target="_blank" class="btn btn-default">{{ dest4 }}</a>
-            <a href=" {{ dest5url }} " target="_blank" class="btn btn-default">{{ dest5 }}</a>
-          </div> -->
+
           <div class="div-table-content">
             <table class="table table-striped table-hover">
               <tbody>

@@ -25,7 +25,7 @@ module.exports = {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 10,
+        "solutions": 8,
         "refundable": false
       }
     }
@@ -85,6 +85,40 @@ module.exports = {
           }
         }
 
+        // deal with cities like HOU where destinationcode is the only 'destination' defined item by this point. make sure you cover HOU as an origin too.
+        if (general.destination === undefined || general.destinationairportname === undefined) {
+          for (var i=0; i<trip.airport.length; i++) {
+            var airportCity = trip.airport[i].city;
+            if (airportCity === general.destinationcode) {
+              var correctAirportCity = airportCity;
+              general.destinationairportname = trip.airport[i].code; 
+            }
+          }
+          for (var i=0; i<trip.city.length; i++) {
+            var cityCode = trip.city[i].code;
+            if (cityCode === correctAirportCity) {
+              general.destination = trip.city[i].name;
+            }
+          }
+        }
+        // for origin
+        if (general.origin === undefined || general.originairportname === undefined) {
+          for (var i=0; i<trip.airport.length; i++) {
+            var airportCity = trip.airport[i].city;
+            if (airportCity === general.origincode) {
+              var correctAirportCity = airportCity;
+              general.originairportname = trip.airport[i].code; 
+            }
+          }
+          for (var i=0; i<trip.city.length; i++) {
+            var cityCode = trip.city[i].code;
+            if (cityCode === correctAirportCity) {
+              general.origin = trip.city[i].name;
+            }
+          }
+        }
+
+        console.log('GENERAL: ', general);
         if (general.destination === undefined || general.origin === undefined) {
           res.send('No results available'); return;
         } // need this check for inputs like NYC that don't correspond to any airport
@@ -102,10 +136,11 @@ module.exports = {
 
 
         var options = body.trips.tripOption; // ARRAY OF JOURNEY OPTIONS
-        // console.log('options[0].slice[0]: ', options[0].slice[0]);
+        console.log('options: ', options);
+        console.log('options[0].slice[0]: ', options[0].slice[0]);
         // stores the unique prices
         var uniquePrices = [];
-        for (var i=0; i<requestData.request.solutions; i++) {
+        for (var i=0; i<requestData.request.solutions; i++) { // better as options?
           var price = options[i].saleTotal;
           uniquePrices.push(price.slice(3, price.length));
         }

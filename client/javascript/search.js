@@ -104,8 +104,8 @@
       yesterday = formatDate(yesterday);
       // console.log('yesterday: ', yesterday);
       $('#date').val(yesterday);
-      
       date = $('#date').val();
+
       $scope.getFlights(null, null, yesterday);
       $scope.getFlights(null, null, yesterday);
       $scope.getFlights(null, null, yesterday);
@@ -120,8 +120,8 @@
       tomorrow = formatDate(tomorrow);
       // console.log('tomorrow: ', tomorrow);
       $('#date').val(tomorrow);
-      
       date = $('#date').val();
+      
       $scope.getFlights(null, null, tomorrow);
       $scope.getFlights(null, null, tomorrow);
       $scope.getFlights(null, null, tomorrow);
@@ -130,14 +130,22 @@
     });
 
 
-    $scope.master = {};
-    $scope.update = function(search) {
-      $scope.master = angular.copy(search);
+    // $scope.master = {};
+    // $scope.update = function(search) {
+    //   $scope.master = angular.copy(search);
+    // };
+    $scope.refresh = function() {
+      // $scope.search = angular.copy($scope.master);
+      $("#date").val('');
+      $("#origin").val('');
+      $("#destination").val('');
+      $("#destinationOne").val('');
+      $("#destinationTwo").val('');
+      $("#destinationThree").val('');
+      $("#destinationFour").val('');
+      $("#destinationFive").val('');
     };
-    $scope.reset = function() {
-      $scope.search = angular.copy($scope.master);
-    };
-    $scope.reset();
+    // $scope.reset();
 
 
     var callsToGetFlights = 0;

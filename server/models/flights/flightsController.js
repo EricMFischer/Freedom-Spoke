@@ -25,7 +25,7 @@ module.exports = {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 8,
+        "solutions": 12,
         "refundable": false
       }
     }
@@ -141,6 +141,7 @@ module.exports = {
         // stores the unique prices
         var uniquePrices = [];
         for (var i=0; i<requestData.request.solutions; i++) { // better as options?
+          if (options[i] === undefined) {res.send('No results available'); return;}
           var price = options[i].saleTotal;
           uniquePrices.push(price.slice(3, price.length));
         }

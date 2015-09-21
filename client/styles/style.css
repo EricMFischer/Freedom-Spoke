@@ -36,10 +36,10 @@
   margin-right: 1%;
 }
 
-/*.resultsButton {
-  margin-left: 5%;
-  margin-right: 5%;
-}*/
+.resultsButton {
+  width: 96%;
+  margin: 0 auto;
+}
 
 .dropdown {
   width: 150px;

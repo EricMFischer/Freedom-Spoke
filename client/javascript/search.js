@@ -107,6 +107,9 @@
 
     var yesterday;
     $scope.$on('previousDay', function (event) {
+      if ($scope.loading === true) {
+        return;
+      }
       yesterday = new Date(date);
       yesterday.setDate(yesterday.getDate());
       yesterday = formatDate(yesterday);
@@ -123,6 +126,9 @@
 
     var tomorrow;
     $scope.$on('nextDay', function (event) {
+      if ($scope.loading === true) {
+        return;
+      }
       tomorrow = new Date(date);
       tomorrow.setDate(tomorrow.getDate() + 2);
       tomorrow = formatDate(tomorrow);
@@ -184,6 +190,7 @@
 
 
       if (from !== undefined && to !== undefined && when !== undefined) {
+        $scope.loading = true;
         $rootScope.$broadcast('loading');
 
         queries++;
@@ -214,6 +221,7 @@
               queries = 0;
               responses = 0;
               arrOfTripObjs = [];
+              $scope.loading = false;
             }
           }
         });

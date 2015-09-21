@@ -68,15 +68,15 @@
 
     $urlRouterProvider.otherwise(function($injector, $location) {
       var state = $injector.get('$state');
-      console.log('state: ', state);
+      // console.log('state: ', state);
       var location = $location.path();
-      console.log('location:',location);
+      // console.log('location:',location);
       // if (state.current.name !== 'home.views' && state.current.url !== '' && location !== '') {
       //   $location.path('/');
       // } else {
       //   $location.path('/home');
       // }
-      if (state.current.name === 'home.views' || location === '') {
+      if (state.current.name === 'home.views') {
         $location.path('/home');
       } else {
         $location.path('/');

@@ -28,13 +28,18 @@
 }
 
 .navbar {
-  margin: 0.5% .5% 0 .5%;
+  margin: 0.25% .25% 0 .25%;
 }
 
 .results {
   margin-left: 1%;
   margin-right: 1%;
 }
+
+/*.resultsButton {
+  margin-left: 5%;
+  margin-right: 5%;
+}*/
 
 .dropdown {
   width: 150px;
@@ -213,8 +218,9 @@ h3 {
   height:40px;
 }
 
-#navbarlink {
-  height: 40px;
+.navbar-nav > li > a, .navbar-nav > li > a:hover {
+  padding-top: 1px;
+  padding-bottom: 4px;
 }
 
 .navbar-form {

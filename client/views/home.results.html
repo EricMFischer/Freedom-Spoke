@@ -23,7 +23,7 @@
   <br/>
   <div class="alert alert-dismissible alert-info" ng-show="noResults">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>Woops!</strong> Try refreshing and performing another search.
+    <strong>Woops!</strong> No results available. Refresh and try other airports.
   </div>
 
 
@@ -36,11 +36,11 @@
     </ul>
 
     <blockquote>
-      <p>Compare Google's prices below to Skiplagged's prices here:</p>
+      <p>See Skiplagged prices:</p>
     </blockquote>
     
     <div class="results">
-      <div class="btn-group btn-group-justified">
+      <div class="resultsButton btn-group btn-group-justified">
         <a href=" {{ dest1url }} " target="_blank" class="btn btn-default" ng-show="destination1Avail">{{ dest1 }}</a>
         <a href=" {{ dest2url }} " target="_blank" class="btn btn-default" ng-show="destination2Avail">{{ dest2 }}</a>
         <a href=" {{ dest3url }} " target="_blank" class="btn btn-default" ng-show="destination3Avail">{{ dest3 }}</a>

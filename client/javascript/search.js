@@ -2,7 +2,15 @@
 
   var app = angular.module('Search', []);
 
-  app.controller('SearchController', ['$scope', '$rootScope', '$http', 'UserFactory', 'AirportsFactory', function($scope, $rootScope, $http, UserFactory, AirportsFactory) {
+  app.controller('SearchController', ['$scope', '$rootScope', '$location', '$http', 'UserFactory', 'AirportsFactory', function($scope, $rootScope, $location, $http, UserFactory, AirportsFactory) {
+
+    $scope.home = function() {
+      $location.path('/');
+    }
+
+    $scope.signin = function() {
+      $location.path('/signin');
+    }
 
     $scope.signout = UserFactory.signout;
 
@@ -121,7 +129,7 @@
       // console.log('tomorrow: ', tomorrow);
       $('#date').val(tomorrow);
       date = $('#date').val();
-      
+
       $scope.getFlights(null, null, tomorrow);
       $scope.getFlights(null, null, tomorrow);
       $scope.getFlights(null, null, tomorrow);

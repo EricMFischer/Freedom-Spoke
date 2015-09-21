@@ -12,25 +12,15 @@
   width: 190px;
 }
 
-/*.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
-}*/
-
-/*.navbar .navbar-collapse {
-  text-align: center;
-}*/
-
 .dropdown-toggle {
   color: white;
 }
 
 .navbar-header {
-    float: left;
-    padding: 3px;
-    text-align: center;
-    width: 98%;
+  float: left;
+  padding: 3px;
+  text-align: center;
+  width: 98%;
 }
 .navbar-brand {
   float: none;
@@ -109,7 +99,11 @@ h3 {
 }
 
 .signin-margin, .signup-margin {
-  margin: 5px 0;
+  margin: 0 15% 0 15%;
+}
+
+.col-md-12 {
+  margin: 0 15% 0 15%;
 }
 
 .ui-widget {
@@ -210,6 +204,8 @@ h3 {
   }
   .collapse.in{
       display:block !important;
+      margin-left: 10px;
+      padding-left: 15px;
   } 
 }
 
@@ -217,7 +213,7 @@ h3 {
   height:40px;
 }
 
-#signout {
+#navbarlink {
   height: 40px;
 }
 

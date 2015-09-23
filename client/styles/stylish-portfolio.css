@@ -39,12 +39,12 @@ body {
 
 #getstarted {
     background-color: #FF4500;
-    opacity: .75;
+    opacity: .65;
 }
 
 #getstarted:hover {
     background-color: #FF4500;
-    opacity: .6;
+    opacity: .85;
 }
 
 .btn-dark:hover,

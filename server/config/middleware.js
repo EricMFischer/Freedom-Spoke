@@ -13,7 +13,9 @@ module.exports = function (app, express) {
   app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../../client'));
 
+
   app.use('/api/users', userRouter); // use user router for all user requests
+  // app.use('/api/users', checkForToken());
   app.use('/api/flights', flightsRouter);
 
   // authentication middleware used to decode token on a request to the server

@@ -61,7 +61,6 @@ module.exports = {
         var general = {};
         general.origincode = requestData.request.slice[0].origin;
         general.destinationcode = requestData.request.slice[0].destination;
-
         // for general.origin & general.destination
         for (var i=0; i<trip.airport.length; i++) {
           var airportCode = trip.airport[i].code;
@@ -152,7 +151,6 @@ module.exports = {
         var tripSolutions = [];
         for (var i=0; i<requestData.request.solutions; i++) { // iterating through diff. journey options
           var option = options[i].slice[0];
-
           uniqueDurations.push(option.duration);
 
           var journey = [];

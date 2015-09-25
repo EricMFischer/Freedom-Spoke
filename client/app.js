@@ -81,9 +81,6 @@
       } else {
         $location.path('/');
       }
-      // if (location !== '' || location !== '/all' || location !== '/destination1' || location !== '/destination2' || location !== '/destination3' || location !== '/destination4' || location !== '/destination5') {
-      //   $location.path('/');
-      // }
     });
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

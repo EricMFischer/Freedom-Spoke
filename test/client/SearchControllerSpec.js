@@ -1,29 +1,29 @@
-var expect = chai.expect;
+// var expect = chai.expect;
 
-describe('ProfileController', function() {
-  var $scope, $rootScope;
+// describe('ProfileController', function() {
+//   var $scope, $rootScope;
 
-  beforeEach(module('Search'));
+//   beforeEach(module('Search'));
 
-  beforeEach(inject(function($injector) {
-    $rootScope = $injector.get('$rootScope');
+//   beforeEach(inject(function($injector) {
+//     $rootScope = $injector.get('$rootScope');
 
-    $scope = $rootScope.$new();
+//     $scope = $rootScope.$new();
 
-    var $controller = $injector.get('$controller');
+//     var $controller = $injector.get('$controller');
 
-    createController = function() {
-      return $controller('SearchController', {
-        $scope: $scope
-      });
-    };
+//     createController = function() {
+//       return $controller('SearchController', {
+//         $scope: $scope
+//       });
+//     };
 
-    createController();
-  }));
+//     createController();
+//   }));
 
-  // checking for test is just a test to test the tests
-  // we'll probably remove eventually
-  it('should have a username property on the $scope.user', function() {
-    expect($scope.user.username).to.be.a('string');
-  });
-});
+//   // checking for test is just a test to test the tests
+//   // we'll probably remove eventually
+//   it('should have a username property on the $scope.user', function() {
+//     expect($scope.user.username).to.be.a('string');
+//   });
+// });

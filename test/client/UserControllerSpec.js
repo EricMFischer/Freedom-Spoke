@@ -1,29 +1,29 @@
-var expect = chai.expect;
+// var expect = chai.expect;
 
-describe('UserController', function() {
-  var $scope, $rootScope;
+// describe('UserController', function() {
+//   var $scope, $rootScope;
 
-  beforeEach(module('User'));
+//   beforeEach(module('User'));
 
-  beforeEach(inject(function($injector) {
-    $rootScope = $injector.get('$rootScope');
+//   beforeEach(inject(function($injector) {
+//     $rootScope = $injector.get('$rootScope');
 
-    $scope = $rootScope.$new();
+//     $scope = $rootScope.$new();
 
-    var $controller = $injector.get('$controller');
+//     var $controller = $injector.get('$controller');
 
-    createController = function() {
-      return $controller('UserController', {
-        $scope: $scope
-      });
-    };
+//     createController = function() {
+//       return $controller('UserController', {
+//         $scope: $scope
+//       });
+//     };
 
-    createController();
-  }));
+//     createController();
+//   }));
 
-  // checking for test is just a test to test the tests
-  // we'll probably remove eventually
-  it('should have a test property on the $scope', function() {
-    expect($scope.test).to.be.a('string');
-  });
-});
+//   // checking for test is just a test to test the tests
+//   // we'll probably remove eventually
+//   it('should have a test property on the $scope', function() {
+//     expect($scope.test).to.be.a('string');
+//   });
+// });

@@ -10,6 +10,9 @@
 
 
 •	The app is built in AngularJS, drawing data from Google’s QPX flight API and deep-linking to Skiplagged
+
 •	Currently, I'm communicating with the developer of Skiplagged to complete his API, a Node.js wrapper deployed on NPM
+
 •	The backend is architected with Node.js and Express middleware, and MongoDB is used for storing user data
+
 •	Python scripts and MySQL commands were applied to CSV files to produce detailed airport maps with app CartoDB

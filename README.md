@@ -4,10 +4,7 @@
 
 > Freedom Spoke gives users maximum visibility into all flight prices: https://freedom-spoke.herokuapp.com/.
 
-## Team
-
-  - __Product Owner__: Eric Fischer
-
+- __Product Owner__: Eric Fischer
 
 •	The app is built in AngularJS, drawing data from Google’s QPX flight API and deep-linking to Skiplagged
 

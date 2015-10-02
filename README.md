@@ -5,10 +5,7 @@ I built the app in AngularJS with Node.js and Express on the backend and utilize
 # Get Started
 [Freedom Spoke ](https://freedom-spoke.herokuapp.com/)
 
-- __Product Owner__: Eric Fischer
-
-Currently communicating with the developer of Skiplagged to complete his API, a Node.js wrapper deployed on NPM
-
-The backend is architected with Node.js and Express middleware, and MongoDB is used for storing user data
-
-Python scripts and MySQL commands were applied to CSV files to produce detailed airport maps with app CartoDB
+__Product Owner__: Eric Fischer
+- Currently communicating with the developer of Skiplagged to complete his API, a Node.js wrapper deployed on NPM
+- The backend is architected with Node.js and Express middleware, and MongoDB is used for storing user data
+- Python scripts and MySQL commands were applied to CSV files to produce detailed airport maps with app CartoDB
